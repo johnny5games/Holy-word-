@@ -537,7 +537,7 @@ function wordSpans(t) {
 function updateWordsBtn() {
   var b = $('btn-words');
   b.classList.toggle('active', state.pronounce);
-  b.innerHTML = '&#128266; Words: ' + (state.pronounce ? 'On' : 'Off');
+  b.innerHTML = '&#128266; Tap a word to hear it: ' + (state.pronounce ? 'On' : 'Off');
 }
 function toggleWords() {
   state.pronounce = !state.pronounce;
@@ -1689,23 +1689,35 @@ function cardSave() {
   } catch (e) { quickToast('Couldn\u2019t save the image'); }
 }
 
-/* ---------------- adjustable reader text size ---------------- */
+/* ---------------- adjustable text size (whole UI) ----------------
+   The stored value is a percentage that scales the root font-size; every
+   size in style.css is in rem, so header, tabs, buttons and verses all grow
+   together. (The old px-only verse sizing relied on the Android WebView's
+   textZoom for the rest of the UI, which iOS Safari doesn't have.) */
+var UI_MIN = 80, UI_MAX = 200, UI_STEP = 10;
+function uiDefault() {
+  var ios = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  return ios ? 120 : 100;
+}
 function vsizeGet() {
-  var n = parseInt(lsGet('vsize', '17'), 10);
-  if (isNaN(n)) n = 17;
-  return Math.max(13, Math.min(30, n));
+  var n = parseInt(lsGet('uiscale', ''), 10);
+  if (isNaN(n)) {
+    var old = parseInt(lsGet('vsize', ''), 10); /* migrate old px verse size */
+    n = isNaN(old) ? uiDefault() : Math.round(old / 17 * 100 / UI_STEP) * UI_STEP;
+  }
+  return Math.max(UI_MIN, Math.min(UI_MAX, n));
 }
 function vsizeApply(n) {
-  document.documentElement.style.setProperty('--vsize', n + 'px');
-  /* belt-and-suspenders: stamp the size inline on every rendered verse line
-     too, so a WebView that mishandles the CSS var still resizes the text */
+  document.documentElement.style.setProperty('--ui-scale', String(n / 100));
+  document.documentElement.style.fontSize = (16 * n / 100) + 'px';
   Array.prototype.forEach.call(document.querySelectorAll('.vtext, .cmp-text'), function (el) {
-    el.style.fontSize = n + 'px';
+    el.style.fontSize = ''; /* clear stale inline px from older builds */
   });
 }
 function vsizeBump(d) {
-  var n = Math.max(13, Math.min(30, vsizeGet() + d));
-  lsSet('vsize', String(n));
+  var n = Math.max(UI_MIN, Math.min(UI_MAX, vsizeGet() + d * UI_STEP));
+  lsSet('uiscale', String(n));
   vsizeApply(n);
 }
 
@@ -1739,7 +1751,33 @@ function setRate(r) {
   try { if (bridge) bridge.setRate(r); } catch (e) {}
   var sel = $('rate');
   if (sel) sel.value = String(r);
+  syncRateMenu();
   syncSettingsUI();
+}
+/* speed popover (replaces the native <select>, which iOS rendered as a plain white box) */
+function syncRateMenu() {
+  var btn = $('rate-btn');
+  if (btn) btn.textContent = state.rate + '\u00d7';
+  Array.prototype.forEach.call(document.querySelectorAll('#rate-menu button'), function (b) {
+    b.classList.toggle('on', parseFloat(b.getAttribute('data-rate')) === state.rate);
+  });
+}
+function initRateMenu() {
+  var btn = $('rate-btn'), menu = $('rate-menu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation(); syncRateMenu(); menu.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+  });
+  menu.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-rate]'); if (!b) return;
+    setRate(b.getAttribute('data-rate')); menu.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('click', function (e) {
+    if (!menu.contains(e.target) && e.target !== btn) menu.classList.add('hidden');
+  });
+  syncRateMenu();
 }
 function getBrightness() {
   var b = parseInt(lsGet('brightness', '100'), 10);
@@ -1761,9 +1799,9 @@ function applyAwake(on) {
 function syncSettingsUI() {
   var n = vsizeGet();
   var sample = $('set-font-sample');
-  if (sample) sample.style.fontSize = n + 'px';
+  if (sample) sample.style.fontSize = (1.0625 * 1) + 'rem';
   var fv = $('set-font-val');
-  if (fv) fv.textContent = n + 'px';
+  if (fv) fv.textContent = n + '%';
   var dark = document.body.classList.contains('dark');
   var tl = $('set-theme-light'), td = $('set-theme-dark');
   if (tl) tl.classList.toggle('on', !dark);
@@ -2557,6 +2595,7 @@ function init() {
   initVotd();
   initVotdTab();
   $('rate').value = String(state.rate);
+  initRateMenu();
   applyNameModeStatic();
 
   $('btn-books').addEventListener('click', openSidebar);

@@ -119,7 +119,7 @@
     <button class="verse-jump-btn" id="btn-verse">&#128270; Verse &#9662;</button>
     <button class="read-big" id="btn-read">&#128266; Read to me</button>
     <button class="study-big" id="btn-read-study">&#128214; Study guide for this chapter</button>
-    <button class="words-btn" id="btn-words">&#128266; Words: Off</button>
+    <button class="words-btn" id="btn-words">&#128266; Tap a word to hear it: Off</button>
   </div>
   <div id="verses"></div>
   <div class="reader-foot">End of chapter</div>
@@ -153,7 +153,17 @@
     <div class="prog-meta"><span id="now-reading">Ready</span><span id="verse-pos"></span></div>
     <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
   </div>
-  <select id="rate" class="hselect" aria-label="Playback speed">
+  <button id="rate-btn" aria-label="Playback speed" aria-haspopup="true" aria-expanded="false">1&times;</button>
+  <div id="rate-menu" class="hidden" role="menu" aria-label="Playback speed">
+    <button data-rate="0.5" role="menuitem">0.5&times;</button>
+    <button data-rate="0.75" role="menuitem">0.75&times;</button>
+    <button data-rate="0.8" role="menuitem">0.8&times;</button>
+    <button data-rate="1" role="menuitem">1&times;</button>
+    <button data-rate="1.25" role="menuitem">1.25&times;</button>
+    <button data-rate="1.5" role="menuitem">1.5&times;</button>
+    <button data-rate="2" role="menuitem">2&times;</button>
+  </div>
+  <select id="rate" class="hselect" aria-hidden="true" tabindex="-1">
     <option value="0.5">0.5&times;</option>
     <option value="0.75">0.75&times;</option>
     <option value="0.8">0.8&times;</option>
@@ -177,7 +187,7 @@
         <span id="set-font-sample">Aa</span>
         <button id="set-font-inc" class="set-btn" aria-label="Larger text">A+</button>
       </div>
-      <div class="set-hint" id="set-font-val">17px</div>
+      <div class="set-hint" id="set-font-val">120%</div>
     </div>
     <div class="set-sec">
       <div class="set-label">Theme</div>
