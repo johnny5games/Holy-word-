@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Holy Word">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0F0F12">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>God's Holy Word</title>
+<style>html,body{background:#0F0F12}</style>
+<script>try{if(localStorage.getItem('qodesh:theme')==='light'){document.documentElement.style.background='#FFFBF0';}}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pwa.css">
+</head>
+<body>
+<script>/* GHW v1.7: apply theme before first paint; dark unless the user saved light */try{if(localStorage.getItem('qodesh:theme')!=='light'){document.body.classList.add('dark');}}catch(e){document.body.classList.add('dark');}</script>
+<div id="loading"><div class="load-box"><div class="load-logo">GHW</div><div class="load-sub">God's Holy Word</div><div id="load-msg">Loading scriptures…</div></div></div>
+
+<header id="topbar">
+  <button id="btn-books" class="hbtn" aria-label="Books">&#9776;</button>
+  <div class="brand"><div class="logo" id="brand-logo">JSB</div><div class="tagline" id="brand-tagline">God's Holy Word &bull; Easy-Read English Edition</div></div>
+  <button id="btn-settings" class="hbtn" aria-label="Settings">&#9881;</button>
+  <span id="streak-badge" class="streak-badge" title="Daily reading streak">&#128293; 0 days</span>
+</header>
+<nav id="version-tabs" class="name-tabs" aria-label="Bible version">
+  <button id="ver-sacred" class="name-tab active" role="tab">JSV Sacred Names</button>
+  <button id="ver-ethiopic" class="name-tab" role="tab">Ethiopian</button>
+  <button id="ver-yy" class="name-tab" role="tab">Yahweh &amp; Yeshua</button>
+  <button id="ver-nt" class="name-tab" role="tab">Names &amp; Titles</button>
+  <button id="ver-kjv" class="name-tab" role="tab">KJV</button>
+  <button id="ver-web" class="name-tab" role="tab">WEB</button>
+  <button id="ver-ylt" class="name-tab" role="tab">YLT</button>
+  <button id="ver-ydabar" class="name-tab" role="tab">YAHUAH DABAR</button>
+  <button id="ver-bsb" class="name-tab" role="tab">BSB</button>
+  <button id="ver-elohim" class="name-tab" role="tab">ELOHIM</button>
+  <button id="ver-compare" class="name-tab" role="tab">Compare</button>
+  <button id="ver-votd" class="name-tab" role="tab">Verse of the Day</button>
+  <button id="ver-notes" class="name-tab" role="tab">&#128221; Notes</button>
+</nav>
+<nav id="name-tabs" class="name-tabs" aria-label="Divine name rendering"></nav>
+
+<aside id="sidebar">
+  <div class="side-head">
+    <input id="book-search" type="search" placeholder="Search 94 books…" autocomplete="off">
+    <div class="legend" id="legend-row">
+      <span class="chip chip-hl">GOLD = <b id="legend-father">Yahuah</b> speaks</span>
+      <span class="chip chip-red">RED = words of <b id="legend-son">Yahusha</b></span>
+    </div>
+    <div class="streak-side"><span id="streak-badge-side">&#128293; 0-day reading streak</span></div>
+    <div id="votd-card" class="votd-card" role="button" tabindex="0" title="Tap to open this verse">
+      <div class="votd-label">VERSE OF THE DAY</div>
+      <div class="votd-ref" id="votd-ref"></div>
+      <div class="votd-text" id="votd-text"></div>
+    </div>
+  </div>
+  <div id="book-list"></div>
+  <div class="side-foot">God's Holy Word v2.10 &bull; iPhone web app &bull; offline &bull; tap a verse to hear it</div>
+</aside>
+<div id="scrim"></div>
+
+<aside id="study">
+  <div class="study-head">
+    <b>&#128214; Study &amp; Notes</b>
+    <button id="btn-study-close" class="hbtn">&times;</button>
+  </div>
+  <div class="study-body">
+    <div class="study-nav">
+      <button id="btn-study-prev" class="nav-btn">&larr; Prev</button>
+      <b id="study-chap-label">Study</b>
+      <button id="btn-study-next" class="nav-btn">Next &rarr;</button>
+    </div>
+    <div id="study-content">
+      <div class="study-sec">
+        <h3 class="study-h">Matthew Henry Commentary</h3>
+        <div id="mh-notes"><p class="muted">Opening study notes…</p></div>
+      </div>
+      <div class="study-sec">
+        <h3 class="study-h">Cross-references</h3>
+        <div id="mh-xrefs"></div>
+      </div>
+    </div>
+    <div class="howto">
+      <b>How to read</b>
+      <ul>
+        <li><span class="swatch sw-hl"></span>Gold highlight — the Father speaks directly</li>
+        <li><span class="swatch sw-red"></span>Red text — the Son's spoken words</li>
+        <li>Tap any verse to hear it read aloud</li>
+        <li>Tap <b>&#128266; Words</b> above the chapter, then tap any single word to hear it pronounced</li>
+        <li>Tap <b>&#128266; Read to me</b> (or the bottom bar) to play a whole chapter with read-along highlighting</li>
+        <li>Switch divine-name rendering anytime above — highlighting is unaffected</li>
+      </ul>
+    </div>
+    <div class="notes">
+      <b id="notes-title">My notes</b>
+      <button id="notes-share" class="notes-share-btn">&#128228; Share notes</button>
+      <textarea id="notes-box" placeholder="Write your insights for this chapter… saved automatically on this device."></textarea>
+    </div>
+  </div>
+</aside>
+<aside id="history">
+  <div class="study-head">
+    <b>&#128197; Reading history</b>
+    <button id="btn-history-close" class="hbtn">&times;</button>
+  </div>
+  <div class="study-body" id="history-body"></div>
+</aside>
+
+<main id="reader">
+  <div class="chap-head">
+    <h1 id="book-title">God's Holy Word</h1>
+    <div id="book-sub" class="sub"></div>
+    <div id="chapter-chips"></div>
+    <button class="verse-jump-btn" id="btn-verse">&#128270; Verse &#9662;</button>
+    <button class="read-big" id="btn-read">&#128266; Read to me</button>
+    <button class="study-big" id="btn-read-study">&#128214; Study guide for this chapter</button>
+    <button class="words-btn" id="btn-words">&#128266; Words: Off</button>
+  </div>
+  <div id="verses"></div>
+  <div class="reader-foot">End of chapter</div>
+</main>
+
+<section id="votd-view" class="votd-view hidden" aria-label="Verse of the day">
+  <div class="votd-page">
+    <div class="votd-label">VERSE OF THE DAY</div>
+    <div class="votd-tab-date" id="votdtab-date"></div>
+    <div class="votd-tab-ref" id="votdtab-ref"></div>
+    <div class="votd-ver-pill" id="votdtab-verpill"></div>
+    <div class="votd-tab-verse" id="votdtab-text"></div>
+    <button class="read-big" id="btn-votd-chapter">&#128214; Read full chapter</button>
+    <div class="votd-tomorrow" id="votdtab-tomorrow"></div>
+  </div>
+</section>
+
+<section id="notes-view" class="notes-view hidden" aria-label="My notes">
+  <div class="notes-page">
+    <h2 class="notes-h">&#128396;&#65039; Highlighted verses</h2>
+    <div id="notes-hl-list"></div>
+    <h2 class="notes-h">&#128221; Chapter notes</h2>
+    <div id="notes-note-list"></div>
+  </div>
+</section>
+
+<div id="audiobar">
+  <button id="btn-play" class="play-btn">&#9654; Play chapter</button>
+  <button id="btn-pause" class="hbtn hidden" aria-label="Pause or resume">&#10074;&#10074;</button>
+  <div class="prog-wrap">
+    <div class="prog-meta"><span id="now-reading">Ready</span><span id="verse-pos"></span></div>
+    <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+  <select id="rate" class="hselect" aria-label="Playback speed">
+    <option value="0.5">0.5&times;</option>
+    <option value="0.75">0.75&times;</option>
+    <option value="0.8">0.8&times;</option>
+    <option value="1" selected>1&times;</option>
+    <option value="1.25">1.25&times;</option>
+    <option value="1.5">1.5&times;</option>
+    <option value="2">2&times;</option>
+  </select>
+  <button id="btn-stop" class="hbtn hidden">&#9632;</button>
+</div>
+
+<div id="streak-toast" class="streak-toast"></div>
+
+<div id="set-sheet" class="sheet-gone" aria-hidden="true">
+  <div id="set-card" role="dialog" aria-label="Settings">
+    <div id="set-head"><b>&#9881; Settings</b><button id="set-close" aria-label="Close settings">&times;</button></div>
+    <div class="set-sec">
+      <div class="set-label">Text size</div>
+      <div class="set-row">
+        <button id="set-font-dec" class="set-btn" aria-label="Smaller text">A&#8722;</button>
+        <span id="set-font-sample">Aa</span>
+        <button id="set-font-inc" class="set-btn" aria-label="Larger text">A+</button>
+      </div>
+      <div class="set-hint" id="set-font-val">17px</div>
+    </div>
+    <div class="set-sec">
+      <div class="set-label">Theme</div>
+      <div class="set-row">
+        <button id="set-theme-light" class="set-chip">Light</button>
+        <button id="set-theme-dark" class="set-chip">Dark</button>
+      </div>
+    </div>
+    <div class="set-sec">
+      <div class="set-label">Read-to-me speed</div>
+      <div class="set-row" id="set-speed-row">
+        <button class="set-chip" data-rate="0.5">0.5&times;</button>
+        <button class="set-chip" data-rate="0.75">0.75&times;</button>
+        <button class="set-chip" data-rate="1">1&times;</button>
+        <button class="set-chip" data-rate="1.25">1.25&times;</button>
+        <button class="set-chip" data-rate="1.5">1.5&times;</button>
+        <button class="set-chip" data-rate="2">2&times;</button>
+      </div>
+    </div>
+    <div class="set-sec" id="set-voice-sec">
+      <div class="set-label">Reading voice</div>
+      <div class="set-row">
+        <select id="set-voice" class="hselect" aria-label="Reading voice"></select>
+      </div>
+    </div>
+    <div class="set-sec">
+      <div class="set-label">Tap a word to hear it</div>
+      <div class="set-row">
+        <button id="set-words" class="set-chip">Off</button>
+      </div>
+      <div class="set-hint">Tip: long-press a word for its definition. Long-press a verse number to highlight it into your notes.</div>
+    </div>
+    <div class="set-sec" id="set-bright-sec">
+      <div class="set-label">Display brightness <span class="set-hint" id="set-bright-val">100%</span></div>
+      <input type="range" id="set-bright" min="10" max="100" value="100" step="1" aria-label="Display brightness">
+    </div>
+    <div class="set-sec" id="set-awake-sec">
+      <div class="set-label">Keep screen awake</div>
+      <div class="set-row">
+        <button id="set-awake" class="set-chip on">On</button>
+      </div>
+    </div>
+    <div class="set-sec">
+      <button id="set-study" class="set-wide">&#128214; Study &amp; notes for this chapter</button>
+      <button id="set-history" class="set-wide">&#128197; Reading history</button>
+    </div>
+    <div class="set-sec">
+      <div class="set-label">Bible text credits</div>
+      <div class="set-hint">BSB: Berean Standard Bible, public domain.</div>
+      <div class="set-hint">ELOHIM: Accurate-Names Edition — WEB text (public domain) with divine names restored from the Hebrew (Open Scriptures Hebrew Bible, CC BY 4.0).</div>
+      <div class="set-hint">ASV (1901), Darby (1890), Douay-Rheims (1899), Geneva (1599), JPS (1917), Revised Version (1885), Wycliffe (c. 1395), BBE, Brenton Septuagint (1851), Webster (1833): public domain.</div>
+      <div class="set-hint">MSB: Majority Standard Bible, public domain. OEB: Open English Bible, public domain (CC0). WMB: World Messianic Bible, public domain. TCNT: Twentieth Century New Testament, public domain.</div>
+      <div class="set-hint">LSV: Literal Standard Version (LSV) &copy; 2020 Covenant Press, used under Creative Commons Attribution-ShareAlike (CC BY-SA).</div>
+      <div class="set-hint">Ethiopian (ETH): English of the Ethiopian Orthodox wider canon (93 books including Extra Texts: Gospel of Thomas and Questions of Bartholomew; v2.4 adds a Dead Sea Scrolls section, see below), with 1 Enoch, Jubilees, and the Apostolic Fathers. Standard Christian names (God, Lord, Jesus). Broader-canon books use public-domain English (e.g. R.H. Charles for Enoch/Jubilees); the 66-book core matches the app&rsquo;s Sacred Names edition with names restored to God/Jesus.</div>
+      <div class="set-hint">Yahweh &amp; Yeshua (Y&amp;Y, v2.6): the same modernized text as the JSV Sacred Names edition (all 94 books, including Extra Texts and the Dead Sea Scrolls section), with YAHWEH for every reference to the true God (LORD, GOD and God), Lord kept for Lord, and Yeshua for Jesus (v2.7).</div>
+      <div class="set-hint">Names &amp; Titles (N&amp;T, v2.8): follows the original languages. YAHWEH where the KJV prints LORD/GOD for the divine Name (YAH in Ps 68:4; Yahweh-Yireh, Yahweh-Nissi, Yahweh-Shalom), titles kept as titles (God, Lord, Most High, Almighty), Yeshua for Jesus; Christ and Messiah unchanged.</div>
+      <div class="set-hint">Gospel of Thomas: English by Mark M. Mattison (gospels.net), public domain; 114 sayings (+ prologue). In JSV, Jesus&rarr;Yahusha and divine God&rarr;Yahuah. Listed under Extra Texts (not the traditional Ethiopian closed canon).</div>
+      <div class="set-hint">Questions of Bartholomew (Gospel of Bartholomew): English by M. R. James, The Apocryphal New Testament (Oxford, 1924), public domain; 5 chapters. Same JSV name rendering as Thomas. Listed under Extra Texts.</div>
+    </div>
+    <div class="set-sec" id="dss-credits">
+      <div class="set-label">Dead Sea Scrolls credits</div>
+      <div class="set-hint"><b>Damascus Document</b> (Cairo Genizah Texts A &amp; B; also called &ldquo;Fragments of a Zadokite Work&rdquo;): English translation by R. H. Charles, in <i>The Apocrypha and Pseudepigrapha of the Old Testament in English</i>, vol. 2 (Oxford: Clarendon Press, 1913), pp. 799&ndash;834. License: public domain (published 1913; translator died 1931). Source scan: archive.org/details/apocryphapseudep02charuoft (marked NOT_IN_COPYRIGHT). Text taken from the scan&rsquo;s OCR and proofread; chapters and verses follow Charles. Archaic English lightly modernized as in the rest of the app; in JSV, God&rarr;Yahuah. &ldquo;[...]&rdquo; marks gaps in the manuscript. The intro note is an app note, not part of the translation.</div>
+      <div class="set-hint">Other Qumran writings (Community Rule, War Scroll, Thanksgiving Hymns, Temple Scroll, Habakkuk Pesher, Genesis Apocryphon, Rule of the Congregation, Rule of Blessings, Copper Scroll, Songs of the Sabbath Sacrifice) are not included because no public-domain or openly licensed (CC0 / CC BY / CC BY-SA) English translation could be found; all were discovered after 1947 and the available translations are still under copyright.</div>
+    </div>
+  </div>
+</div>
+
+<div id="def-sheet" class="sheet-gone" aria-hidden="true">
+  <div id="def-card" role="dialog" aria-label="Word definition">
+    <div id="def-head"><span id="def-word"></span><button id="def-close" aria-label="Close definition">&times;</button></div>
+    <div id="def-bible">
+      <div id="def-bible-head"></div>
+      <div id="def-origin"></div>
+      <div id="def-ancient"></div>
+      <div id="def-drift"></div>
+    </div>
+    <div id="def-modern">
+      <div id="def-modern-head"></div>
+      <div id="def-modern-text"></div>
+    </div>
+    <button id="def-highlight" class="hl-wide">&#128396;&#65039; Highlight this verse</button>
+    <div id="def-src">Definitions: WordNet &bull; Princeton University &bull; Strong's Concordance (public domain)</div>
+  </div>
+</div>
+<div id="hl-sheet" class="sheet-gone" aria-hidden="true">
+  <div id="hl-card" role="dialog" aria-label="Highlight verse">
+    <div id="hl-head"><b id="hl-title">Highlight verse</b></div>
+    <div id="hl-sub">Tap a color below to paint the verse</div>
+    <div id="hl-colors">
+      <button class="hl-btn" data-c="y" aria-label="Yellow highlight"><span class="hl-swatch hl-sw-y"></span></button>
+      <button class="hl-btn" data-c="g" aria-label="Green highlight"><span class="hl-swatch hl-sw-g"></span></button>
+      <button class="hl-btn" data-c="p" aria-label="Pink highlight"><span class="hl-swatch hl-sw-p"></span></button>
+      <button class="hl-btn" data-c="b" aria-label="Blue highlight"><span class="hl-swatch hl-sw-b"></span></button>
+      <button class="hl-btn" data-c="o" aria-label="Orange highlight"><span class="hl-swatch hl-sw-o"></span></button>
+    </div>
+    <button id="hl-remove" class="hl-wide">Remove highlight</button>
+    <button id="hl-share" class="hl-wide">&#128228; Share verse</button>
+    <button id="hl-cancel" class="hl-wide">Cancel</button>
+    <div class="set-hint">The verse is saved into this chapter's notes.</div>
+  </div>
+</div>
+<button id="sel-cancel" aria-label="Cancel verse selection">&#10005;</button>
+<div id="sel-bar" class="sel-gone" role="toolbar" aria-label="Selected verses" aria-hidden="true">
+  <div id="sel-info"><b id="sel-ref"></b><span id="sel-count"></span></div>
+  <div id="sel-actions">
+    <button id="sel-share" class="sel-act"><span class="sel-ic">&#128228;</span>Share</button>
+    <button id="sel-image" class="sel-act"><span class="sel-ic">&#128444;&#65039;</span>Image</button>
+    <button id="sel-copy" class="sel-act"><span class="sel-ic">&#128203;</span>Copy</button>
+    <button id="sel-hl" class="sel-act"><span class="sel-ic">&#128396;&#65039;</span>Highlight</button>
+    <button id="sel-note" class="sel-act"><span class="sel-ic">&#128221;</span>Note</button>
+    <button id="sel-define" class="sel-act"><span class="sel-ic">&#128214;</span>Define</button>
+    <button id="sel-close" class="sel-act" aria-label="Close selection"><span class="sel-ic">&#10005;</span>Close</button>
+  </div>
+</div>
+<div id="card-sheet" class="sheet-gone" aria-hidden="true">
+  <div id="card-card" role="dialog" aria-label="Share verse as image">
+    <div id="card-head"><b>Verse image</b><span id="card-title"></span></div>
+    <div id="card-preview"><img id="card-img" alt="Verse image preview"></div>
+    <div id="card-styles">
+      <button class="card-style" data-s="midnight"><span class="card-sw cs-midnight"></span>Midnight</button>
+      <button class="card-style" data-s="royal"><span class="card-sw cs-royal"></span>Royal</button>
+      <button class="card-style" data-s="ember"><span class="card-sw cs-ember"></span>Ember</button>
+      <button class="card-style" data-s="forest"><span class="card-sw cs-forest"></span>Forest</button>
+      <button class="card-style" data-s="slate"><span class="card-sw cs-slate"></span>Slate</button>
+    </div>
+    <div id="card-btns">
+      <button id="card-share" class="hl-wide card-primary">&#128228; Share image</button>
+      <button id="card-save" class="hl-wide">&#11015;&#65039; Save image</button>
+      <button id="card-cancel" class="hl-wide">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="verse-sheet" class="sheet-gone" aria-hidden="true">
+  <div id="verse-card" role="dialog" aria-label="Jump to verse">
+    <div id="verse-head"><b id="verse-title">Verses</b><button id="verse-close" aria-label="Close verse picker">&times;</button></div>
+    <div id="verse-grid"></div>
+  </div>
+</div>
+
+<script src="pwa-shim.js"></script>
+<script src="app.js"></script>
+<script src="backup.js"></script>
+</body>
+</html>
