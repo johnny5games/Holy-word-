@@ -478,3 +478,44 @@ body.dark{color-scheme:dark}
 /* large text sizes: keep the player bar on one screen width */
 .play-btn{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
 #rate-btn{flex:0 0 auto}
+/* ---------- 2.12 study guide + bible dictionary ---------- */
+#guide-body h4{margin:12px 0 4px;font-size:13px;color:var(--gold-deep)}
+body.dark #guide-body h4,body.dark #bd-pane h4{color:var(--gold)}
+#guide-body p,#bd-pane p{margin:4px 0}
+.g-actions{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+.g-btn{border:1px solid var(--gold);background:transparent;color:var(--text);border-radius:12px;padding:5px 10px;font-size:13px}
+.g-q{font-style:italic;border-left:3px solid var(--gold);padding-left:8px}
+.g-ol{margin:2px 0 2px 18px}.g-ol li{margin:3px 0}
+.g-tags{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0}
+.g-tag{background:var(--chip);border:1px solid var(--border);border-radius:12px;padding:2px 9px;font-size:12px;color:var(--text)}
+.gref{background:none;border:0;border-bottom:1px dotted var(--gold);color:var(--gold-deep);font-weight:bold;padding:0 1px;font-size:inherit}
+body.dark .gref{color:var(--gold)}
+.g-kv{margin:4px 0}.g-x div{margin:2px 0}.g-src{margin-top:12px;font-size:11px}
+#bdict{position:fixed;inset:0;z-index:70;background:var(--card);display:flex;flex-direction:column;transform:translateY(105%);transition:transform .25s ease}
+#bdict.open{transform:none}
+.bd-top{padding:8px 12px;border-bottom:1px solid var(--border);font-family:system-ui,sans-serif}
+#bd-q{width:100%;font-size:16px;padding:9px 12px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text)}
+#bd-count{font-size:11px;margin:4px 0}
+#bd-az{display:flex;flex-wrap:wrap;gap:3px}
+#bd-az button{width:26px;height:26px;border:1px solid var(--border);background:var(--chip);color:var(--text);border-radius:6px;font-size:12px;padding:0}
+.bd-row{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--border);background:none;color:var(--text);padding:8px 2px}
+.bd-row b{display:block;font-size:15px}.bd-row span{font-size:12px;color:var(--muted)}
+.bd-w{font-size:24px;margin:8px 0 0}
+.bd-pron{font-size:16px;color:var(--gold-deep);font-weight:bold;margin:2px 0 4px}
+body.dark .bd-pron{color:var(--gold)}
+.bd-strong{background:var(--chip);border:1px solid var(--border);border-radius:10px;padding:8px;margin:6px 0}
+.bd-lemma{font-size:18px}
+#def-bd{border-top:1px solid var(--border);margin-top:8px;padding-top:8px;font-family:system-ui,sans-serif;font-size:13px}
+#def-bd-head{font-weight:bold;color:var(--gold-deep)}
+body.dark #def-bd-head{color:var(--gold)}
+
+/* ---------- 2.13 tap-a-word look-up chip ---------- */
+#lookup-chip{position:fixed;left:50%;bottom:86px;transform:translate(-50%,30px);opacity:0;pointer-events:none;z-index:60;
+ background:#1d2347;color:#fff;border:1px solid #E6C35C;border-radius:22px;padding:10px 16px;font-size:15px;box-shadow:0 6px 18px rgba(0,0,0,.35);
+ transition:opacity .2s,transform .2s;max-width:92vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#lookup-chip.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#lookup-chip .muted{color:#c9cbe0;font-size:12px;margin-left:6px}
+.vs-hit{display:block;text-align:left;white-space:normal;line-height:1.35}
+.vs-hit small{opacity:.8;font-size:12px}
+/* 2.13: active Words button was gold-on-gold in dark mode (label invisible) */
+body.dark .words-btn.active{color:#1a1a1a}

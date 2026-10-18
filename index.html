@@ -29,19 +29,11 @@
   <span id="streak-badge" class="streak-badge" title="Daily reading streak">&#128293; 0 days</span>
 </header>
 <nav id="version-tabs" class="name-tabs" aria-label="Bible version">
-  <button id="ver-sacred" class="name-tab active" role="tab">JSV Sacred Names</button>
-  <button id="ver-ethiopic" class="name-tab" role="tab">Ethiopian</button>
-  <button id="ver-yy" class="name-tab" role="tab">Yahweh &amp; Yeshua</button>
-  <button id="ver-nt" class="name-tab" role="tab">Names &amp; Titles</button>
-  <button id="ver-kjv" class="name-tab" role="tab">KJV</button>
-  <button id="ver-web" class="name-tab" role="tab">WEB</button>
-  <button id="ver-ylt" class="name-tab" role="tab">YLT</button>
-  <button id="ver-ydabar" class="name-tab" role="tab">YAHUAH DABAR</button>
-  <button id="ver-bsb" class="name-tab" role="tab">BSB</button>
-  <button id="ver-elohim" class="name-tab" role="tab">ELOHIM</button>
-  <button id="ver-compare" class="name-tab" role="tab">Compare</button>
+  <button id="ver-allnames" class="name-tab active" role="tab">All Names</button>
   <button id="ver-votd" class="name-tab" role="tab">Verse of the Day</button>
   <button id="ver-notes" class="name-tab" role="tab">&#128221; Notes</button>
+  <button id="tab-study" class="name-tab" role="tab">&#128216; Study</button>
+  <button id="tab-dict" class="name-tab" role="tab">&#128218; Dictionary</button>
 </nav>
 <nav id="name-tabs" class="name-tabs" aria-label="Divine name rendering"></nav>
 
@@ -60,7 +52,7 @@
     </div>
   </div>
   <div id="book-list"></div>
-  <div class="side-foot">God's Holy Word v2.10 &bull; iPhone web app &bull; offline &bull; tap a verse to hear it</div>
+  <div class="side-foot">God's Holy Word v2.15 &bull; iPhone web app &bull; offline &bull; tap a verse to hear it</div>
 </aside>
 <div id="scrim"></div>
 
@@ -76,6 +68,10 @@
       <button id="btn-study-next" class="nav-btn">Next &rarr;</button>
     </div>
     <div id="study-content">
+      <div class="study-sec">
+        <h3 class="study-h">&#128216; Chapter Study Guide</h3>
+        <div id="guide-body"><p class="muted">Opening study guide…</p></div>
+      </div>
       <div class="study-sec">
         <h3 class="study-h">Matthew Henry Commentary</h3>
         <div id="mh-notes"><p class="muted">Opening study notes…</p></div>
@@ -102,6 +98,11 @@
       <textarea id="notes-box" placeholder="Write your insights for this chapter… saved automatically on this device."></textarea>
     </div>
   </div>
+</aside>
+<aside id="bdict">
+  <div class="study-head"><b>&#128218; Bible Dictionary</b><button id="bd-close" class="hbtn">&times;</button></div>
+  <div class="bd-top"><input id="bd-q" type="search" placeholder="Search names, places, words, H/G numbers…" autocomplete="off"><div id="bd-count" class="muted"></div><div id="bd-az"></div></div>
+  <div class="study-body" id="bd-pane"><div id="bd-list"><p class="muted">Type to search (typos are OK), or tap a letter to browse A–Z.</p></div><div id="bd-entry"></div></div>
 </aside>
 <aside id="history">
   <div class="study-head">
@@ -214,6 +215,13 @@
       </div>
     </div>
     <div class="set-sec">
+      <div class="set-label">Read names in parentheses (All Names)</div>
+      <div class="set-row">
+        <button id="set-readnames" class="set-chip on">On</button>
+      </div>
+      <div class="set-hint">On: read-aloud says e.g. &ldquo;God, Elohim, Yahuah, Yahweh, YHWH&rdquo;. Off: it reads just &ldquo;God&rdquo;.</div>
+    </div>
+    <div class="set-sec">
       <div class="set-label">Tap a word to hear it</div>
       <div class="set-row">
         <button id="set-words" class="set-chip">Off</button>
@@ -232,20 +240,14 @@
     </div>
     <div class="set-sec">
       <button id="set-study" class="set-wide">&#128214; Study &amp; notes for this chapter</button>
+      <button id="set-dict" class="set-wide">&#128218; Bible Dictionary (names, places, Hebrew &amp; Greek)</button>
       <button id="set-history" class="set-wide">&#128197; Reading history</button>
     </div>
     <div class="set-sec">
       <div class="set-label">Bible text credits</div>
-      <div class="set-hint">BSB: Berean Standard Bible, public domain.</div>
-      <div class="set-hint">ELOHIM: Accurate-Names Edition — WEB text (public domain) with divine names restored from the Hebrew (Open Scriptures Hebrew Bible, CC BY 4.0).</div>
-      <div class="set-hint">ASV (1901), Darby (1890), Douay-Rheims (1899), Geneva (1599), JPS (1917), Revised Version (1885), Wycliffe (c. 1395), BBE, Brenton Septuagint (1851), Webster (1833): public domain.</div>
-      <div class="set-hint">MSB: Majority Standard Bible, public domain. OEB: Open English Bible, public domain (CC0). WMB: World Messianic Bible, public domain. TCNT: Twentieth Century New Testament, public domain.</div>
-      <div class="set-hint">LSV: Literal Standard Version (LSV) &copy; 2020 Covenant Press, used under Creative Commons Attribution-ShareAlike (CC BY-SA).</div>
-      <div class="set-hint">Ethiopian (ETH): English of the Ethiopian Orthodox wider canon (93 books including Extra Texts: Gospel of Thomas and Questions of Bartholomew; v2.4 adds a Dead Sea Scrolls section, see below), with 1 Enoch, Jubilees, and the Apostolic Fathers. Standard Christian names (God, Lord, Jesus). Broader-canon books use public-domain English (e.g. R.H. Charles for Enoch/Jubilees); the 66-book core matches the app&rsquo;s Sacred Names edition with names restored to God/Jesus.</div>
-      <div class="set-hint">Yahweh &amp; Yeshua (Y&amp;Y, v2.6): the same modernized text as the JSV Sacred Names edition (all 94 books, including Extra Texts and the Dead Sea Scrolls section), with YAHWEH for every reference to the true God (LORD, GOD and God), Lord kept for Lord, and Yeshua for Jesus (v2.7).</div>
-      <div class="set-hint">Names &amp; Titles (N&amp;T, v2.8): follows the original languages. YAHWEH where the KJV prints LORD/GOD for the divine Name (YAH in Ps 68:4; Yahweh-Yireh, Yahweh-Nissi, Yahweh-Shalom), titles kept as titles (God, Lord, Most High, Almighty), Yeshua for Jesus; Christ and Messiah unchanged.</div>
-      <div class="set-hint">Gospel of Thomas: English by Mark M. Mattison (gospels.net), public domain; 114 sayings (+ prologue). In JSV, Jesus&rarr;Yahusha and divine God&rarr;Yahuah. Listed under Extra Texts (not the traditional Ethiopian closed canon).</div>
-      <div class="set-hint">Questions of Bartholomew (Gospel of Bartholomew): English by M. R. James, The Apocryphal New Testament (Oxford, 1924), public domain; 5 chapters. Same JSV name rendering as Thomas. Listed under Extra Texts.</div>
+      <div class="set-hint"><b>All Names Edition (v2.15)</b>: plain modern English from the <b>World English Bible</b> (WEB, public domain; ebible.org eng-web) for all 66 books and for the Apocrypha (1&ndash;2 Esdras, Tobit, Judith, Wisdom, Sirach with its Prologue, Baruch, Letter of Jeremiah, Prayer of Manasseh, Psalm 151, Prayer of Azariah, Susanna, Bel and the Dragon, 1&ndash;4 Maccabees). Every name of God, the Lord and Jesus is followed by the original names in parentheses. Verse numbers follow the KJV (Romans 16:25&ndash;27; four NT verses that WEB leaves out are kept from the KJV-based text).</div>
+      <div class="set-hint">Additions to Esther: WEB for 10:4&ndash;11:1 and 13:8&ndash;14:19; the rest from the KJV 1611 Apocrypha (modernized), because WEB prints these additions inside Greek Esther with different verse divisions. A few Sirach verses absent from WEB are kept from the KJV-based text.</div>
+      <div class="set-hint">Other books, public-domain English, lightly modernized (thee/thou/ye, -eth, &ldquo;it came to pass&rdquo;, etc.): 1 Enoch and Jubilees (R. H. Charles), 2 Enoch, Testaments of the Twelve Patriarchs, 4 Baruch, Ascension of Isaiah, Joseph and Asenath, 1&ndash;2 Clement, the Didache, Shepherd of Hermas, Book of Jasher (1840), Gospel of Thomas (Mark M. Mattison, public domain), Questions of Bartholomew (M. R. James, 1924).</div>
     </div>
     <div class="set-sec" id="dss-credits">
       <div class="set-label">Dead Sea Scrolls credits</div>
@@ -264,12 +266,13 @@
       <div id="def-ancient"></div>
       <div id="def-drift"></div>
     </div>
+    <div id="def-bd" style="display:none"></div>
     <div id="def-modern">
       <div id="def-modern-head"></div>
       <div id="def-modern-text"></div>
     </div>
     <button id="def-highlight" class="hl-wide">&#128396;&#65039; Highlight this verse</button>
-    <div id="def-src">Definitions: WordNet &bull; Princeton University &bull; Strong's Concordance (public domain)</div>
+    <div id="def-src">Definitions: WordNet &bull; Princeton University &bull; Strong's Concordance &bull; Easton's, Smith's &amp; Hitchcock's Bible dictionaries (public domain)</div>
   </div>
 </div>
 <div id="hl-sheet" class="sheet-gone" aria-hidden="true">

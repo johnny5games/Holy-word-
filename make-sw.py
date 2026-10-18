@@ -14,7 +14,7 @@ files.sort()
 total = 0
 for f in files:
     b = open(os.path.join(root, f), 'rb').read(); total += len(b); h.update(f.encode()); h.update(b)
-ver = 'ghw-2.10-' + h.hexdigest()[:10]
+ver = 'ghw-2.15-' + h.hexdigest()[:10]
 tpl = open(os.path.join(root, 'sw.template.js')).read()
 open(os.path.join(root, 'sw.js'), 'w').write(tpl.replace('__VERSION__', ver).replace('__FILES__', json.dumps(['./'] + files)).replace('__BYTES__', str(total)))
 print(ver, len(files), 'files', total, 'bytes')

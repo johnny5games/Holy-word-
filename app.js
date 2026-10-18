@@ -30,6 +30,7 @@ function nm() { return NAME_MODES[state.names] || NAME_MODES['yahuah-yahusha']; 
 /* Subtitle / badge label: only the sacred dataset follows the name-mode picker. */
 function nameLabel() {
   if (state.version === 'sacred' || state.version === 'compare') return nm().label;
+  if (state.version === 'allnames' || state.dv === 'allnames') return 'All Names';
   if (state.version === 'ethiopic' || state.dv === 'ethiopic') return 'God / Jesus';
   if (state.version === 'yy' || state.dv === 'yy') return 'YAHWEH / Yeshua';
   if (state.version === 'nt' || state.dv === 'nt') return 'YAHWEH + titles / Yeshua';
@@ -98,58 +99,9 @@ function hebrewNames(t) {
 
 /* ---------------- bible versions ---------------- */
 var VERSIONS = {
-  sacred: { file: 'bible.json',  logo: 'JSB',
-            tagline: 'Johnny Smith Version \u2022 Easy-Read English Edition' },
-  ethiopic: { file: 'ethiopic.json', logo: 'ETH',
-            tagline: 'Ethiopian Orthodox \u2022 Wider Canon \u2022 God / Lord / Jesus' },
-  yy: { file: 'yy.json', logo: 'Y&Y',
-            tagline: 'Yahweh & Yeshua \u2022 JSV text \u2022 YAHWEH / Yeshua' },
-  nt: { file: 'nt.json', logo: 'N&T',
-            tagline: 'YAHWEH where the Name is, titles where titles are' },
-  kjv: { file: 'kjv.json', logo: 'KJV',
-         tagline: 'King James Version \u2022 1611 \u2022 Public Domain' },
-  web: { file: 'web.json', logo: 'WEB',
-         tagline: 'World English Bible \u2022 Public Domain' },
-  ylt: { file: 'ylt.json', logo: 'YLT',
-         tagline: 'Young\u2019s Literal Translation \u2022 1862 \u2022 Public Domain' },
-  ydabar: { file: 'ydabar.json', logo: 'YD',
-         tagline: 'YAHUAH DABAR \u2022 Sacred-Name Translation' },
-  bsb: { file: 'bsb.json', logo: 'BSB',
-         tagline: 'Berean Standard Bible \u2022 Public Domain' },
-  elohim: { file: 'elohim.json', logo: 'EL',
-         tagline: 'ELOHIM \u2022 Accurate-Names Edition' },
-  /* ---- v2 additions: public-domain translations (LSV is CC BY-SA, credited in Settings) ---- */
-  asv: { file: 'asv.json', logo: 'ASV',
-         tagline: 'American Standard Version \u2022 1901 \u2022 Public Domain' },
-  darby: { file: 'darby.json', logo: 'DBY',
-         tagline: 'Darby Translation \u2022 1890 \u2022 Public Domain' },
-  bbe: { file: 'bbe.json', logo: 'BBE',
-         tagline: 'Bible in Basic English \u2022 Public Domain' },
-  dra: { file: 'dra.json', logo: 'DRA',
-         tagline: 'Douay-Rheims \u2022 1899 \u2022 Public Domain' },
-  msb: { file: 'msb.json', logo: 'MSB',
-         tagline: 'Majority Standard Bible \u2022 Public Domain' },
-  oeb: { file: 'oeb.json', logo: 'OEB',
-         tagline: 'Open English Bible \u2022 Public Domain' },
-  lsv: { file: 'lsv.json', logo: 'LSV',
-         tagline: 'Literal Standard Version \u2022 2020 \u2022 CC BY-SA' },
-  brenton: { file: 'brenton.json', logo: 'LXX',
-         tagline: 'Brenton Septuagint \u2022 1851 \u2022 Public Domain' },
-  geneva: { file: 'geneva.json', logo: 'GNV',
-         tagline: 'Geneva Bible \u2022 1599 \u2022 Public Domain' },
-  jps: { file: 'jps.json', logo: 'JPS',
-         tagline: 'Jewish Publication Society \u2022 1917 \u2022 Public Domain' },
-  tcnt: { file: 'tcnt.json', logo: 'TCNT',
-         tagline: 'Twentieth Century New Testament \u2022 Public Domain' },
-  wmb: { file: 'wmb.json', logo: 'WMB',
-         tagline: 'World Messianic Bible \u2022 Public Domain' },
-  webster: { file: 'webster.json', logo: 'WBT',
-         tagline: 'Webster Bible \u2022 1833 \u2022 Public Domain' },
-  rv: { file: 'rv.json', logo: 'RV',
-         tagline: 'Revised Version \u2022 1885 \u2022 Public Domain' },
-  wycliffe: { file: 'wycliffe.json', logo: 'WYC',
-         tagline: 'Wycliffe Bible \u2022 1395 \u2022 Public Domain' }
-};
+  allnames: { file: 'allnames.json', logo: 'ALL',
+            tagline: 'All Names \u2022 God (Elohim, Yahuah, Yahweh, YHWH) \u2022 Jesus (Yeshua, Yahusha)' }
+}; /* 2.14: All Names is the only version; the other datasets were removed (see migrate214) */
 /* 'compare' is a view mode, not a data file: it reads the sacred dataset
    and renders KJV, WEB, YLT and YAHUAH DABAR alongside it (toggleable per version). */
 var STD_VERSION_KEYS = ['kjv', 'web', 'ylt', 'ydabar', 'bsb', 'elohim',
@@ -223,7 +175,7 @@ function initVotd() {
    The tab shows the SAME verse as the sidebar card and the home-screen
    widget (same VOTD_LIST, same 1-based day-of-year index), but the TEXT is
    rendered in a version that rotates daily: JSV -> KJV -> WEB -> YLT -> YDABAR -> BSB -> ELOHIM. */
-var VOTD_VERSIONS = [['sacred', 'JSV'], ['kjv', 'KJV'], ['web', 'WEB'], ['ylt', 'YLT'], ['ydabar', 'YDABAR'], ['bsb', 'BSB'], ['elohim', 'ELOHIM']];
+var VOTD_VERSIONS = [['allnames', 'All Names']];
 function votdVersionIdx(day) { return day % VOTD_VERSIONS.length; }
 function votdVersionKey() { return VOTD_VERSIONS[votdVersionIdx(votdDayOfYear())][0]; }
 function votdVersionLabel() { return VOTD_VERSIONS[votdVersionIdx(votdDayOfYear())][1]; }
@@ -320,6 +272,58 @@ function updateStreak() {
   }
 }
 
+/* ---------------- 2.14 one-time migration ----------------
+   Only All Names remains. Highlights saved under other versions' book names (e.g. 'II Peter',
+   'Revelation of John', 'Wisdom', 'Sirach') are moved to the All Names name for the same
+   chapter/verse; 2 Esdras 7:36-70 moved to 7:106-140 (missing fragment inserted); chapter notes
+   written in a 66-book version (NT at index 39-65) move to the All Names index (+21) when the
+   chapter only exists there or the reading log shows a 66-book version for it. Nothing is deleted
+   unless it was copied first; a backup of the old values is kept in qodesh:pre214-backup. */
+var MIG214 = {"map":{"Song of Songs":"Song of Solomon","Wisdom":"Wisdom of Solomon","Sirach":"Wisdom of Sirach","I Samuel":"1 Samuel","II Samuel":"2 Samuel","I Kings":"1 Kings","II Kings":"2 Kings","I Chronicles":"1 Chronicles","II Chronicles":"2 Chronicles","I Corinthians":"1 Corinthians","II Corinthians":"2 Corinthians","I Thessalonians":"1 Thessalonians","II Thessalonians":"2 Thessalonians","I Timothy":"1 Timothy","II Timothy":"2 Timothy","I Peter":"1 Peter","II Peter":"2 Peter","I John":"1 John","II John":"2 John","III John":"3 John","Revelation of John":"Revelation","Esther (Greek)":"Additions to Esther","Song of the Three Children":"Prayer of Azariah","Daniel (Greek)":"Daniel"},"ch":[50,40,27,36,34,24,21,4,31,24,22,25,29,36,10,13,10,42,150,31,12,8,66,52,5,48,12,14,3,9,1,4,7,3,3,3,2,14,4,77,108,9,16,14,16,7,19,51,5,1,1,1,1,1,1,68,12,3,11,29,28,16,24,21,28,16,16,13,6,6,4,4,5,3,6,4,3,1,13,5,5,3,5,1,1,1,22,59,20,16,27,1,5,20,16,15,7,18,91],"names":["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi","The Book of Jubilees","1 Enoch","1 Esdras","2 Esdras","Tobit","Judith","Additions to Esther","Wisdom of Solomon","Wisdom of Sirach","Baruch","Letter of Jeremiah","Prayer of Manasseh","Psalm 151","Susanna","Bel and the Dragon","Prayer of Azariah","2 Enoch","Testaments of the Twelve Patriarchs","4 Baruch","Ascension of Isaiah","Joseph and Asenath","Matthew","Mark","Luke","John","Acts","Romans","1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians","Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy","Titus","Philemon","Hebrews","James","1 Peter","2 Peter","1 John","2 John","3 John","Jude","Revelation","1 Clement (First Epistle of Clement to the Corinthians)","2 Clement (The Ancient Homily)","The Didache (Teaching of the Twelve Apostles)","The Shepherd of Hermas","Gospel of Thomas","Questions of Bartholomew","Damascus Document","1 Maccabees","2 Maccabees","3 Maccabees","4 Maccabees","The Book of Jasher"]};
+function migrate214() {
+  try {
+    if (lsGet('migrated-214', null)) return;
+    var backup = { hl: lsGet('hl', null), notes: {}, pos: lsGet('pos', null), ver: lsGet('ver', null) };
+    /* highlights */
+    var m = {}; try { m = JSON.parse(lsGet('hl', '{}')) || {}; } catch (e) { m = {}; }
+    var out = {}, moved = 0;
+    Object.keys(m).forEach(function (k) {
+      var p = k.split('|'); if (p.length !== 3) { out[k] = m[k]; return; }
+      var bn = MIG214.map[p[0]] || p[0], ci = +p[1], vn = p[2];
+      if (bn === '2 Esdras' && ci === 6 && /^\d+$/.test(vn) && +vn >= 36 && +vn <= 70) vn = String(+vn + 70);
+      var nk = bn + '|' + p[1] + '|' + vn;
+      if (nk !== k) moved++;
+      if (!out[nk]) out[nk] = m[k];
+    });
+    lsSet('hl', JSON.stringify(out));
+    /* chapter notes */
+    var log = []; try { log = JSON.parse(lsGet('readlog', '[]')) || []; } catch (e) {}
+    var STD = { kjv:1, web:1, ylt:1, ydabar:1, bsb:1, elohim:1, asv:1, darby:1, bbe:1, dra:1, msb:1, oeb:1, lsv:1, brenton:1, geneva:1, jps:1, tcnt:1, wmb:1, webster:1, rv:1, wycliffe:1 };
+    var keys = [];
+    for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k && k.indexOf('qodesh:note:') === 0) keys.push(k); }
+    keys.forEach(function (k) {
+      var r = k.slice(12).split(':'), bi = +r[0], ci = +r[1];
+      if (isNaN(bi) || isNaN(ci) || bi < 39 || bi > 65) return;
+      var stdHit = log.some(function (e) { return STD[e.ver] && e.book === bi && e.chapter === ci; });
+      var wideHit = log.some(function (e) { return !STD[e.ver] && e.book === bi && e.chapter === ci; });
+      var outOfRange = ci >= MIG214.ch[bi] && ci < MIG214.ch[bi + 21];
+      if (outOfRange || (stdHit && !wideHit)) {
+        var txt = localStorage.getItem(k); backup.notes[k] = txt;
+        var nk = 'qodesh:note:' + (bi + 21) + ':' + ci, cur = localStorage.getItem(nk);
+        localStorage.setItem(nk, cur && cur.replace(/\s/g, '') ? cur + '\n\n' + txt : txt);
+        localStorage.removeItem(k);
+      }
+    });
+    /* last reading position from a 66-book version */
+    try {
+      var pos = JSON.parse(lsGet('pos', 'null')), ov = lsGet('ver', 'allnames');
+      if (pos && STD[ov] && pos.book >= 39) { pos.book += 21; lsSet('pos', JSON.stringify(pos)); }
+    } catch (e) {}
+    lsSet('pre214-backup', JSON.stringify(backup));
+    lsSet('migrated-214', String(moved));
+  } catch (e) {}
+}
+
 /* ---------------- state ---------------- */
 var SECTIONS_SACRED = [
   { title: 'Old Testament', from: 0, to: 38 },
@@ -335,12 +339,26 @@ var SECTIONS_STD = [
 ];
 function usesWiderCanon(v) {
   v = v || state.version;
-  return v === 'sacred' || v === 'ethiopic' || v === 'yy' || v === 'nt' || v === 'compare' ||
+  return v === 'sacred' || v === 'allnames' || v === 'ethiopic' || v === 'yy' || v === 'nt' || v === 'compare' ||
          (v === 'votd' && votdVersionKey() === 'sacred') ||
-         (v === 'notes' && (state.dv === 'sacred' || state.dv === 'ethiopic' || state.dv === 'yy' || state.dv === 'nt'));
+         (v === 'notes' && (state.dv === 'sacred' || state.dv === 'allnames' || state.dv === 'ethiopic' || state.dv === 'yy' || state.dv === 'nt'));
 }
-function SECTIONS() { return usesWiderCanon() ? SECTIONS_SACRED : SECTIONS_STD; }
-var state = { book: 0, chapter: 0, names: 'yahuah-yahusha', rate: 1, version: 'sacred', dv: 'sacred', pronounce: false };
+/* 2.13: All Names = 66 books first, then one 'Apocrypha & Extra Books' section (data indices unchanged) */
+var SECTIONS_ALLNAMES = [
+  { title: 'Old Testament', from: 0, to: 38 },
+  { title: 'New Testament', from: 60, to: 86 },
+  { title: 'Apocrypha & Extra Books', from: 39, to: 59 },
+  { title: 'Apocrypha & Extra Books', from: 87, to: 98 }
+];
+function isAllNames() { return true; } /* 2.14: All Names is the only version */
+function SECTIONS() { return isAllNames() ? SECTIONS_ALLNAMES : usesWiderCanon() ? SECTIONS_SACRED : SECTIONS_STD; }
+function bookOrder() {
+  var n = DATA.books.length, o = [], secs = SECTIONS(), seen = {};
+  secs.forEach(function (sc) { for (var i = sc.from; i <= sc.to && i < n; i++) if (!seen[i]) { seen[i] = 1; o.push(i); } });
+  for (var j = 0; j < n; j++) if (!seen[j]) o.push(j);
+  return o;
+}
+var state = { book: 0, chapter: 0, names: 'yahuah-yahusha', rate: 1, version: 'allnames', dv: 'allnames', pronounce: false, readNames: true };
 var DATA = null;
 
 function lsGet(k, d) { try { var v = localStorage.getItem('qodesh:' + k); return v === null ? d : v; } catch (e) { return d; } }
@@ -350,15 +368,24 @@ function lsGet(k, d) { try { var v = localStorage.getItem('qodesh:' + k); return
    setItem silently vanished). */
 function lsSet(k, v) { try { localStorage.setItem('qodesh:' + k, v); return true; } catch (e) { return false; } }
 function loadState() {
+  migrate214(); /* 2.14: before position/highlights are read */
   try {
     var p = JSON.parse(lsGet('pos', 'null'));
     if (p && typeof p.book === 'number') { state.book = p.book; state.chapter = p.chapter || 0; }
   } catch (e) {}
   var n = lsGet('names', 'yahuah-yahusha');
   if (NAME_MODES[n]) state.names = n;
-  var ver = lsGet('ver', 'sacred');
-  if (ver === 'audio') ver = 'sacred'; /* version removed in v13 */
-  if (VERSIONS[ver] || ver === 'compare' || ver === 'votd' || ver === 'notes') state.version = ver;
+  var ver = lsGet('ver', 'allnames');
+  /* GHW 2.11: All Names becomes the default once for existing installs
+     (position, notes and highlights are keyed by book name / chapter / verse,
+     which All Names shares with the JSV wider canon, so nothing is lost). */
+  if (!lsGet('allnames-default-1', null)) {
+    if (ver !== 'compare' && ver !== 'votd' && ver !== 'notes') ver = 'allnames';
+    lsSet('ver', ver); lsSet('allnames-default-1', '1');
+  }
+  state.readNames = lsGet('readnames', 'on') !== 'off';
+  if (!(VERSIONS[ver] || ver === 'votd' || ver === 'notes')) ver = 'allnames'; /* 2.14: removed versions open All Names */
+  state.version = ver; state.dv = 'allnames'; lsSet('ver', ver);
   var r = parseFloat(lsGet('rate', '1'));
   if ([0.5, 0.75, 0.8, 1, 1.25, 1.5, 2].indexOf(r) >= 0) state.rate = r;
   state.pronounce = lsGet('pronounce', 'on') === 'on'; /* word mode on by default; explicit choice persists */
@@ -426,13 +453,14 @@ function afterVersionLoad() {
   if (isNotesTab) renderNotesTab();
   if (pendingGoto) { var pg = pendingGoto; pendingGoto = null; gotoVerse(pg.bookName, pg.chapIdx, pg.verseNum); }
   var bs = $('book-search');
-  if (bs) bs.placeholder = 'Search ' + DATA.books.length + ' books\u2026';
+  if (bs) bs.placeholder = 'Search ' + DATA.books.length + (isAllNames() ? ' books or verses\u2026' : ' books\u2026');
   renderBooks('');
   renderChapter();
   renderVotd();
   savePos();
 }
 function versionLoadLabel(v) {
+  if (v === 'allnames') return 'All Names Edition';
   if (v === 'sacred') return 'Johnny Smith Version';
   if (v === 'ethiopic') return 'Ethiopian Orthodox Bible';
   if (v === 'yy') return 'Yahweh & Yeshua Edition';
@@ -464,7 +492,7 @@ function versionLoadLabel(v) {
   return 'scriptures';
 }
 function setVersion(v) {
-  if (v !== 'compare' && v !== 'votd' && v !== 'notes' && !VERSIONS[v]) v = 'sacred';
+  if (v !== 'votd' && v !== 'notes' && !VERSIONS[v]) v = 'allnames';
   if (typeof ttsStop === 'function') ttsStop();
   state.version = v;
   lsSet('ver', v);
@@ -472,7 +500,7 @@ function setVersion(v) {
      compare renders from sacred; votd renders from the daily rotation version;
      notes renders from whichever dataset was active (tracked in state.dv) */
   if (VERSIONS[v]) state.dv = v;
-  var dv = v === 'compare' ? 'sacred' : (v === 'votd' ? votdVersionKey() : (v === 'notes' ? (state.dv || 'sacred') : v));
+  var dv = (v === 'votd' || v === 'notes') ? 'allnames' : v;
   if (DATA_CACHE[dv]) {
     DATA = DATA_CACHE[dv];
     afterVersionLoad();
@@ -499,14 +527,17 @@ function sectionOf(i) {
 }
 function renderBooks(filter) {
   var list = $('book-list'), html = '', lastSec = '', q = (filter || '').toLowerCase();
-  DATA.books.forEach(function (b, i) {
+  bookOrder().forEach(function (i) {
+    var b = DATA.books[i];
     if (q && b.name.toLowerCase().indexOf(q) < 0) return;
     var sec = sectionOf(i);
     if (sec !== lastSec) { html += '<div class="sec-title">' + esc(sec) + '</div>'; lastSec = sec; }
     html += '<button class="book' + (i === state.book ? ' active' : '') + '" data-i="' + i + '">' +
       '<span>' + esc(b.name) + '</span><span class="chcount">' + b.chapters.length + ' ch</span></button>';
   });
+  if (q.length >= 3 && isAllNames()) html += '<div id="vs-results"><div class="sec-title">Searching verses\u2026</div></div>';
   list.innerHTML = html || '<div class="sec-title">No matches</div>';
+  if (q.length >= 3 && isAllNames() && typeof window.GHWverseSearch === 'function') window.GHWverseSearch(filter);
   Array.prototype.forEach.call(list.querySelectorAll('.book'), function (btn) {
     btn.addEventListener('click', function () {
       ttsStop();
@@ -1073,12 +1104,12 @@ function findVerseObj(bi, ci, vnum) {
 function hlVerseText(bi, ci, vnum) {
   var v = findVerseObj(bi, ci, vnum);
   if (!v) return '';
-  return displayText(v, (state.dv || 'sacred') === 'sacred' ? 'sacred' : state.dv);
+  return displayText(v, 'allnames');
 }
 function hlVerseHtml(bi, ci, vnum) {
   var v = findVerseObj(bi, ci, vnum);
   if (!v) return '';
-  return verseSegHtml(v, (state.dv || 'sacred') === 'sacred' ? 'sacred' : state.dv);
+  return verseSegHtml(v, 'allnames');
 }
 function shareHlRow(r) {
   shareText("God's Holy Word", '\u201C' + (r.text || '') + '\u201D \u2014 ' + r.ref + '\n\u2014 God\u2019s Holy Word');
@@ -1088,15 +1119,11 @@ function gotoVerse(bookName, chapIdx, verseNum) {
   var bi = findBookByName(bookName);
   if (bi < 0) {
     /* not in this version's dataset — fall back to the full JSV text, then retry */
-    if ((state.dv || 'sacred') !== 'sacred' || state.version !== 'notes') {
-      pendingGoto = { bookName: bookName, chapIdx: chapIdx, verseNum: verseNum };
-      setVersion('sacred');
-    }
-    return;
+    return; /* 2.14: only one dataset; unknown book names were migrated in migrate214 */
   }
   var b = DATA.books[bi];
   if (!b.chapters[chapIdx]) return;
-  var dv = state.dv || 'sacred';
+  var dv = 'allnames';
   state.book = bi; state.chapter = chapIdx;
   if (state.version !== dv && VERSIONS[dv]) setVersion(dv);
   else { renderChapter(); savePos(); }
@@ -1109,7 +1136,7 @@ function gotoVerse(bookName, chapIdx, verseNum) {
 }
 function gotoChapterNotes(bi, ci) {
   if (!DATA || !DATA.books[bi] || !DATA.books[bi].chapters[ci]) return;
-  var dv = state.dv || 'sacred';
+  var dv = 'allnames';
   state.book = bi; state.chapter = ci;
   if (state.version !== dv && VERSIONS[dv]) setVersion(dv);
   else { renderChapter(); savePos(); }
@@ -1446,6 +1473,7 @@ function transAbbr() {
   if (k === 'ethiopic') return 'ETH';
   if (k === 'yy') return 'Y&Y';
   if (k === 'nt') return 'N&T';
+  if (k === 'allnames') return 'ALL';
   return (VERSIONS[k] && VERSIONS[k].logo) || String(k || '').toUpperCase();
 }
 /* body text: one verse = plain text; several = superscript verse numbers,
@@ -1810,6 +1838,8 @@ function syncSettingsUI() {
   Array.prototype.forEach.call(chips, function (c) {
     c.classList.toggle('on', parseFloat(c.getAttribute('data-rate')) === state.rate);
   });
+  var rn = $('set-readnames');
+  if (rn) { rn.textContent = state.readNames ? 'On' : 'Off'; rn.classList.toggle('on', state.readNames); }
   var w = $('set-words');
   if (w) { w.textContent = state.pronounce ? 'On' : 'Off'; w.classList.toggle('on', state.pronounce); }
   var bv = $('set-bright-val');
@@ -1868,6 +1898,8 @@ function initSettings() {
     c.addEventListener('click', function () { setRate(c.getAttribute('data-rate')); });
   });
   $('set-words').addEventListener('click', function () { toggleWords(); syncSettingsUI(); });
+  var rnb = $('set-readnames');
+  if (rnb) rnb.addEventListener('click', function () { state.readNames = !state.readNames; lsSet('readnames', state.readNames ? 'on' : 'off'); syncSettingsUI(); });
   $('set-voice').addEventListener('change', onVoiceChange);
   refreshVoiceList();
   /* brightness needs the native bridge; on the web build (bridge === null)
@@ -1890,6 +1922,17 @@ function initSettings() {
 
 /* ---------------- chapter rendering ---------------- */
 function plainText(v) { return v[1].map(function (s) { return s[0]; }).join(' '); }
+/* GHW 2.11: text-to-speech form of a verse. In All Names the name lists in
+   parentheses are read as a natural spoken aside ("God, Elohim, Yahuah, ...")
+   or skipped entirely when Settings > Read names in parentheses is Off. */
+var NAME_PAREN_RE = /\s*\(((?:[^()]*?)(?:Yahuah|Yeshua|Mashiach|Ruach HaKodesh|Ehyeh|Adonai|Elohim)[^()]*)\)/g;
+function speechText(v) {
+  var t = plainText(v);
+  if (state.dv !== 'allnames' && state.version !== 'allnames') return swapNames(t);
+  if (!state.readNames) return t.replace(NAME_PAREN_RE, '');
+  return t.replace(NAME_PAREN_RE, function (m, inner) { return ', ' + inner.replace(/;/g, ',') + ','; })
+          .replace(/,\s*([,.;:!?])/g, '$1');
+}
 
 /* ---------------- divine-speech rendering ----------------
    God's words  = gold highlight + bold + ALL CAPS ("look at me, this is important").
@@ -1917,7 +1960,7 @@ function displayText(v, vo) {
 }
 
 function verseHtml(v, i) {
-  var m = (state.version === 'yy' || state.dv === 'yy' || state.version === 'nt' || state.dv === 'nt') ? { fUp: 'YAHWEH', sUp: 'YESHUA' } : (state.version === 'ethiopic' || state.dv === 'ethiopic') ? NAME_MODES['god-jesus'] : nm(), h = '', hasHl = false, hasRed = false;
+  var m = (state.version === 'allnames' || state.dv === 'allnames') ? { fUp: 'GOD', sUp: 'JESUS' } : (state.version === 'yy' || state.dv === 'yy' || state.version === 'nt' || state.dv === 'nt') ? { fUp: 'YAHWEH', sUp: 'YESHUA' } : (state.version === 'ethiopic' || state.dv === 'ethiopic') ? NAME_MODES['god-jesus'] : nm(), h = '', hasHl = false, hasRed = false;
   v[1].forEach(function (s) {
     if (s[1]) hasRed = true; else if (s[2]) hasHl = true;
     h += segHtml(s) + ' ';
@@ -2019,6 +2062,7 @@ function renderChapter() {
         if (t._lpFired) { t._lpFired = false; ev.stopPropagation(); return; } /* long-press opened the definition */
         ev.stopPropagation();
         speakWord(t.getAttribute('data-w') || t.textContent);
+        if (isAllNames() && typeof window.GHWlookupChip === 'function') window.GHWlookupChip(t.getAttribute('data-w') || t.textContent, +el.getAttribute('data-i'));
         return;
       }
       tapVerse(+el.getAttribute('data-i'));
@@ -2039,7 +2083,7 @@ function renderChapter() {
    OT 0-38 lines up; NT 60-86 maps to 39-65. Wider-canon and Apostolic
    Fathers books exist only in the sacred text. Read-along reads the JSV
    rendering (tapVerse/speakCurrent work on DATA, which is sacred here). */
-var CMP_VERSIONS = [['kjv', 'KJV'], ['web', 'WEB'], ['ylt', 'YLT'], ['ydabar', 'YAHUAH DABAR'], ['bsb', 'BSB'], ['elohim', 'ELOHIM']];
+var CMP_VERSIONS = []; /* 2.14: compare view removed with the other versions */
 var cmpEnabled = { kjv: true, web: true, ylt: true, ydabar: true, bsb: true, elohim: true };
 try {
   var _ce = JSON.parse(lsGet('cmp', 'null'));
@@ -2244,7 +2288,7 @@ function tapVerse(i) {
   tts.mode = 'verse'; tts.idx = i; /* mode first: stale callbacks become no-ops */
   ttsHalt();
   var ch = DATA.books[state.book].chapters[state.chapter];
-  var text = swapNames(plainText(ch[i]));
+  var text = speechText(ch[i]);
   setNowReading(refOf(i), '');
   setProgress((i + 1) / ch.length);
   markSpeaking(i);
@@ -2277,8 +2321,8 @@ function resumeChapter() {
 function advanceChapterForTTS() {
   if (state.chapter + 1 < DATA.books[state.book].chapters.length) {
     state.chapter++;
-  } else if (state.book + 1 < DATA.books.length) {
-    state.book++; state.chapter = 0;
+  } else if (bookOrder().indexOf(state.book) + 1 < DATA.books.length) {
+    state.book = bookOrder()[bookOrder().indexOf(state.book) + 1]; state.chapter = 0;
   } else {
     return false; /* end of the Bible — stop reading */
   }
@@ -2296,7 +2340,7 @@ function speakCurrent() {
     if (!advanceChapterForTTS()) { ttsStop(); return; }
     ch = DATA.books[state.book].chapters[state.chapter];
   }
-  var text = swapNames(plainText(ch[tts.idx]));
+  var text = speechText(ch[tts.idx]);
   setNowReading(refOf(tts.idx), (tts.idx + 1) + ' / ' + ch.length);
   setProgress(tts.idx / ch.length);
   markSpeaking(tts.idx);
@@ -2398,7 +2442,9 @@ function fillStudy(d) {
     nh += '<div class="mh-note"><div class="mh-range">' + esc(n.range) + '</div>' +
       '<div class="mh-text">' + paraHtml(n.text) + '</div></div>';
   });
-  $('mh-notes').innerHTML = nh || '<p class="muted">No commentary for this chapter.</p>';
+  if (nh) nh += '<div class="muted g-src">Source: ' + (ch.src === 'mhc' ? 'Matthew Henry\u2019s Concise Commentary (1706, public domain) \u2014 used here because the full commentary has no notes for this chapter' :
+    'Matthew Henry\u2019s Commentary on the Whole Bible (1706\u20131721, public domain)') + (state.version === 'allnames' ? ' \u2022 names shown in the All Names style' : '') + '</div>';
+  $('mh-notes').innerHTML = nh || (ch.src === 'none' ? '<p class="muted">No public-domain commentary exists for this book, so none is shown. See the Summary in the study guide above.</p>' : '<p class="muted">No commentary for this chapter.</p>');
   var xh = '';
   ch.xrefs.forEach(function (g) {
     xh += '<div class="xref-group">' + esc(swapNames(g.join('; '))) + '</div>';
@@ -2418,7 +2464,9 @@ function renderStudy() {
   if (studyCache[ck]) { fillStudy(studyCache[ck]); return; }
   $('mh-notes').innerHTML = '<p class="muted">Loading study notes…</p>';
   $('mh-xrefs').innerHTML = '';
-  fetchText('study/b' + want + '.json').then(function (t) {
+  var CAN66 = (want <= 38) || (want >= 60 && want <= 86);
+  var sdir = isAllNames() ? 'study-an/b' : 'study/b';
+  fetchText(sdir + want + '.json').then(function (t) {
     var d = JSON.parse(t);
     studyCache[ck] = d;
     if (state.version === vb && state.book === sb) fillStudy(d);
@@ -2487,7 +2535,7 @@ function stampDate(d) {
 function logReading() {
   try {
     if (!DATA || !DATA.books[state.book]) return;
-    var dv = state.version === 'votd' ? votdVersionKey() : (state.version === 'notes' ? (state.dv || 'sacred') : state.version);
+    var dv = 'allnames';
     var log = JSON.parse(lsGet('readlog', '[]'));
     if (!Array.isArray(log)) log = [];
     var key = todayKey();
@@ -2693,7 +2741,7 @@ function init() {
   });
   $('notes-box').addEventListener('input', queueSaveNote);
   /* v2: extra version tabs are created dynamically (after ELOHIM, before Compare) */
-  var NEW_TAB_LABELS = { ethiopic: 'Ethiopian', yy: 'Yahweh & Yeshua', nt: 'Names & Titles', asv: 'ASV', darby: 'Darby', bbe: 'BBE', dra: 'DRA', msb: 'MSB',
+  var NEW_TAB_LABELS = { allnames: 'All Names', ethiopic: 'Ethiopian', yy: 'Yahweh & Yeshua', nt: 'Names & Titles', asv: 'ASV', darby: 'Darby', bbe: 'BBE', dra: 'DRA', msb: 'MSB',
     oeb: 'OEB', lsv: 'LSV', brenton: 'Brenton LXX', geneva: 'Geneva', jps: 'JPS',
     tcnt: 'TCNT', wmb: 'WMB', webster: 'Webster', rv: 'RV 1885', wycliffe: 'Wycliffe' };
   (function addVersionTabs() {
@@ -2712,17 +2760,7 @@ function init() {
   })();
   /* v2: verse jump picker */
   initVersePicker();
-  $('ver-sacred').addEventListener('click', function () { if (state.version !== 'sacred') setVersion('sacred'); });
-  $('ver-ethiopic').addEventListener('click', function () { if (state.version !== 'ethiopic') setVersion('ethiopic'); });
-  $('ver-nt').addEventListener('click', function () { if (state.version !== 'nt') setVersion('nt'); });
-  $('ver-yy').addEventListener('click', function () { if (state.version !== 'yy') setVersion('yy'); });
-  $('ver-kjv').addEventListener('click', function () { if (state.version !== 'kjv') setVersion('kjv'); });
-  $('ver-web').addEventListener('click', function () { if (state.version !== 'web') setVersion('web'); });
-  $('ver-ylt').addEventListener('click', function () { if (state.version !== 'ylt') setVersion('ylt'); });
-  $('ver-ydabar').addEventListener('click', function () { if (state.version !== 'ydabar') setVersion('ydabar'); });
-  $('ver-bsb').addEventListener('click', function () { if (state.version !== 'bsb') setVersion('bsb'); });
-  $('ver-elohim').addEventListener('click', function () { if (state.version !== 'elohim') setVersion('elohim'); });
-  $('ver-compare').addEventListener('click', function () { if (state.version !== 'compare') setVersion('compare'); });
+  $('ver-allnames').addEventListener('click', function () { if (state.version !== 'allnames') setVersion('allnames'); });
   $('ver-votd').addEventListener('click', function () { if (state.version !== 'votd') setVersion('votd'); });
   $('ver-notes').addEventListener('click', function () { if (state.version !== 'notes') setVersion('notes'); });
 
@@ -2733,6 +2771,390 @@ function applyNameModeStatic() {
   var m = nm();
   $('legend-father').textContent = m.father;
   $('legend-son').textContent = m.son;
+}
+
+/* ======== GHW 2.12 study guides + bible dictionary ======== */
+/* GHW 2.12: Chapter Study Guides + Full Bible Dictionary.
+   Data: guide/g<sacredIdx>.json (one file per book, lazy-loaded),
+   bd/index.json (search index), bd/e-<letter>.json (entries, lazy per letter),
+   bd/s-H<n>.json / s-G<n>.json (Strong's, lazy per 1000). Built by build-2.12/tools. */
+{
+var GCACHE = {}, BDI = null, BDS = {}, SCH = {};
+function sacredIdx() { var b = state.book; if (isStdVersion(state.version) && b >= 39) b += 21; return b; }
+function curIdx(sb) { if (isStdVersion(state.version)) { if (sb >= 60) return sb - 21; if (sb >= 39) return -1; } return sb; }
+function E(t) { return esc(String(t == null ? '' : t)); }
+/* All Names style: God's names in parentheses (first mention per block) */
+function gn(t) {
+  t = String(t || '');
+  if (state.version !== 'allnames') return swapNames(t);
+  var nt = sacredIdx() >= 60 && sacredIdx() <= 92, done = {}; /* NT + Apostolic Fathers/Thomas/Bartholomew use Theos */
+  t = t.replace(/\b(JEHOVAH|Jehovah)\b/g, 'LORD');
+  return t.replace(/\b(LORD God|LORD|God|Jesus|Christ|Holy Spirit|Holy Ghost|Lord|most High|Most High|Almighty)\b(['\u2019]s|['\u2019](?![A-Za-z]))?(?!\s*\()/g, function (all, w, ps, off, str) {
+    ps = ps || '';
+    if (w === 'Lord') {
+      var bf = str.slice(Math.max(0, off - 22), off), af = str.slice(off + all.length, off + all.length + 10);
+      if (/^\s+(Jesus|Christ|God)\b/.test(af)) return all;
+      if (/(name|angel|word|Spirit|fear|day|house|temple|law|hand|glory) of the $/.test(bf)) w = 'Lord-F';
+      else if (/our $/.test(bf)) w = 'Lord-J';
+      else if (nt) return all;
+      else w = 'Lord-F';
+    }
+    if (done[w]) return all; done[w] = 1;
+    var m = { 'LORD God': 'LORD God (Yahuah, Yahweh, YHWH, Elohim)', 'LORD': 'LORD (Yahuah, Yahweh, YHWH)', 'Jehovah': 'Jehovah (Yahuah, Yahweh, YHWH)',
+      'God': nt ? 'God (Theos, Elohim, Yahuah, Yahweh, YHWH)' : 'God (Elohim, Yahuah, Yahweh, YHWH)', 'Jesus': 'Jesus (Yeshua, Yahusha)',
+      'Christ': 'Christ (Messiah, Mashiach)', 'Holy Spirit': 'Holy Spirit (Ruach HaKodesh)', 'Holy Ghost': 'Holy Ghost (Ruach HaKodesh)',
+      'Lord-F': 'Lord (Adonai, Yahuah, Yahweh, YHWH)', 'Lord-J': 'Lord (Yeshua, Yahusha)',
+      'most High': 'most High (Elyon, Yahuah, Yahweh, YHWH)', 'Most High': 'Most High (Elyon, Yahuah, Yahweh, YHWH)', 'Almighty': 'Almighty (El Shaddai, Yahuah, Yahweh, YHWH)' };
+    return m[w] ? m[w].replace(' (', ps + ' (') : all;
+  });
+}
+var BN = null;
+function bookName(sb) { var ci = curIdx(sb); if (ci >= 0 && DATA.books[ci]) return DATA.books[ci].name; return (BN && BN[sb]) || ('Book ' + sb); }
+function refTxt(sb, c, v, v2) { return bookName(sb) + ' ' + c + ':' + v + (v2 ? '\u2013' + v2 : ''); }
+function verseText(sb, c, v) {
+  var ci = curIdx(sb); if (ci < 0 || !DATA.books[ci]) return '';
+  var ch = DATA.books[ci].chapters[c - 1] || [];
+  for (var i = 0; i < ch.length; i++) if (ch[i][0] === v) return swapNames(plainText(ch[i]));
+  return '';
+}
+function refBtn(sb, c, v, v2) {
+  return '<button class="gref" data-b="' + sb + '" data-c="' + c + '" data-v="' + v + '">' + E(refTxt(sb, c, v, v2)) + '</button>';
+}
+function wireRefs(root) {
+  Array.prototype.forEach.call(root.querySelectorAll('.gref'), function (b) {
+    b.addEventListener('click', function () {
+      var sb = +b.getAttribute('data-b'), ci = curIdx(sb);
+      if (ci < 0) { quickToast('That book is not in this version'); return; }
+      closeStudy(); closeDict();
+      window.jumpToVerse(ci, +b.getAttribute('data-c') - 1, +b.getAttribute('data-v'));
+    });
+  });
+}
+/* ---------------- study guide ---------------- */
+var lastGuideSpeech = '';
+function guideHtml(d, g, sb, c) {
+  var h = '', sp = [], bk = bookName(sb) + ' ' + c;
+  sp.push('Study guide for ' + bk + '.');
+  h += '<div class="g-actions"><button id="g-speak" class="g-btn">&#128266; Read guide aloud</button><button id="g-stop" class="g-btn">&#9632; Stop</button></div>';
+  h += '<h4>Summary</h4><p>' + E(gn(g.s)) + '</p>'; sp.push('Summary. ' + gn(g.s));
+  if (g.mh) { h += '<p class="g-q">Matthew Henry: \u201c' + E(gn(g.mh)) + '\u201d</p>'; }
+  if (g.o) {
+    h += '<h4>Outline</h4><ol class="g-ol">';
+    g.o.forEach(function (o) { h += '<li><b>' + E(o[1] ? 'vv. ' + o[1] : '') + '</b> ' + E(gn(o[0])) + '</li>'; });
+    h += '</ol>'; sp.push('Outline. ' + g.o.map(function (o) { return (o[1] ? 'Verses ' + o[1].replace('\u2013', ' to ') + ': ' : '') + gn(o[0]); }).join(' '));
+  }
+  if (g.k) {
+    h += '<h4>Key verses' + (g.kvsel ? ' <span class="muted">(selected by theme words)</span>' : '') + '</h4>';
+    var ks = [];
+    g.k.forEach(function (v) { var t = verseText(sb, c, v); h += '<div class="g-kv">' + refBtn(sb, c, v) + ' ' + E(t) + '</div>'; ks.push('Verse ' + v + '. ' + t); });
+    sp.push('Key verses. ' + ks.join(' '));
+  }
+  if (g.t) { h += '<h4>Main themes</h4><div class="g-tags">' + g.t.map(function (t) { return '<span class="g-tag">' + E(t) + '</span>'; }).join('') + '</div>'; sp.push('Main themes: ' + g.t.join(', ') + '.'); }
+  if (g.pp || g.pl) {
+    h += '<h4>People &amp; places</h4><div class="g-tags">';
+    (g.pp || []).forEach(function (p) { h += '<button class="g-tag g-name" data-w="' + E(p[0]) + '">&#128100; ' + E(p[0]) + '</button>'; });
+    (g.pl || []).forEach(function (p) { h += '<button class="g-tag g-name" data-w="' + E(p[0]) + '">&#128205; ' + E(p[0]) + '</button>'; });
+    h += '</div><div class="muted">Tap a name for its dictionary entry and pronunciation.</div>';
+  }
+  if (g.bg) {
+    h += '<h4>Historical &amp; cultural background</h4>';
+    g.bg.forEach(function (b) { h += '<p><b>' + E(b[0].replace(/\b\w/g, function (x) { return x.toUpperCase(); })) + ':</b> ' + E(gn(b[1])) + '</p>'; });
+    h += '<div class="muted">From Easton\u2019s Bible Dictionary (1897) / Smith\u2019s Bible Dictionary (1863).</div>';
+    sp.push('Background. ' + g.bg.map(function (b) { return gn(b[1]); }).join(' '));
+  }
+  if (g.x) {
+    h += '<h4>Cross-references</h4><div class="g-x">';
+    g.x.forEach(function (x) { h += '<div>v.' + x[0] + ' \u2192 ' + refBtn(x[1], x[2], x[3], x[4]) + '</div>'; });
+    h += '</div>';
+  }
+  if (g.q) { h += '<h4>Discussion &amp; reflection</h4><ol class="g-ol">' + g.q.map(function (q) { return '<li>' + E(gn(q)) + '</li>'; }).join('') + '</ol>'; sp.push('Questions. ' + g.q.map(gn).join(' ')); }
+  h += '<h4>Application</h4>';
+  if (g.aq) { h += '<p class="g-q">\u201c' + E(gn(g.aq)) + '\u201d \u2014 Matthew Henry</p>'; }
+  h += '<p>' + E(gn(g.a)) + '</p>'; sp.push('Application. ' + (g.aq ? gn(g.aq) + ' ' : '') + gn(g.a));
+  if (g.nc) h += '<div class="muted g-src">No public-domain commentary exists for this book. The Summary above quotes the chapter\u2019s own opening words for each section; themes, questions and application are generated for this app.</div>';
+  h += '<div class="muted g-src">Sources: ' + ((g.src || []).indexOf('mhc') >= 0 ? 'Matthew Henry\u2019s Concise Commentary (public domain) \u2022 ' : '') +
+    ((g.src || []).indexOf('obx') >= 0 ? 'cross-references: OpenBible.info (CC BY, incl. Treasury of Scripture Knowledge) \u2022 ' : '') +
+    'Easton\u2019s / Smith\u2019s / Hitchcock\u2019s (public domain) \u2022 summary, themes, questions &amp; application generated for this app from those sources and the text.</div>';
+  lastGuideSpeech = sp.join(' ');
+  return h;
+}
+function renderGuide() {
+  var box = $('guide-body'); if (!box || !DATA) return;
+  var sb = sacredIdx(), c = state.chapter + 1;
+  var fill = function (d) {
+    if (sacredIdx() !== sb || state.chapter + 1 !== c) return;
+    var g = d.ch[c - 1];
+    if (!g) { box.innerHTML = '<p class="muted">No study guide for this chapter.</p>'; return; }
+    box.innerHTML = guideHtml(d, g, sb, c);
+    wireRefs(box);
+    $('g-speak').addEventListener('click', function () { speakLong(lastGuideSpeech); });
+    $('g-stop').addEventListener('click', function () { ttsStop(); });
+    Array.prototype.forEach.call(box.querySelectorAll('.g-name'), function (b) {
+      b.addEventListener('click', function () { openDict(b.getAttribute('data-w')); });
+    });
+  };
+  var gdir = isAllNames() ? 'guide-an/g' : 'guide/g', gk = gdir + sb;
+  if (GCACHE[gk]) { fill(GCACHE[gk]); return; }
+  box.innerHTML = '<p class="muted">Loading study guide\u2026</p>';
+  fetchText(gdir + sb + '.json').then(function (t) { GCACHE[gk] = JSON.parse(t); fill(GCACHE[gk]); })
+    .catch(function () { box.innerHTML = '<p class="muted">Study guide could not be loaded.</p>'; });
+}
+/* long text: speak in sentence chunks through the existing TTS (Android bridge or speechSynthesis) */
+var longSeq = 0;
+function speakLong(text) {
+  text = String(text).replace(/\(vv?\. ([^()]*)\)/g, function (m, r) { return ', verses ' + r.replace(/\u2013/g, ' to ') + ','; }).replace(/\bvv?\. /g, 'verses ').replace(/(\d)\u2013(\d)/g, '$1 to $2');
+  var parts = String(text).replace(/\s*\(([^()]*)\)/g, function (m, inner) {
+    return state.readNames === false ? '' : ', ' + inner.replace(/;/g, ',') + ',';
+  }).match(/[^.!?]+[.!?]*/g) || [];
+  var chunks = [], cur = '';
+  parts.forEach(function (p) { if ((cur + p).length > 380) { if (cur) chunks.push(cur); cur = p; } else cur += p; });
+  if (cur) chunks.push(cur);
+  var my = ++longSeq, i = 0;
+  if (bridge && bridge.speakWord) { /* native: queue sequentially via bridge callback-free timing */
+    try { speakWord(chunks.join(' ').slice(0, 3900)); } catch (e) {}
+    return;
+  }
+  if (typeof window.speechSynthesis === 'undefined') return;
+  ttsStop(); window.speechSynthesis.cancel();
+  var next = function () {
+    if (my !== longSeq || i >= chunks.length) return;
+    var u = new SpeechSynthesisUtterance(chunks[i++]); u.rate = state.rate; u.lang = 'en-US';
+    if (typeof chosenVoice !== 'undefined' && chosenVoice) u.voice = chosenVoice;
+    u.onend = next; try { window.speechSynthesis.speak(u); } catch (e) {}
+  };
+  setTimeout(next, 80);
+}
+/* ---------------- dictionary ---------------- */
+function ensureIndex(done) {
+  if (BDI) { done(BDI); return; }
+  fetchText('bd/index.json').then(function (t) {
+    BDI = JSON.parse(t); BDI.map = {};
+    BDI.e.forEach(function (r, i) { BDI.map[r[0].toLowerCase()] = i; });
+    done(BDI);
+  }).catch(function () { done(null); });
+}
+function loadShard(L, done) {
+  if (BDS[L]) { done(BDS[L]); return; }
+  fetchText('bd/e-' + L + '.json').then(function (t) { BDS[L] = JSON.parse(t); done(BDS[L]); }).catch(function () { done({}); });
+}
+function loadStrong(id, done) {
+  var k = id[0] + Math.floor(+id.slice(1) / 1000);
+  if (SCH[k]) { done(SCH[k][id]); return; }
+  fetchText('bd/s-' + k + '.json').then(function (t) { SCH[k] = JSON.parse(t); done(SCH[k][id]); }).catch(function () { done(null); });
+}
+function getEntry(w, done) {
+  var k = String(w).toLowerCase(), L = /^[a-z]/.test(k) ? k[0] : '0';
+  loadShard(L, function (d) { done(d[k] || null, k); });
+}
+function lev(a, b) {
+  if (Math.abs(a.length - b.length) > 2) return 9;
+  var p = [], i, j; for (j = 0; j <= b.length; j++) p[j] = j;
+  for (i = 1; i <= a.length; i++) {
+    var prev = p[0]; p[0] = i;
+    for (j = 1; j <= b.length; j++) { var t = p[j]; p[j] = Math.min(p[j] + 1, p[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1)); prev = t; }
+  }
+  return p[b.length];
+}
+function norm(s) { return String(s).toLowerCase().replace(/[^a-z0-9 ]/g, ''); }
+function search(q) {
+  q = norm(q).trim(); if (!q) return [];
+  var res = [], tol = q.length < 5 ? 1 : 2;
+  if (/^[hg]\d+$/.test(q)) { var id = q.toUpperCase(); BDI.s.forEach(function (s) { if (s[0] === id) res.push({ s: 0, st: s }); }); }
+  BDI.e.forEach(function (r) {
+    var w = norm(r[0]), sc = -1;
+    if (w === q) sc = 0; else if (w.indexOf(q) === 0) sc = 1 + (w.length - q.length) / 100;
+    else if (w.indexOf(q) > 0) sc = 3;
+    else if (q.length > 3) { var d = lev(q, w.slice(0, q.length + 1)); var d2 = lev(q, w); d = Math.min(d, d2); if (d <= tol) sc = 4 + d; }
+    if (sc >= 0) res.push({ s: sc, e: r });
+  });
+  if (q.length > 2) BDI.s.forEach(function (s) {
+    var x = norm(s[1]); if (x === q) res.push({ s: 2, st: s }); else if (x.indexOf(q) === 0) res.push({ s: 5, st: s });
+  });
+  res.sort(function (a, b) { return a.s - b.s; });
+  return res.slice(0, 60);
+}
+function rowHtml(r) {
+  if (r.st) return '<button class="bd-row" data-s="' + r.st[0] + '"><b>' + E(r.st[0]) + ' ' + E(r.st[1]) + '</b><span>' + E(r.st[2]) + '</span></button>';
+  return '<button class="bd-row" data-w="' + E(r.e[0]) + '"><b>' + (r.e[2] === 1 ? '&#128205; ' : r.e[2] === 2 ? '&#128100; ' : '') + E(r.e[0]) + '</b><span>' + E(r.e[3]) + '</span></button>';
+}
+function wireRows(root) {
+  Array.prototype.forEach.call(root.querySelectorAll('.bd-row'), function (b) {
+    b.addEventListener('click', function () { if (b.getAttribute('data-s')) showStrong(b.getAttribute('data-s')); else showEntry(b.getAttribute('data-w')); });
+  });
+}
+function listInto(rows) { var l = $('bd-list'); l.innerHTML = rows.map(rowHtml).join('') || '<p class="muted">No matches.</p>'; wireRows(l); $('bd-entry').innerHTML = ''; l.style.display = ''; }
+function browse(L) {
+  ensureIndex(function () { listInto(BDI.e.filter(function (r) { return r[0].toLowerCase()[0] === L; }).map(function (r) { return { e: r }; }).slice(0, 400)); });
+}
+function sayName(resp, word) {
+  /* TTS gets the phonetic respelling (lowercase so engines don't spell CAPS as letters) */
+  speakWord(resp ? resp.toLowerCase() : word);
+}
+window.GHWsayName = sayName;
+function strongHtml(id, s) {
+  return '<div class="bd-strong"><b>' + E(id) + '</b> <span class="bd-lemma">' + E(s.l) + '</span> <i>' + E(s.x) + '</i>' +
+    (s.p ? ' <button class="g-btn bd-sp" data-p="' + E(s.p) + '">&#128266; ' + E(s.p) + '</button>' : '') +
+    '<div>' + E(s.d) + '</div>' + (s.kj ? '<div class="muted">KJV: ' + E(s.kj) + '</div>' : '') + (s.dr ? '<div class="muted">' + E(s.dr) + '</div>' : '') + '</div>';
+}
+function wireSp(root) {
+  Array.prototype.forEach.call(root.querySelectorAll('.bd-sp'), function (b) { b.addEventListener('click', function (ev) { ev.stopPropagation(); sayName(b.getAttribute('data-p')); }); });
+}
+function showStrong(id) {
+  loadStrong(id, function (s) {
+    var el = $('bd-entry'); $('bd-list').style.display = 'none';
+    el.innerHTML = '<button class="g-btn" id="bd-back">&larr; Results</button>' + (s ? strongHtml(id, s) : '<p class="muted">Not found.</p>') +
+      '<div class="muted g-src">Strong\u2019s Exhaustive Concordance (public domain), via Open Scriptures (CC BY-SA).</div>';
+    $('bd-back').addEventListener('click', function () { $('bd-list').style.display = ''; el.innerHTML = ''; });
+    wireSp(el); el.scrollTop = 0;
+  });
+}
+function showEntry(w, depth) {
+  getEntry(w, function (e) {
+    var el = $('bd-entry');
+    if (!e) { el.innerHTML = '<p class="muted">No entry for \u2018' + E(w) + '\u2019.</p>'; return; }
+    if (e.see && !e.e && !e.s && (depth || 0) < 2) {
+      getEntry(e.see, function (t) {
+        var m = {}; for (var k in (t || {})) m[k] = t[k];
+        m.w = e.w; m.note = e.w + ' \u2192 see ' + e.see + (e.m ? '. Meaning: ' + e.m : '') + '.'; m.p = e.p || m.p;
+        if (e.g) m.g = e.g; render(m);
+      });
+      return;
+    }
+    render(e);
+  });
+  function render(e) {
+    var el = $('bd-entry'); $('bd-list').style.display = 'none';
+    var h = '<button class="g-btn" id="bd-back">&larr; Results</button><h2 class="bd-w">' + E(e.w) + '</h2>';
+    if (e.p) h += '<div class="bd-pron">' + E(e.p) + (e.i ? ' <span class="muted">' + E(e.i) + '</span>' : '') + '</div>';
+    h += '<div class="g-actions"><button class="g-btn" id="bd-say">&#128266; Say it</button><button class="g-btn" id="bd-say-def">&#128266; Say + definition</button></div>';
+    if (e.m) h += '<p><b>Meaning of the name:</b> ' + E(e.m) + (e.m.indexOf('Hitchcock') < 0 ? ' <span class="muted">(Hitchcock)</span>' : '') + '</p>';
+    if (e.note) h += '<p class="g-q">' + E(e.note) + '</p>';
+    (e.e || []).forEach(function (p, i) { h += (i === 0 ? '<h4>Easton\u2019s Bible Dictionary</h4>' : '') + '<p>' + E(p) + '</p>'; });
+    (e.s || []).forEach(function (p, i) { h += (i === 0 ? '<h4>Smith\u2019s Bible Dictionary</h4>' : '') + '<p>' + E(p) + '</p>'; });
+    if (e.see && (e.e || e.s)) h += '<p>See also: <button class="g-tag g-name" data-w="' + E(e.see) + '">' + E(e.see) + '</button></p>';
+    if (e.r) h += '<h4>Related verses</h4><div class="g-tags">' + e.r.map(function (r) { return refBtn(r[0], r[1], r[2]); }).join('') + '</div>';
+    if (e.g) h += '<h4>Original language (Strong\u2019s)</h4><div id="bd-g"></div>';
+    h += '<div class="muted g-src">Easton\u2019s (1897), Smith\u2019s (1863), Hitchcock\u2019s (1869) \u2014 public domain. Pronunciation respelling generated for this app.</div>';
+    el.innerHTML = h; el.scrollTop = 0; $('bd-pane').scrollTop = 0;
+    $('bd-back').addEventListener('click', function () { $('bd-list').style.display = ''; el.innerHTML = ''; });
+    var defTxt = ((e.m ? 'Meaning: ' + e.m + '. ' : '') + ((e.e || e.s || [''])[0])).slice(0, 1500);
+    $('bd-say').addEventListener('click', function () { sayName(e.p, e.w); });
+    $('bd-say-def').addEventListener('click', function () { speakLong((e.p ? e.p.toLowerCase() : e.w) + '. ' + e.w + '. ' + defTxt); });
+    Array.prototype.forEach.call(el.querySelectorAll('.g-name'), function (b) { b.addEventListener('click', function () { showEntry(b.getAttribute('data-w')); }); });
+    wireRefs(el);
+    if (e.g) e.g.forEach(function (id) { loadStrong(id, function (s) { if (s && $('bd-g')) { $('bd-g').insertAdjacentHTML('beforeend', strongHtml(id, s)); wireSp($('bd-g')); } }); });
+  }
+}
+function openDict(word) {
+  closeSidebar(); try { closeStudy(); } catch (e) {}
+  $('bdict').classList.add('open');
+  ensureIndex(function (I) {
+    if (!I) { $('bd-list').innerHTML = '<p class="muted">Dictionary could not be loaded.</p>'; return; }
+    $('bd-count').textContent = I.e.length.toLocaleString() + ' entries \u2022 ' + I.s.length.toLocaleString() + ' Hebrew/Greek words';
+    if (word) { $('bd-q').value = word; listInto(search(word)); var ex = I.map[String(word).toLowerCase()]; if (ex !== undefined) showEntry(I.e[ex][0]); }
+  });
+}
+function closeDict() { var d = $('bdict'); if (d) d.classList.remove('open'); }
+window.openDict = openDict; window.closeDict = closeDict;
+window.GHWtest = { state: function () { return state; }, data: function () { return DATA; }, showDef: function (w, i) { showDefPopup(w, i); }, openStudy: function () { openStudy(); } };
+/* hold-for-meaning: add the big-dictionary card to the existing definition sheet */
+function lookupName(w, done) {
+  ensureIndex(function (I) {
+    if (!I) { done(null); return; }
+    var k = String(w).replace(/^[^A-Za-z]+|[^A-Za-z']+$/g, '').replace(/'s$/i, '').toLowerCase();
+    var c = [k]; if (/s$/.test(k)) c.push(k.slice(0, -1)); if (/es$/.test(k)) c.push(k.slice(0, -2)); if (/ed$/.test(k)) c.push(k.slice(0, -2), k.slice(0, -1));
+    for (var i = 0; i < c.length; i++) if (I.map[c[i]] !== undefined) { done(I.e[I.map[c[i]]][0]); return; }
+    done(null);
+  });
+}
+var _sdp = showDefPopup;
+showDefPopup = function (word, vi) {
+  _sdp(word, vi);
+  var box = $('def-bd'); if (!box) return;
+  box.style.display = 'none'; box.innerHTML = '';
+  lookupName(word, function (hw) {
+    if (!hw) return;
+    getEntry(hw, function (e) {
+      if (!e) return;
+      var p = e.p || '', txt = e.m ? 'Meaning: ' + e.m : '';
+      var def = (e.e || e.s || [''])[0] || (e.see ? 'See ' + e.see : '');
+      box.innerHTML = '<div id="def-bd-head">&#128218; Bible Dictionary \u2014 ' + E(e.w) + '</div>' +
+        (p ? '<div class="bd-pron">' + E(p) + (e.i ? ' <span class="muted">' + E(e.i) + '</span>' : '') + '</div>' : '') +
+        (txt ? '<div><b>' + E(txt) + '</b></div>' : '') + '<div>' + E(def.slice(0, 260)) + (def.length > 260 ? '\u2026' : '') + '</div>' +
+        '<div class="g-actions"><button class="g-btn" id="def-bd-say">&#128266; Say it</button><button class="g-btn" id="def-bd-open">Open full entry</button></div>';
+      box.style.display = '';
+      $('def-bd-say').addEventListener('click', function () { sayName(p, e.w); });
+      $('def-bd-open').addEventListener('click', function () { hideDefPopup(); openDict(e.w); });
+    });
+  });
+};
+/* GHW 2.13: tap any word in the reader -> it is spoken AND a 'Look up' chip appears for ~5s.
+   Tapping the chip opens the meaning sheet (Bible meaning + Bible Dictionary card + pronunciation). */
+var chipTimer = null;
+window.GHWlookupChip = function (word, vi) {
+  var w = String(word || '').replace(/^[^A-Za-z']+|[^A-Za-z']+$/g, '');
+  if (!w || w.length < 2) return;
+  var c = $('lookup-chip');
+  if (!c) { c = document.createElement('button'); c.id = 'lookup-chip'; document.body.appendChild(c); }
+  c.innerHTML = '&#128218; Look up \u2018' + E(w) + '\u2019 <span class="muted">meaning \u2022 dictionary \u2022 say it</span>';
+  c.className = 'show';
+  c.onclick = function (ev) {
+    ev.stopPropagation(); c.className = '';
+    ensureDict(function () { ensureBibleLexicon(function () { showDefPopup(w, vi); }); });
+  };
+  if (chipTimer) clearTimeout(chipTimer);
+  chipTimer = setTimeout(function () { c.className = ''; }, 5000);
+};
+/* GHW 2.13: full-text verse search from the sidebar box (3+ letters). Searches the open version;
+   in All Names it covers all 99 books. Names in parentheses are searchable too (e.g. 'Elyon'). */
+var vsTimer = null;
+window.GHWverseSearch = function (q) {
+  if (vsTimer) clearTimeout(vsTimer);
+  vsTimer = setTimeout(function () {
+    var box = $('vs-results'); if (!box || !DATA) return;
+    var nq = String(q).toLowerCase().replace(/[\u2018\u2019]/g, "'").trim(), hits = [], total = 0;
+    bookOrder().forEach(function (bi) {
+      DATA.books[bi].chapters.forEach(function (ch, ci) {
+        ch.forEach(function (v) {
+          var t = v[1].map(function (s) { return s[0]; }).join(' ');
+          var k = t.toLowerCase().replace(/[\u2018\u2019]/g, "'").indexOf(nq);
+          if (k >= 0) { total++; if (hits.length < 150) hits.push([bi, ci, v[0], t, k]); }
+        });
+      });
+    });
+    var h = '<div class="sec-title">Verses containing \u201c' + E(q) + '\u201d \u2014 ' + total.toLocaleString() + (total > 150 ? ' (first 150 shown)' : '') + '</div>';
+    hits.forEach(function (x) {
+      var a = Math.max(0, x[4] - 50), snip = (a ? '\u2026' : '') + x[3].slice(a, x[4] + nq.length + 70) + '\u2026';
+      h += '<button class="book vs-hit" data-b="' + x[0] + '" data-c="' + x[1] + '" data-v="' + x[2] + '"><span><b>' + E(DATA.books[x[0]].name + ' ' + (x[1] + 1) + ':' + x[2]) + '</b><br><small>' + E(snip) + '</small></span></button>';
+    });
+    if (!total) h += '<div class="muted" style="padding:8px">No verses found.</div>';
+    box.innerHTML = h;
+    Array.prototype.forEach.call(box.querySelectorAll('.vs-hit'), function (b) {
+      b.addEventListener('click', function () { window.jumpToVerse(+b.getAttribute('data-b'), +b.getAttribute('data-c'), +b.getAttribute('data-v')); });
+    });
+  }, 250);
+};
+/* hook study rendering */
+var _rs = renderStudy;
+renderStudy = function () { _rs(); renderGuide(); };
+function boot() {
+  if (!$('bdict')) return;
+  try { BN = (window.ALLNAMES_BOOKS || null); } catch (e) {}
+  $('bd-close').addEventListener('click', closeDict);
+  var qt = null;
+  $('bd-q').addEventListener('input', function () {
+    clearTimeout(qt); var v = $('bd-q').value;
+    qt = setTimeout(function () { ensureIndex(function () { listInto(search(v)); }); }, 160);
+  });
+  var az = $('bd-az'), h = '';
+  'abcdefghijklmnopqrstuvwxyz'.split('').forEach(function (L) { h += '<button data-l="' + L + '">' + L.toUpperCase() + '</button>'; });
+  az.innerHTML = h;
+  Array.prototype.forEach.call(az.children, function (b) { b.addEventListener('click', function () { $('bd-q').value = ''; browse(b.getAttribute('data-l')); }); });
+  if ($('tab-study')) $('tab-study').addEventListener('click', function () { openStudy(); });
+  if ($('tab-dict')) $('tab-dict').addEventListener('click', function () { openDict(); });
+  if ($('set-dict')) $('set-dict').addEventListener('click', function () { try { closeSettings(); } catch (e) {} openDict(); });
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 }
 
 document.addEventListener('DOMContentLoaded', init);
