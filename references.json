@@ -1,0 +1,1808 @@
+{
+  "groups": [
+    {
+      "refs": [
+        {
+          "book": "Genesis",
+          "ch": 6,
+          "label": "Genesis 6:1-4",
+          "note": "the sons of God, where it all starts",
+          "v": 1
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 6,
+          "label": "1 Enoch 6-16",
+          "note": "the Watchers coming down, what they did and what happened to them",
+          "v": 1
+        },
+        {
+          "book": "2 Peter",
+          "ch": 2,
+          "label": "2 Peter 2:4",
+          "note": "what the New Testament says about them",
+          "v": 4
+        },
+        {
+          "book": "Jude",
+          "ch": 1,
+          "label": "Jude 6",
+          "note": "what the New Testament says about them",
+          "v": 6
+        },
+        {
+          "book": "1 Peter",
+          "ch": 3,
+          "label": "1 Peter 3:19-20",
+          "note": "what the New Testament says about them",
+          "v": 19
+        }
+      ],
+      "title": "The angels that fell — the Watchers"
+    },
+    {
+      "refs": [
+        {
+          "book": "1 Enoch",
+          "ch": 1,
+          "label": "1 Enoch 1:9",
+          "note": "the prophecy itself",
+          "v": 9
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 37,
+          "label": "1 Enoch 37-71",
+          "note": "the Son of Man, the one coming to judge",
+          "v": 1
+        },
+        {
+          "book": "Daniel",
+          "ch": 7,
+          "label": "Daniel 7",
+          "note": "the Son of Man and the Ancient of Days",
+          "v": 1
+        }
+      ],
+      "title": "Enoch's prophecy — the one Jude quoted"
+    },
+    {
+      "refs": [
+        {
+          "book": "1 Enoch",
+          "ch": 72,
+          "label": "1 Enoch 72-82",
+          "note": "the sun, the moon, the stars, how it all runs",
+          "v": 1
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 83,
+          "label": "1 Enoch 83-90",
+          "note": "his dream visions, the whole history of the world told in pictures",
+          "v": 1
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 91,
+          "label": "1 Enoch 91-108",
+          "note": "his last words to his children",
+          "v": 1
+        },
+        {
+          "book": "2 Enoch",
+          "ch": 1,
+          "label": "2 Enoch 1-68",
+          "note": "his whole journey up through the heavens",
+          "v": 1
+        }
+      ],
+      "title": "Enoch's visions — the world and what's coming"
+    },
+    {
+      "refs": [
+        {
+          "book": "The Book of Jubilees",
+          "ch": 1,
+          "label": "The Book of Jubilees 1-5",
+          "note": "creation told again, with the details filled in",
+          "v": 1
+        },
+        {
+          "book": "The Book of Jubilees",
+          "ch": 4,
+          "label": "The Book of Jubilees 4",
+          "note": "Cain's wife — that's where her name is",
+          "v": 1
+        },
+        {
+          "book": "The Book of Jubilees",
+          "ch": 10,
+          "label": "The Book of Jubilees 10",
+          "note": "the evil spirits after the flood",
+          "v": 1
+        }
+      ],
+      "title": "The early world — the stuff Genesis skips over"
+    },
+    {
+      "refs": [
+        {
+          "book": "Daniel",
+          "ch": 12,
+          "label": "Daniel 12",
+          "note": "the last days",
+          "v": 1
+        },
+        {
+          "book": "Revelation",
+          "ch": 12,
+          "label": "Revelation 12",
+          "note": "the last days",
+          "v": 1
+        },
+        {
+          "book": "Revelation",
+          "ch": 20,
+          "label": "Revelation 20",
+          "note": "the last days",
+          "v": 1
+        },
+        {
+          "book": "2 Esdras",
+          "ch": 7,
+          "label": "2 Esdras 7-8",
+          "note": "the signs of the end",
+          "v": 1
+        },
+        {
+          "book": "4 Baruch",
+          "ch": 1,
+          "label": "4 Baruch",
+          "note": "what happens after",
+          "v": 1
+        }
+      ],
+      "title": "The end of it all"
+    },
+    {
+      "refs": [
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 1,
+          "label": "Wisdom of Solomon 1-7",
+          "note": "wisdom itself",
+          "v": 1
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 1,
+          "label": "Wisdom of Sirach 1",
+          "note": "fearing God",
+          "v": 1
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 6,
+          "label": "Wisdom of Sirach 6",
+          "note": "true friendship",
+          "v": 1
+        },
+        {
+          "book": "Tobit",
+          "ch": 1,
+          "label": "Tobit",
+          "note": "a good man staying faithful",
+          "v": 1
+        },
+        {
+          "book": "The Didache (Teaching of the Twelve Apostles)",
+          "ch": 1,
+          "label": "The Didache",
+          "note": "the teaching of the twelve apostles, how the first Christians actually lived",
+          "v": 1
+        }
+      ],
+      "title": "How to live close to God"
+    },
+    {
+      "title": "The law still stands — and the Sabbath",
+      "refs": [
+        {
+          "book": "Genesis",
+          "ch": 2,
+          "v": 2,
+          "label": "Genesis 2:2-3",
+          "note": "God blessed the seventh day, and sanctified it"
+        },
+        {
+          "book": "Exodus",
+          "ch": 20,
+          "v": 8,
+          "label": "Exodus 20:8-11",
+          "note": "Remember the sabbath day, to keep it holy"
+        },
+        {
+          "book": "Exodus",
+          "ch": 31,
+          "v": 16,
+          "label": "Exodus 31:16-17",
+          "note": "the Sabbath, a perpetual covenant"
+        },
+        {
+          "book": "Isaiah",
+          "ch": 58,
+          "v": 13,
+          "label": "Isaiah 58:13-14",
+          "note": "call the sabbath a delight"
+        },
+        {
+          "book": "Matthew",
+          "ch": 5,
+          "v": 17,
+          "label": "Matthew 5:17-19",
+          "note": "Till heaven and earth pass, one jot or one tittle shall in no wise pass from the law"
+        },
+        {
+          "book": "Matthew",
+          "ch": 7,
+          "v": 21,
+          "label": "Matthew 7:21",
+          "note": "Not every one that saith unto me, Lord, Lord, shall enter in — but he that doeth the will of my Father"
+        },
+        {
+          "book": "John",
+          "ch": 14,
+          "v": 15,
+          "label": "John 14:15",
+          "note": "If ye love me, keep my commandments"
+        },
+        {
+          "book": "James",
+          "ch": 2,
+          "v": 17,
+          "label": "James 2:17, 2:26",
+          "note": "faith, if it hath not works, is dead"
+        },
+        {
+          "book": "Hebrews",
+          "ch": 4,
+          "v": 9,
+          "label": "Hebrews 4:9",
+          "note": "There remaineth therefore a rest to the people of God"
+        },
+        {
+          "book": "Revelation",
+          "ch": 14,
+          "v": 12,
+          "label": "Revelation 14:12",
+          "note": "here are they that keep the commandments of God, and the faith of Jesus"
+        },
+        {
+          "book": "Revelation",
+          "ch": 22,
+          "v": 14,
+          "label": "Revelation 22:14",
+          "note": "Blessed are they that do his commandments"
+        }
+      ]
+    },
+    {
+      "title": "The Book of Enoch",
+      "refs": [
+        {
+          "book": "1 Enoch",
+          "ch": 1,
+          "v": 9,
+          "label": "1 Enoch 1:9",
+          "note": "Quote: Jude 1:14-15. Jude says Enoch prophesied these words, then quotes them. This is the clearest quote of a book outside the 66-book Bible."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 10,
+          "v": 4,
+          "label": "1 Enoch 10:4-6",
+          "note": "Parallel: Jude 1:6. Jude 6 speaks of angels who left their place and are kept in chains of darkness until the great day of judgment. 1 Enoch tells of the Watchers who sinned and were bound until the judgment."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 10,
+          "v": 11,
+          "label": "1 Enoch 10:11-13",
+          "note": "Parallel: Jude 1:6. Jude 6 speaks of angels who left their place and are kept in chains of darkness until the great day of judgment. 1 Enoch tells of the Watchers who sinned and were bound until the judgment."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 12,
+          "v": 4,
+          "label": "1 Enoch 12:4",
+          "note": "Parallel: Jude 1:6. Jude 6 speaks of angels who left their place and are kept in chains of darkness until the great day of judgment. 1 Enoch tells of the Watchers who sinned and were bound until the judgment."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 10,
+          "v": 12,
+          "label": "1 Enoch 10:12-14",
+          "note": "Parallel: 1 Peter 3:19-20. Christ preaching to the “spirits in prison” is often compared with Enoch's message to the imprisoned Watchers. Scholars disagree about how closely the two are linked."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 12,
+          "v": 4,
+          "label": "1 Enoch 12:4-6",
+          "note": "Parallel: 1 Peter 3:19-20. Christ preaching to the “spirits in prison” is often compared with Enoch's message to the imprisoned Watchers. Scholars disagree about how closely the two are linked."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 21,
+          "v": 10,
+          "label": "1 Enoch 21:10",
+          "note": "Parallel: 1 Peter 3:19-20. Christ preaching to the “spirits in prison” is often compared with Enoch's message to the imprisoned Watchers. Scholars disagree about how closely the two are linked."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 18,
+          "v": 13,
+          "label": "1 Enoch 18:13-16",
+          "note": "Allusion: Jude 1:13. “Wandering stars” kept in blackness of darkness echo the stars that broke God's command in 1 Enoch."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 21,
+          "v": 3,
+          "label": "1 Enoch 21:3-6",
+          "note": "Allusion: Jude 1:13. “Wandering stars” kept in blackness of darkness echo the stars that broke God's command in 1 Enoch."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 5,
+          "v": 4,
+          "label": "1 Enoch 5:4",
+          "note": "Allusion: Jude 1:16. Jude's grumblers whose mouths speak proud things echo this verse in 1 Enoch."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 6,
+          "v": 1,
+          "label": "1 Enoch 6:1-2",
+          "note": "Expands: Genesis 6:1-4. Genesis 6:1-4 briefly mentions the sons of God and the daughters of men. 1 Enoch tells that story at length. It is not a quote."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 7,
+          "v": 1,
+          "label": "1 Enoch 7:1-2",
+          "note": "Expands: Genesis 6:1-4. Genesis 6:1-4 briefly mentions the sons of God and the daughters of men. 1 Enoch tells that story at length. It is not a quote."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 12,
+          "v": 1,
+          "label": "1 Enoch 12:1-4",
+          "note": "Expands: Genesis 5:21-24. Genesis says Enoch walked with God and was taken. 1 Enoch tells what Enoch saw and said. It is not a quote."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 62,
+          "v": 2,
+          "label": "1 Enoch 62:2-3",
+          "note": "Allusion: Matthew 25:31. The Son of Man sitting on his glorious throne to judge is close to the Son of Man on his throne in 1 Enoch's Parables."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 69,
+          "v": 27,
+          "label": "1 Enoch 69:27-29",
+          "note": "Allusion: Matthew 25:31. The Son of Man sitting on his glorious throne to judge is close to the Son of Man on his throne in 1 Enoch's Parables."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 69,
+          "v": 27,
+          "label": "1 Enoch 69:27",
+          "note": "Parallel: John 5:22 + John 5:27. The Father giving judgment to the Son of Man is similar to the Son of Man judging in 1 Enoch."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 38,
+          "v": 2,
+          "label": "1 Enoch 38:2",
+          "note": "Parallel: Matthew 26:24. Jesus saying it would be better for that man not to have been born is close to the last line of this verse in 1 Enoch."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 5,
+          "v": 5,
+          "label": "1 Enoch 5:5",
+          "note": "Parallel: Matthew 5:5. “Inherit the earth” appears in both (it is in the part of this verse marked 6a-7 in our text). The main source for Jesus' words is Psalm 37:11, so this is only a similar phrase."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 94,
+          "v": 8,
+          "label": "1 Enoch 94:8",
+          "note": "Parallel: Luke 6:24. “Woe to you who are rich” is close to the woes on the rich in 1 Enoch 94."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 39,
+          "v": 4,
+          "label": "1 Enoch 39:4",
+          "note": "Allusion: Luke 16:9. “Eternal tents” and the “dwelling-places of the holy” are a possible echo. Scholars list it, but it is not certain."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 15,
+          "v": 6,
+          "label": "1 Enoch 15:6-7",
+          "note": "Parallel: Mark 12:25. Jesus says people in the resurrection are like angels who do not marry. 1 Enoch says heavenly beings have no wives."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 53,
+          "v": 6,
+          "label": "1 Enoch 53:6",
+          "note": "Parallel: Acts 7:52. Calling Jesus “the Righteous One” matches how 1 Enoch names the coming Righteous and Elect One."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 40,
+          "v": 5,
+          "label": "1 Enoch 40:5",
+          "note": "Parallel: Luke 23:35. “The Chosen One” as a title for the Messiah also appears in 1 Enoch."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 45,
+          "v": 3,
+          "label": "1 Enoch 45:3",
+          "note": "Parallel: Luke 23:35. “The Chosen One” as a title for the Messiah also appears in 1 Enoch."
+        },
+        {
+          "book": "1 Enoch",
+          "ch": 47,
+          "v": 1,
+          "label": "1 Enoch 47:1-4",
+          "note": "Parallel: Revelation 6:9-10. The cry of the killed righteous for justice is close to the prayer of the righteous in 1 Enoch 47."
+        }
+      ]
+    },
+    {
+      "title": "Jubilees and other early writings",
+      "refs": [
+        {
+          "book": "Jude",
+          "ch": 1,
+          "v": 9,
+          "label": "Jude 1:9",
+          "note": "This book is not in our Bible. The Assumption of Moses survives only in part, and the section Jude seems to use is missing."
+        },
+        {
+          "book": "The Book of Jubilees",
+          "ch": 3,
+          "v": 27,
+          "label": "The Book of Jubilees 3:27-29",
+          "note": "Parallel: Galatians 3:19. Paul says the law was given through angels. In Jubilees the angel of the presence writes for Moses."
+        },
+        {
+          "book": "Damascus Document",
+          "ch": 7,
+          "v": 17,
+          "label": "Damascus Document 7:17",
+          "note": "Named: 2 Timothy 3:8. Paul names Jannes and Jambres, who opposed Moses. The Old Testament never names them. Our Jasher names them. Our Damascus Document has “Jochanneh and his brother”, which scholars connect to Jannes and Jambres. There was also an old Book of Jannes and Jambres, which is mostly lost and is not in our Bible."
+        },
+        {
+          "book": "The Book of Jasher",
+          "ch": 79,
+          "v": 27,
+          "label": "The Book of Jasher 79:27",
+          "note": "Named: 2 Timothy 3:8. Paul names Jannes and Jambres, who opposed Moses. The Old Testament never names them. Our Jasher names them. Our Damascus Document has “Jochanneh and his brother”, which scholars connect to Jannes and Jambres. There was also an old Book of Jannes and Jambres, which is mostly lost and is not in our Bible."
+        },
+        {
+          "book": "Ascension of Isaiah",
+          "ch": 5,
+          "v": 11,
+          "label": "Ascension of Isaiah 5:11-14",
+          "note": "Allusion: Hebrews 11:37. “Sawn apart” is not recorded in the Old Testament. An old Jewish tradition says Isaiah was sawn in two, and the Ascension of Isaiah tells it."
+        },
+        {
+          "book": "Testaments of the Twelve Patriarchs",
+          "ch": 7,
+          "v": 5,
+          "label": "Testaments of the Twelve Patriarchs 7:5",
+          "note": "Parallel: Matthew 22:37-40. Loving God and loving your neighbor are paired in the Testaments of the Twelve Patriarchs (Dan and Issachar). Jesus draws his two commands from Deuteronomy 6:5 and Leviticus 19:18."
+        },
+        {
+          "book": "Testaments of the Twelve Patriarchs",
+          "ch": 5,
+          "v": 5,
+          "label": "Testaments of the Twelve Patriarchs 5:5",
+          "note": "Parallel: Matthew 22:37-40. Loving God and loving your neighbor are paired in the Testaments of the Twelve Patriarchs (Dan and Issachar). Jesus draws his two commands from Deuteronomy 6:5 and Leviticus 19:18."
+        },
+        {
+          "book": "Testaments of the Twelve Patriarchs",
+          "ch": 3,
+          "v": 6,
+          "label": "Testaments of the Twelve Patriarchs 3:6",
+          "note": "Parallel: 1 Thessalonians 2:16. “Wrath has come upon them to the uttermost” is the same wording as in the Testament of Levi. Some scholars think one borrowed from the other."
+        }
+      ]
+    },
+    {
+      "title": "The Maccabees",
+      "refs": [
+        {
+          "book": "2 Maccabees",
+          "ch": 7,
+          "v": 7,
+          "label": "2 Maccabees 7:7-9",
+          "note": "Allusion: Hebrews 11:35. “Tortured, not accepting deliverance, to obtain a better resurrection” points to the seven brothers and their mother in 2 Maccabees 7, who refused release and trusted in the resurrection."
+        },
+        {
+          "book": "2 Maccabees",
+          "ch": 7,
+          "v": 14,
+          "label": "2 Maccabees 7:14",
+          "note": "Allusion: Hebrews 11:35. “Tortured, not accepting deliverance, to obtain a better resurrection” points to the seven brothers and their mother in 2 Maccabees 7, who refused release and trusted in the resurrection."
+        },
+        {
+          "book": "1 Maccabees",
+          "ch": 4,
+          "v": 52,
+          "label": "1 Maccabees 4:52-59",
+          "note": "Named: John 10:22. The Feast of Dedication (Hanukkah) is not in the Old Testament. 1 Maccabees tells how Judas Maccabeus cleansed the temple and began the feast."
+        },
+        {
+          "book": "2 Maccabees",
+          "ch": 10,
+          "v": 5,
+          "label": "2 Maccabees 10:5-8",
+          "note": "Named: John 10:22. The Feast of Dedication (Hanukkah) is not in the Old Testament. 1 Maccabees tells how Judas Maccabeus cleansed the temple and began the feast."
+        },
+        {
+          "book": "1 Maccabees",
+          "ch": 1,
+          "v": 54,
+          "label": "1 Maccabees 1:54",
+          "note": "Allusion: Matthew 24:15. “The abomination of desolation” is from Daniel. 1 Maccabees records the time it was set up on the altar, which is the event Jesus' words recall."
+        }
+      ]
+    },
+    {
+      "title": "Wisdom of Solomon",
+      "refs": [
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 2,
+          "v": 13,
+          "label": "Wisdom of Solomon 2:13",
+          "note": "Allusion: Matthew 27:43. The leaders mock Jesus: “He trusts in God, let God deliver him.” In Wisdom 2 the wicked say nearly the same about the righteous man who calls himself God's son."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 2,
+          "v": 16,
+          "label": "Wisdom of Solomon 2:16-20",
+          "note": "Allusion: Matthew 27:43. The leaders mock Jesus: “He trusts in God, let God deliver him.” In Wisdom 2 the wicked say nearly the same about the righteous man who calls himself God's son."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 7,
+          "v": 25,
+          "label": "Wisdom of Solomon 7:25-26",
+          "note": "Parallel: Hebrews 1:3. Hebrews calls the Son the radiance of God's glory. Wisdom calls wisdom a pure emanation of God's glory and a reflection of everlasting light. The rare Greek word for “radiance” is in both."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 13,
+          "v": 1,
+          "label": "Wisdom of Solomon 13:1-5",
+          "note": "Parallel: Romans 1:19-25. Paul's argument that people can know God from creation, and that idol worship leads to wickedness, closely follows Wisdom 13-14."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 14,
+          "v": 22,
+          "label": "Wisdom of Solomon 14:22-27",
+          "note": "Parallel: Romans 1:19-25. Paul's argument that people can know God from creation, and that idol worship leads to wickedness, closely follows Wisdom 13-14."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 2,
+          "v": 23,
+          "label": "Wisdom of Solomon 2:23-24",
+          "note": "Parallel: Romans 5:12. Death entering the world is also described in Wisdom 2. Wisdom says it came by the devil's envy. Paul says it came through sin."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 6,
+          "v": 3,
+          "label": "Wisdom of Solomon 6:3",
+          "note": "Parallel: Romans 13:1. Rulers have power given by God, in both Paul and Wisdom 6."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 3,
+          "v": 8,
+          "label": "Wisdom of Solomon 3:8",
+          "note": "Parallel: 1 Corinthians 6:2. “The saints will judge the world” is close to “They will judge nations” in Wisdom 3."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 9,
+          "v": 15,
+          "label": "Wisdom of Solomon 9:15",
+          "note": "Parallel: 2 Corinthians 5:1-4. The body as an earthly tent that weighs us down appears in both."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 3,
+          "v": 5,
+          "label": "Wisdom of Solomon 3:5-6",
+          "note": "Parallel: 1 Peter 1:6-7. Faith tested like gold in the fire is also pictured in Wisdom 3."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 5,
+          "v": 17,
+          "label": "Wisdom of Solomon 5:17-20",
+          "note": "Parallel: Ephesians 6:13-17. God's armor of righteousness, a shield and a sword is also in Wisdom 5. Both draw on Isaiah 59:17."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 18,
+          "v": 15,
+          "label": "Wisdom of Solomon 18:15-16",
+          "note": "Parallel: Hebrews 4:12. God's word as a sharp sword is in both. Isaiah 49:2 is a likely source for the image."
+        },
+        {
+          "book": "Wisdom of Solomon",
+          "ch": 15,
+          "v": 7,
+          "label": "Wisdom of Solomon 15:7",
+          "note": "Parallel: Romans 9:21. The potter making different vessels from the same clay is in both. Isaiah and Jeremiah use the picture too."
+        }
+      ]
+    },
+    {
+      "title": "Wisdom of Sirach",
+      "refs": [
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 28,
+          "v": 2,
+          "label": "Wisdom of Sirach 28:2",
+          "note": "Parallel: Matthew 6:12-15. Forgive your neighbor and then your sins will be pardoned when you pray. Jesus teaches the same."
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 7,
+          "v": 14,
+          "label": "Wisdom of Sirach 7:14",
+          "note": "Parallel: Matthew 6:7. Do not babble or repeat your words in prayer."
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 51,
+          "v": 23,
+          "label": "Wisdom of Sirach 51:23-27",
+          "note": "Parallel: Matthew 11:28-30. “Take my yoke upon you and find rest” is close to “Put your neck under the yoke” and “I found much rest” in Sirach 51."
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 11,
+          "v": 18,
+          "label": "Wisdom of Sirach 11:18-19",
+          "note": "Parallel: Luke 12:19-20. The rich fool who says “I have found rest, now I will eat my goods” is very close to Sirach's rich man."
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 29,
+          "v": 10,
+          "label": "Wisdom of Sirach 29:10-11",
+          "note": "Parallel: Matthew 6:19-20. Storing up treasure by giving is also taught in Sirach 29 and Tobit 4."
+        },
+        {
+          "book": "Tobit",
+          "ch": 4,
+          "v": 9,
+          "label": "Tobit 4:9",
+          "note": "Parallel: Matthew 6:19-20. Storing up treasure by giving is also taught in Sirach 29 and Tobit 4."
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 9,
+          "v": 8,
+          "label": "Wisdom of Sirach 9:8",
+          "note": "Parallel: Matthew 5:28. Do not gaze on another's beauty. Jesus goes further and speaks of the look of lust."
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 7,
+          "v": 32,
+          "label": "Wisdom of Sirach 7:32-35",
+          "note": "Parallel: Matthew 25:36. Visiting the sick and giving bread to the hungry and clothes to the naked are also taught in Sirach and Tobit."
+        },
+        {
+          "book": "Tobit",
+          "ch": 4,
+          "v": 16,
+          "label": "Tobit 4:16",
+          "note": "Parallel: Matthew 25:36. Visiting the sick and giving bread to the hungry and clothes to the naked are also taught in Sirach and Tobit."
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 37,
+          "v": 2,
+          "label": "Wisdom of Sirach 37:2",
+          "note": "Parallel: Matthew 26:38. “Sorrow even to death” has similar wording to “grief even to death” in Sirach. This is a possible echo."
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 5,
+          "v": 11,
+          "label": "Wisdom of Sirach 5:11",
+          "note": "Parallel: James 1:19. “Swift to hear” appears in both."
+        },
+        {
+          "book": "Wisdom of Sirach",
+          "ch": 15,
+          "v": 11,
+          "label": "Wisdom of Sirach 15:11-13",
+          "note": "Parallel: James 1:13. Do not say God makes you do wrong. James and Sirach teach this."
+        }
+      ]
+    },
+    {
+      "title": "Tobit and Susanna",
+      "refs": [
+        {
+          "book": "Tobit",
+          "ch": 4,
+          "v": 15,
+          "label": "Tobit 4:15",
+          "note": "Parallel: Matthew 7:12 + Luke 6:31. The Golden Rule in its “do not do” form: “What you hate, do to no one.” Jesus gives it in positive form."
+        },
+        {
+          "book": "Tobit",
+          "ch": 4,
+          "v": 7,
+          "label": "Tobit 4:7-8",
+          "note": "Parallel: Luke 14:13-14. Giving to the poor is taught in both."
+        },
+        {
+          "book": "Tobit",
+          "ch": 12,
+          "v": 15,
+          "label": "Tobit 12:15",
+          "note": "Parallel: Revelation 8:2. The seven angels who stand before God appear in both. Only Tobit names them as seven holy angels."
+        },
+        {
+          "book": "Tobit",
+          "ch": 13,
+          "v": 16,
+          "label": "Tobit 13:16-17",
+          "note": "Parallel: Revelation 21:18-21. The new Jerusalem built with precious stones and gold appears in both."
+        },
+        {
+          "book": "Susanna",
+          "ch": 1,
+          "v": 46,
+          "label": "Susanna 1:46",
+          "note": "Parallel: Matthew 27:24. Declaring yourself clean of innocent blood is in both. Pilate says it of Jesus. Daniel says it about Susanna."
+        }
+      ]
+    },
+    {
+      "title": "Books named in the Old Testament",
+      "refs": [
+        {
+          "book": "The Book of Jasher",
+          "ch": 88,
+          "v": 63,
+          "label": "The Book of Jasher 88:63-65",
+          "note": "Cited: Joshua 10:12-13. Joshua says the sun standing still is written in the Book of Jashar. Our Book of Jasher tells the same event. Scholars think our Jasher is a later book with the same title, not the original lost book."
+        },
+        {
+          "book": "2 Samuel",
+          "ch": 1,
+          "v": 17,
+          "label": "2 Samuel 1:17-18",
+          "note": "This book is lost. It is not in our Bible. The Book of Jasher in our Bible does not include this song."
+        },
+        {
+          "book": "Numbers",
+          "ch": 21,
+          "v": 14,
+          "label": "Numbers 21:14-15",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "1 Kings",
+          "ch": 11,
+          "v": 41,
+          "label": "1 Kings 11:41",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "1 Kings",
+          "ch": 14,
+          "v": 19,
+          "label": "1 Kings 14:19",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "1 Kings",
+          "ch": 14,
+          "v": 29,
+          "label": "1 Kings 14:29",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "1 Chronicles",
+          "ch": 29,
+          "v": 29,
+          "label": "1 Chronicles 29:29",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "2 Chronicles",
+          "ch": 9,
+          "v": 29,
+          "label": "2 Chronicles 9:29",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "2 Chronicles",
+          "ch": 12,
+          "v": 15,
+          "label": "2 Chronicles 12:15",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "2 Chronicles",
+          "ch": 13,
+          "v": 22,
+          "label": "2 Chronicles 13:22",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "2 Chronicles",
+          "ch": 20,
+          "v": 34,
+          "label": "2 Chronicles 20:34",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "2 Chronicles",
+          "ch": 26,
+          "v": 22,
+          "label": "2 Chronicles 26:22",
+          "note": "This book is lost. It is not in our Bible. It is not the Book of Isaiah in our Bible."
+        },
+        {
+          "book": "2 Chronicles",
+          "ch": 35,
+          "v": 25,
+          "label": "2 Chronicles 35:25",
+          "note": "This book is lost. It is not in our Bible. It is not the Book of Lamentations in our Bible."
+        },
+        {
+          "book": "Esther",
+          "ch": 10,
+          "v": 2,
+          "label": "Esther 10:2",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "Prayer of Manasseh",
+          "ch": 1,
+          "v": 1,
+          "label": "Prayer of Manasseh 1:1-3",
+          "note": "Named: 2 Chronicles 33:18-19. The Bible says Manasseh's prayer was written down. The Prayer of Manasseh in our Bible is an old prayer with that title. Scholars doubt it is the original prayer, which is lost."
+        }
+      ]
+    },
+    {
+      "title": "Lost letters in the New Testament",
+      "refs": [
+        {
+          "book": "1 Corinthians",
+          "ch": 5,
+          "v": 9,
+          "label": "1 Corinthians 5:9",
+          "note": "This book is lost. It is not in our Bible."
+        },
+        {
+          "book": "Colossians",
+          "ch": 4,
+          "v": 16,
+          "label": "Colossians 4:16",
+          "note": "This book is lost. It is not in our Bible."
+        }
+      ]
+    },
+    {
+      "title": "Love God and love other people",
+      "refs": [
+        {
+          "book": "Matthew",
+          "ch": 22,
+          "v": 37,
+          "label": "Matthew 22:37-40",
+          "note": "Jesus"
+        },
+        {
+          "book": "Mark",
+          "ch": 12,
+          "v": 29,
+          "label": "Mark 12:29-31",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 10,
+          "v": 25,
+          "label": "Luke 10:25-37",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 13,
+          "v": 34,
+          "label": "John 13:34-35",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 15,
+          "v": 12,
+          "label": "John 15:12-13",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 5,
+          "v": 43,
+          "label": "Matthew 5:43-48",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 6,
+          "v": 27,
+          "label": "Luke 6:27-36",
+          "note": "Jesus"
+        },
+        {
+          "book": "1 John",
+          "ch": 4,
+          "v": 20,
+          "label": "1 John 4:20-21",
+          "note": "Apostle"
+        },
+        {
+          "book": "1 John",
+          "ch": 3,
+          "v": 16,
+          "label": "1 John 3:16-18",
+          "note": "Apostle"
+        }
+      ]
+    },
+    {
+      "title": "Deny yourself and follow Him",
+      "refs": [
+        {
+          "book": "Luke",
+          "ch": 9,
+          "v": 23,
+          "label": "Luke 9:23-25",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 16,
+          "v": 24,
+          "label": "Matthew 16:24-26",
+          "note": "Jesus"
+        },
+        {
+          "book": "Mark",
+          "ch": 8,
+          "v": 34,
+          "label": "Mark 8:34-38",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 14,
+          "v": 25,
+          "label": "Luke 14:25-33",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 10,
+          "v": 37,
+          "label": "Matthew 10:37-39",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 12,
+          "v": 24,
+          "label": "John 12:24-26",
+          "note": "Jesus"
+        },
+        {
+          "book": "Mark",
+          "ch": 10,
+          "v": 17,
+          "label": "Mark 10:17-22",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 4,
+          "v": 18,
+          "label": "Matthew 4:18-22",
+          "note": "Jesus"
+        }
+      ]
+    },
+    {
+      "title": "Obey His commands",
+      "refs": [
+        {
+          "book": "John",
+          "ch": 14,
+          "v": 15,
+          "label": "John 14:15",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 14,
+          "v": 21,
+          "label": "John 14:21-24",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 15,
+          "v": 10,
+          "label": "John 15:10",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 15,
+          "v": 14,
+          "label": "John 15:14",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 6,
+          "v": 46,
+          "label": "Luke 6:46-49",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 7,
+          "v": 21,
+          "label": "Matthew 7:21-27",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 11,
+          "v": 27,
+          "label": "Luke 11:27-28",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 8,
+          "v": 31,
+          "label": "John 8:31-32",
+          "note": "Jesus"
+        },
+        {
+          "book": "1 John",
+          "ch": 2,
+          "v": 3,
+          "label": "1 John 2:3-6",
+          "note": "Apostle"
+        },
+        {
+          "book": "1 John",
+          "ch": 5,
+          "v": 2,
+          "label": "1 John 5:2-3",
+          "note": "Apostle"
+        },
+        {
+          "book": "James",
+          "ch": 1,
+          "v": 22,
+          "label": "James 1:22-25",
+          "note": "Apostle"
+        }
+      ]
+    },
+    {
+      "title": "Make disciples and baptize",
+      "refs": [
+        {
+          "book": "Matthew",
+          "ch": 28,
+          "v": 18,
+          "label": "Matthew 28:18-20",
+          "note": "Jesus"
+        },
+        {
+          "book": "Mark",
+          "ch": 16,
+          "v": 15,
+          "label": "Mark 16:15-16",
+          "note": "Jesus"
+        },
+        {
+          "book": "Acts",
+          "ch": 1,
+          "v": 8,
+          "label": "Acts 1:8",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 24,
+          "v": 46,
+          "label": "Luke 24:46-48",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 20,
+          "v": 21,
+          "label": "John 20:21",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 5,
+          "v": 14,
+          "label": "Matthew 5:14-16",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 4,
+          "v": 19,
+          "label": "Matthew 4:19",
+          "note": "Jesus"
+        }
+      ]
+    },
+    {
+      "title": "Forgive",
+      "refs": [
+        {
+          "book": "Matthew",
+          "ch": 6,
+          "v": 14,
+          "label": "Matthew 6:14-15",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 18,
+          "v": 21,
+          "label": "Matthew 18:21-22",
+          "note": "Jesus"
+        },
+        {
+          "book": "Mark",
+          "ch": 11,
+          "v": 25,
+          "label": "Mark 11:25",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 6,
+          "v": 37,
+          "label": "Luke 6:37-38",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 17,
+          "v": 3,
+          "label": "Luke 17:3-4",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 18,
+          "v": 23,
+          "label": "Matthew 18:23-35",
+          "note": "Jesus"
+        },
+        {
+          "book": "Colossians",
+          "ch": 3,
+          "v": 13,
+          "label": "Colossians 3:13",
+          "note": "Apostle"
+        },
+        {
+          "book": "Ephesians",
+          "ch": 4,
+          "v": 31,
+          "label": "Ephesians 4:31-32",
+          "note": "Apostle"
+        }
+      ]
+    },
+    {
+      "title": "Serve the poor and those in need",
+      "refs": [
+        {
+          "book": "Matthew",
+          "ch": 25,
+          "v": 31,
+          "label": "Matthew 25:31-46",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 14,
+          "v": 12,
+          "label": "Luke 14:12-14",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 12,
+          "v": 33,
+          "label": "Luke 12:33-34",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 19,
+          "v": 21,
+          "label": "Matthew 19:21",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 6,
+          "v": 30,
+          "label": "Luke 6:30",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 6,
+          "v": 1,
+          "label": "Matthew 6:1-4",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 10,
+          "v": 30,
+          "label": "Luke 10:30-37",
+          "note": "Jesus"
+        },
+        {
+          "book": "Acts",
+          "ch": 20,
+          "v": 35,
+          "label": "Acts 20:35",
+          "note": "Apostle"
+        },
+        {
+          "book": "James",
+          "ch": 1,
+          "v": 27,
+          "label": "James 1:27",
+          "note": "Apostle"
+        },
+        {
+          "book": "James",
+          "ch": 2,
+          "v": 15,
+          "label": "James 2:15-17",
+          "note": "Apostle"
+        },
+        {
+          "book": "1 John",
+          "ch": 3,
+          "v": 17,
+          "label": "1 John 3:17-18",
+          "note": "Apostle"
+        }
+      ]
+    },
+    {
+      "title": "Be humble and serve",
+      "refs": [
+        {
+          "book": "Mark",
+          "ch": 10,
+          "v": 42,
+          "label": "Mark 10:42-45",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 13,
+          "v": 12,
+          "label": "John 13:12-17",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 23,
+          "v": 11,
+          "label": "Matthew 23:11-12",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 22,
+          "v": 24,
+          "label": "Luke 22:24-27",
+          "note": "Jesus"
+        },
+        {
+          "book": "Mark",
+          "ch": 9,
+          "v": 35,
+          "label": "Mark 9:35",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 14,
+          "v": 7,
+          "label": "Luke 14:7-11",
+          "note": "Jesus"
+        },
+        {
+          "book": "Philippians",
+          "ch": 2,
+          "v": 3,
+          "label": "Philippians 2:3-5",
+          "note": "Apostle"
+        }
+      ]
+    },
+    {
+      "title": "Pray",
+      "refs": [
+        {
+          "book": "Matthew",
+          "ch": 6,
+          "v": 5,
+          "label": "Matthew 6:5-13",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 7,
+          "v": 7,
+          "label": "Matthew 7:7-11",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 18,
+          "v": 1,
+          "label": "Luke 18:1-8",
+          "note": "Jesus"
+        },
+        {
+          "book": "Mark",
+          "ch": 11,
+          "v": 24,
+          "label": "Mark 11:24",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 26,
+          "v": 41,
+          "label": "Matthew 26:41",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 18,
+          "v": 19,
+          "label": "Matthew 18:19-20",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 15,
+          "v": 7,
+          "label": "John 15:7",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 21,
+          "v": 36,
+          "label": "Luke 21:36",
+          "note": "Jesus"
+        },
+        {
+          "book": "1 Thessalonians",
+          "ch": 5,
+          "v": 16,
+          "label": "1 Thessalonians 5:16-18",
+          "note": "Apostle"
+        }
+      ]
+    },
+    {
+      "title": "Stay with Him and bear fruit",
+      "refs": [
+        {
+          "book": "John",
+          "ch": 15,
+          "v": 1,
+          "label": "John 15:1-17",
+          "note": "Jesus"
+        }
+      ]
+    },
+    {
+      "title": "Stay faithful to the end",
+      "refs": [
+        {
+          "book": "Matthew",
+          "ch": 24,
+          "v": 13,
+          "label": "Matthew 24:13",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 9,
+          "v": 62,
+          "label": "Luke 9:62",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 10,
+          "v": 22,
+          "label": "Matthew 10:22",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 8,
+          "v": 15,
+          "label": "Luke 8:15",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 16,
+          "v": 10,
+          "label": "Luke 16:10",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 25,
+          "v": 21,
+          "label": "Matthew 25:21-23",
+          "note": "Jesus"
+        },
+        {
+          "book": "Mark",
+          "ch": 13,
+          "v": 33,
+          "label": "Mark 13:33-37",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 24,
+          "v": 42,
+          "label": "Matthew 24:42-44",
+          "note": "Jesus"
+        },
+        {
+          "book": "Revelation",
+          "ch": 2,
+          "v": 10,
+          "label": "Revelation 2:10",
+          "note": "Jesus"
+        },
+        {
+          "book": "Revelation",
+          "ch": 3,
+          "v": 11,
+          "label": "Revelation 3:11",
+          "note": "Jesus"
+        },
+        {
+          "book": "Hebrews",
+          "ch": 12,
+          "v": 1,
+          "label": "Hebrews 12:1-2",
+          "note": "Apostle"
+        }
+      ]
+    },
+    {
+      "title": "Put God first and do not worry",
+      "refs": [
+        {
+          "book": "Matthew",
+          "ch": 6,
+          "v": 19,
+          "label": "Matthew 6:19-21",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 6,
+          "v": 24,
+          "label": "Matthew 6:24",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 6,
+          "v": 25,
+          "label": "Matthew 6:25-34",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 12,
+          "v": 15,
+          "label": "Luke 12:15",
+          "note": "Jesus"
+        },
+        {
+          "book": "Mark",
+          "ch": 8,
+          "v": 36,
+          "label": "Mark 8:36-37",
+          "note": "Jesus"
+        }
+      ]
+    },
+    {
+      "title": "Sermon on the Mount highlights",
+      "refs": [
+        {
+          "book": "Matthew",
+          "ch": 5,
+          "v": 3,
+          "label": "Matthew 5:3-12",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 5,
+          "v": 13,
+          "label": "Matthew 5:13-16",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 5,
+          "v": 21,
+          "label": "Matthew 5:21-24",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 5,
+          "v": 33,
+          "label": "Matthew 5:33-37",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 5,
+          "v": 38,
+          "label": "Matthew 5:38-42",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 6,
+          "v": 1,
+          "label": "Matthew 6:1-4",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 6,
+          "v": 16,
+          "label": "Matthew 6:16-18",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 7,
+          "v": 1,
+          "label": "Matthew 7:1-5",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 7,
+          "v": 12,
+          "label": "Matthew 7:12",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 7,
+          "v": 13,
+          "label": "Matthew 7:13-14",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 7,
+          "v": 15,
+          "label": "Matthew 7:15-20",
+          "note": "Jesus"
+        }
+      ]
+    },
+    {
+      "title": "Repent and believe",
+      "refs": [
+        {
+          "book": "Mark",
+          "ch": 1,
+          "v": 15,
+          "label": "Mark 1:15",
+          "note": "Jesus"
+        },
+        {
+          "book": "Matthew",
+          "ch": 4,
+          "v": 17,
+          "label": "Matthew 4:17",
+          "note": "Jesus"
+        },
+        {
+          "book": "Luke",
+          "ch": 13,
+          "v": 3,
+          "label": "Luke 13:3-5",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 3,
+          "v": 3,
+          "label": "John 3:3-7",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 6,
+          "v": 28,
+          "label": "John 6:28-29",
+          "note": "Jesus"
+        },
+        {
+          "book": "John",
+          "ch": 14,
+          "v": 6,
+          "label": "John 14:6",
+          "note": "Jesus"
+        },
+        {
+          "book": "Acts",
+          "ch": 2,
+          "v": 38,
+          "label": "Acts 2:38",
+          "note": "Apostle"
+        }
+      ]
+    },
+    {
+      "title": "Remember Him together",
+      "refs": [
+        {
+          "book": "Luke",
+          "ch": 22,
+          "v": 19,
+          "label": "Luke 22:19-20",
+          "note": "Jesus"
+        },
+        {
+          "book": "1 Corinthians",
+          "ch": 11,
+          "v": 23,
+          "label": "1 Corinthians 11:23-26",
+          "note": "Apostle"
+        }
+      ]
+    },
+    {
+      "title": "Emotional numbness",
+      "refs": [
+        {
+          "book": "Romans",
+          "ch": 8,
+          "v": 26,
+          "label": "Romans 8:26",
+          "note": "when you can't find the words to pray"
+        },
+        {
+          "book": "Psalms",
+          "ch": 34,
+          "v": 18,
+          "label": "Psalms 34:18",
+          "note": "the Lord is close to the brokenhearted"
+        },
+        {
+          "book": "Psalms",
+          "ch": 147,
+          "v": 3,
+          "label": "Psalms 147:3",
+          "note": "he binds up the brokenhearted"
+        },
+        {
+          "book": "Psalms",
+          "ch": 42,
+          "v": 11,
+          "label": "Psalms 42:11",
+          "note": "why is my soul cast down? hope in God"
+        },
+        {
+          "book": "Isaiah",
+          "ch": 41,
+          "v": 10,
+          "label": "Isaiah 41:10",
+          "note": "I will strengthen you and uphold you"
+        },
+        {
+          "book": "Matthew",
+          "ch": 11,
+          "v": 28,
+          "label": "Matthew 11:28",
+          "note": "come to me, and I will give you rest"
+        },
+        {
+          "book": "Lamentations",
+          "ch": 3,
+          "v": 22,
+          "label": "Lamentations 3:22-23",
+          "note": "his mercies are new every morning"
+        },
+        {
+          "book": "1 Kings",
+          "ch": 19,
+          "v": 12,
+          "label": "1 Kings 19:12",
+          "note": "God came in a still small voice"
+        }
+      ]
+    }
+  ],
+  "intro": "Tap any reference to open it in your Bible.",
+  "title": "Johnny's References"
+}

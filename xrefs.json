@@ -1,0 +1,1036 @@
+{
+ "version": 1,
+ "note": "Cross-references from the 66 books to 1 Enoch and Jubilees. Key: 'Book Chapter:Verse' as shown in the KJV reader. Each target is a passage in 1 Enoch or Jubilees that quotes, parallels, or expands the verse. Verified against the app's own texts (kjv94.json and bible.json).",
+ "xrefs": {
+  "Jude 1:14": [
+   {
+    "label": "1 Enoch 1:9",
+    "ref": "1 Enoch 1:9"
+   }
+  ],
+  "Jude 1:15": [
+   {
+    "label": "1 Enoch 1:9",
+    "ref": "1 Enoch 1:9"
+   }
+  ],
+  "Jude 1:6": [
+   {
+    "label": "1 Enoch 10:4-6",
+    "ref": "1 Enoch 10:4-6"
+   },
+   {
+    "label": "1 Enoch 10:11-13",
+    "ref": "1 Enoch 10:11-13"
+   },
+   {
+    "label": "1 Enoch 12:4",
+    "ref": "1 Enoch 12:4"
+   }
+  ],
+  "Jude 1:13": [
+   {
+    "label": "1 Enoch 18:13-16",
+    "ref": "1 Enoch 18:13-16"
+   },
+   {
+    "label": "1 Enoch 21:3-6",
+    "ref": "1 Enoch 21:3-6"
+   }
+  ],
+  "Jude 1:16": [
+   {
+    "label": "1 Enoch 5:4",
+    "ref": "1 Enoch 5:4"
+   }
+  ],
+  "2 Peter 2:4": [
+   {
+    "label": "1 Enoch 10:4-6",
+    "ref": "1 Enoch 10:4-6"
+   }
+  ],
+  "1 Peter 3:19": [
+   {
+    "label": "1 Enoch 12:4-6",
+    "ref": "1 Enoch 12:4-6"
+   },
+   {
+    "label": "1 Enoch 10:12-14",
+    "ref": "1 Enoch 10:12-14"
+   },
+   {
+    "label": "1 Enoch 21:10",
+    "ref": "1 Enoch 21:10"
+   }
+  ],
+  "1 Peter 3:20": [
+   {
+    "label": "1 Enoch 12:4-6",
+    "ref": "1 Enoch 12:4-6"
+   },
+   {
+    "label": "1 Enoch 10:12-14",
+    "ref": "1 Enoch 10:12-14"
+   },
+   {
+    "label": "1 Enoch 21:10",
+    "ref": "1 Enoch 21:10"
+   }
+  ],
+  "Genesis 6:1": [
+   {
+    "label": "1 Enoch 6:1-6",
+    "ref": "1 Enoch 6:1-6"
+   },
+   {
+    "label": "Jubilees 5:1",
+    "ref": "The Book of Jubilees 5:1"
+   }
+  ],
+  "Genesis 6:2": [
+   {
+    "label": "1 Enoch 6:1-6",
+    "ref": "1 Enoch 6:1-6"
+   },
+   {
+    "label": "Jubilees 5:1",
+    "ref": "The Book of Jubilees 5:1"
+   }
+  ],
+  "Genesis 6:4": [
+   {
+    "label": "1 Enoch 7:1-2",
+    "ref": "1 Enoch 7:1-2"
+   },
+   {
+    "label": "Jubilees 5:1-2",
+    "ref": "The Book of Jubilees 5:1-2"
+   }
+  ],
+  "Genesis 6:5": [
+   {
+    "label": "1 Enoch 9:1-2",
+    "ref": "1 Enoch 9:1-2"
+   },
+   {
+    "label": "1 Enoch 10:1-3",
+    "ref": "1 Enoch 10:1-3"
+   },
+   {
+    "label": "Jubilees 5:2-5",
+    "ref": "The Book of Jubilees 5:2-5"
+   }
+  ],
+  "Genesis 6:6": [
+   {
+    "label": "1 Enoch 9:1-2",
+    "ref": "1 Enoch 9:1-2"
+   },
+   {
+    "label": "1 Enoch 10:1-3",
+    "ref": "1 Enoch 10:1-3"
+   },
+   {
+    "label": "Jubilees 5:2-5",
+    "ref": "The Book of Jubilees 5:2-5"
+   }
+  ],
+  "Genesis 6:7": [
+   {
+    "label": "1 Enoch 9:1-2",
+    "ref": "1 Enoch 9:1-2"
+   },
+   {
+    "label": "1 Enoch 10:1-3",
+    "ref": "1 Enoch 10:1-3"
+   },
+   {
+    "label": "Jubilees 5:2-5",
+    "ref": "The Book of Jubilees 5:2-5"
+   }
+  ],
+  "Genesis 5:21": [
+   {
+    "label": "1 Enoch 12:1-4",
+    "ref": "1 Enoch 12:1-4"
+   }
+  ],
+  "Genesis 5:22": [
+   {
+    "label": "1 Enoch 12:1-4",
+    "ref": "1 Enoch 12:1-4"
+   }
+  ],
+  "Genesis 5:23": [
+   {
+    "label": "1 Enoch 12:1-4",
+    "ref": "1 Enoch 12:1-4"
+   }
+  ],
+  "Genesis 5:24": [
+   {
+    "label": "Jubilees 4:23-25",
+    "ref": "The Book of Jubilees 4:23-25"
+   }
+  ],
+  "Genesis 4:9": [
+   {
+    "label": "Jubilees 4:1-6",
+    "ref": "The Book of Jubilees 4:1-6"
+   }
+  ],
+  "Genesis 4:10": [
+   {
+    "label": "Jubilees 4:1-6",
+    "ref": "The Book of Jubilees 4:1-6"
+   }
+  ],
+  "Genesis 4:17": [
+   {
+    "label": "Jubilees 4:9",
+    "ref": "The Book of Jubilees 4:9"
+   }
+  ],
+  "Genesis 11:1": [
+   {
+    "label": "Jubilees 10:18-26",
+    "ref": "The Book of Jubilees 10:18-26"
+   }
+  ],
+  "Genesis 11:2": [
+   {
+    "label": "Jubilees 10:18-26",
+    "ref": "The Book of Jubilees 10:18-26"
+   }
+  ],
+  "Genesis 11:3": [
+   {
+    "label": "Jubilees 10:18-26",
+    "ref": "The Book of Jubilees 10:18-26"
+   }
+  ],
+  "Genesis 11:4": [
+   {
+    "label": "Jubilees 10:18-26",
+    "ref": "The Book of Jubilees 10:18-26"
+   }
+  ],
+  "Genesis 11:5": [
+   {
+    "label": "Jubilees 10:18-26",
+    "ref": "The Book of Jubilees 10:18-26"
+   }
+  ],
+  "Genesis 11:6": [
+   {
+    "label": "Jubilees 10:18-26",
+    "ref": "The Book of Jubilees 10:18-26"
+   }
+  ],
+  "Genesis 11:7": [
+   {
+    "label": "Jubilees 10:18-26",
+    "ref": "The Book of Jubilees 10:18-26"
+   }
+  ],
+  "Genesis 11:8": [
+   {
+    "label": "Jubilees 10:18-26",
+    "ref": "The Book of Jubilees 10:18-26"
+   }
+  ],
+  "Genesis 11:9": [
+   {
+    "label": "Jubilees 10:18-26",
+    "ref": "The Book of Jubilees 10:18-26"
+   }
+  ],
+  "Genesis 22:1": [
+   {
+    "label": "Jubilees 17:15-18:19",
+    "ref": "The Book of Jubilees 17:15-18:19"
+   }
+  ],
+  "Genesis 22:2": [
+   {
+    "label": "Jubilees 17:15-18:19",
+    "ref": "The Book of Jubilees 17:15-18:19"
+   }
+  ],
+  "Genesis 28:10": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:11": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:12": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:13": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:14": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:15": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:16": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:17": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:18": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:19": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:20": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:21": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 28:22": [
+   {
+    "label": "Jubilees 27:19-27",
+    "ref": "The Book of Jubilees 27:19-27"
+   }
+  ],
+  "Genesis 1:1": [
+   {
+    "label": "Jubilees 2:1-3",
+    "ref": "The Book of Jubilees 2:1-3"
+   }
+  ],
+  "Genesis 1:2": [
+   {
+    "label": "Jubilees 2:1-3",
+    "ref": "The Book of Jubilees 2:1-3"
+   }
+  ],
+  "Genesis 2:2": [
+   {
+    "label": "Jubilees 2:17-33",
+    "ref": "The Book of Jubilees 2:17-33"
+   }
+  ],
+  "Genesis 2:3": [
+   {
+    "label": "Jubilees 2:17-33",
+    "ref": "The Book of Jubilees 2:17-33"
+   }
+  ],
+  "Genesis 9:1": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:2": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:3": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:4": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:5": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:6": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:7": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:8": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:9": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:10": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:11": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:12": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:13": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:14": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:15": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:16": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 9:17": [
+   {
+    "label": "Jubilees 6:1-16",
+    "ref": "The Book of Jubilees 6:1-16"
+   }
+  ],
+  "Genesis 17:10": [
+   {
+    "label": "Jubilees 15:11-14",
+    "ref": "The Book of Jubilees 15:11-14"
+   }
+  ],
+  "Genesis 17:11": [
+   {
+    "label": "Jubilees 15:11-14",
+    "ref": "The Book of Jubilees 15:11-14"
+   }
+  ],
+  "Genesis 17:12": [
+   {
+    "label": "Jubilees 15:11-14",
+    "ref": "The Book of Jubilees 15:11-14"
+   }
+  ],
+  "Genesis 17:13": [
+   {
+    "label": "Jubilees 15:11-14",
+    "ref": "The Book of Jubilees 15:11-14"
+   }
+  ],
+  "Genesis 17:14": [
+   {
+    "label": "Jubilees 15:11-14",
+    "ref": "The Book of Jubilees 15:11-14"
+   }
+  ],
+  "Exodus 20:8": [
+   {
+    "label": "Jubilees 2:17-33",
+    "ref": "The Book of Jubilees 2:17-33"
+   },
+   {
+    "label": "Jubilees 50:1-3",
+    "ref": "The Book of Jubilees 50:1-3"
+   }
+  ],
+  "Exodus 20:9": [
+   {
+    "label": "Jubilees 2:17-33",
+    "ref": "The Book of Jubilees 2:17-33"
+   },
+   {
+    "label": "Jubilees 50:1-3",
+    "ref": "The Book of Jubilees 50:1-3"
+   }
+  ],
+  "Exodus 20:10": [
+   {
+    "label": "Jubilees 2:17-33",
+    "ref": "The Book of Jubilees 2:17-33"
+   },
+   {
+    "label": "Jubilees 50:1-3",
+    "ref": "The Book of Jubilees 50:1-3"
+   }
+  ],
+  "Exodus 20:11": [
+   {
+    "label": "Jubilees 2:17-33",
+    "ref": "The Book of Jubilees 2:17-33"
+   },
+   {
+    "label": "Jubilees 50:1-3",
+    "ref": "The Book of Jubilees 50:1-3"
+   }
+  ],
+  "Exodus 12:1": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:2": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:3": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:4": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:5": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:6": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:7": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:8": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:9": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:10": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:11": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:12": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:13": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:14": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:15": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:16": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:17": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:18": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:19": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:20": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:21": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:22": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:23": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:24": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:25": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:26": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:27": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 12:28": [
+   {
+    "label": "Jubilees 49:1-23",
+    "ref": "The Book of Jubilees 49:1-23"
+   }
+  ],
+  "Exodus 24:12": [
+   {
+    "label": "Jubilees 1:1-2",
+    "ref": "The Book of Jubilees 1:1-2"
+   }
+  ],
+  "Exodus 24:13": [
+   {
+    "label": "Jubilees 1:1-2",
+    "ref": "The Book of Jubilees 1:1-2"
+   }
+  ],
+  "Exodus 24:14": [
+   {
+    "label": "Jubilees 1:1-2",
+    "ref": "The Book of Jubilees 1:1-2"
+   }
+  ],
+  "Exodus 24:15": [
+   {
+    "label": "Jubilees 1:1-2",
+    "ref": "The Book of Jubilees 1:1-2"
+   }
+  ],
+  "Exodus 24:16": [
+   {
+    "label": "Jubilees 1:1-2",
+    "ref": "The Book of Jubilees 1:1-2"
+   }
+  ],
+  "Exodus 24:17": [
+   {
+    "label": "Jubilees 1:1-2",
+    "ref": "The Book of Jubilees 1:1-2"
+   }
+  ],
+  "Exodus 24:18": [
+   {
+    "label": "Jubilees 1:1-2",
+    "ref": "The Book of Jubilees 1:1-2"
+   }
+  ],
+  "Leviticus 16:8": [
+   {
+    "label": "1 Enoch 10:4-8",
+    "ref": "1 Enoch 10:4-8"
+   }
+  ],
+  "Leviticus 16:9": [
+   {
+    "label": "1 Enoch 10:4-8",
+    "ref": "1 Enoch 10:4-8"
+   }
+  ],
+  "Leviticus 16:10": [
+   {
+    "label": "1 Enoch 10:4-8",
+    "ref": "1 Enoch 10:4-8"
+   }
+  ],
+  "Leviticus 23:15": [
+   {
+    "label": "Jubilees 6:17-22",
+    "ref": "The Book of Jubilees 6:17-22"
+   }
+  ],
+  "Leviticus 23:16": [
+   {
+    "label": "Jubilees 6:17-22",
+    "ref": "The Book of Jubilees 6:17-22"
+   }
+  ],
+  "Leviticus 23:17": [
+   {
+    "label": "Jubilees 6:17-22",
+    "ref": "The Book of Jubilees 6:17-22"
+   }
+  ],
+  "Leviticus 23:18": [
+   {
+    "label": "Jubilees 6:17-22",
+    "ref": "The Book of Jubilees 6:17-22"
+   }
+  ],
+  "Leviticus 23:19": [
+   {
+    "label": "Jubilees 6:17-22",
+    "ref": "The Book of Jubilees 6:17-22"
+   }
+  ],
+  "Leviticus 23:20": [
+   {
+    "label": "Jubilees 6:17-22",
+    "ref": "The Book of Jubilees 6:17-22"
+   }
+  ],
+  "Leviticus 23:21": [
+   {
+    "label": "Jubilees 6:17-22",
+    "ref": "The Book of Jubilees 6:17-22"
+   }
+  ],
+  "Leviticus 23:33": [
+   {
+    "label": "Jubilees 16:20-21",
+    "ref": "The Book of Jubilees 16:20-21"
+   }
+  ],
+  "Leviticus 23:34": [
+   {
+    "label": "Jubilees 16:20-21",
+    "ref": "The Book of Jubilees 16:20-21"
+   }
+  ],
+  "Leviticus 23:35": [
+   {
+    "label": "Jubilees 16:20-21",
+    "ref": "The Book of Jubilees 16:20-21"
+   }
+  ],
+  "Leviticus 23:36": [
+   {
+    "label": "Jubilees 16:20-21",
+    "ref": "The Book of Jubilees 16:20-21"
+   }
+  ],
+  "Deuteronomy 33:2": [
+   {
+    "label": "1 Enoch 1:9",
+    "ref": "1 Enoch 1:9"
+   }
+  ],
+  "Deuteronomy 32:8": [
+   {
+    "label": "Jubilees 15:31-32",
+    "ref": "The Book of Jubilees 15:31-32"
+   }
+  ],
+  "Hebrews 11:5": [
+   {
+    "label": "Jubilees 4:23",
+    "ref": "The Book of Jubilees 4:23"
+   }
+  ],
+  "Matthew 22:30": [
+   {
+    "label": "1 Enoch 15:6-7",
+    "ref": "1 Enoch 15:6-7"
+   }
+  ],
+  "Mark 12:25": [
+   {
+    "label": "1 Enoch 15:6-7",
+    "ref": "1 Enoch 15:6-7"
+   }
+  ],
+  "Matthew 24:37": [
+   {
+    "label": "Jubilees 5:1",
+    "ref": "The Book of Jubilees 5:1"
+   },
+   {
+    "label": "1 Enoch 10:2",
+    "ref": "1 Enoch 10:2"
+   }
+  ],
+  "Matthew 25:31": [
+   {
+    "label": "1 Enoch 62:2-3",
+    "ref": "1 Enoch 62:2-3"
+   },
+   {
+    "label": "1 Enoch 69:27-29",
+    "ref": "1 Enoch 69:27-29"
+   }
+  ],
+  "Matthew 25:41": [
+   {
+    "label": "1 Enoch 10:13",
+    "ref": "1 Enoch 10:13"
+   },
+   {
+    "label": "1 Enoch 54:1-6",
+    "ref": "1 Enoch 54:1-6"
+   }
+  ],
+  "Matthew 26:24": [
+   {
+    "label": "1 Enoch 38:2",
+    "ref": "1 Enoch 38:2"
+   }
+  ],
+  "1 Corinthians 11:10": [
+   {
+    "label": "1 Enoch 6:1-2",
+    "ref": "1 Enoch 6:1-2"
+   },
+   {
+    "label": "1 Enoch 7:1-2",
+    "ref": "1 Enoch 7:1-2"
+   }
+  ],
+  "1 John 3:12": [
+   {
+    "label": "Jubilees 4:2-6",
+    "ref": "The Book of Jubilees 4:2-6"
+   }
+  ],
+  "Revelation 20:1": [
+   {
+    "label": "1 Enoch 10:4-6",
+    "ref": "1 Enoch 10:4-6"
+   }
+  ],
+  "Revelation 20:2": [
+   {
+    "label": "1 Enoch 10:4-6",
+    "ref": "1 Enoch 10:4-6"
+   }
+  ],
+  "Revelation 20:3": [
+   {
+    "label": "1 Enoch 10:4-6",
+    "ref": "1 Enoch 10:4-6"
+   }
+  ],
+  "Revelation 20:7": [
+   {
+    "label": "1 Enoch 10:12-13",
+    "ref": "1 Enoch 10:12-13"
+   }
+  ],
+  "Revelation 20:8": [
+   {
+    "label": "1 Enoch 10:12-13",
+    "ref": "1 Enoch 10:12-13"
+   }
+  ],
+  "Revelation 20:9": [
+   {
+    "label": "1 Enoch 10:12-13",
+    "ref": "1 Enoch 10:12-13"
+   }
+  ],
+  "Revelation 20:10": [
+   {
+    "label": "1 Enoch 10:12-13",
+    "ref": "1 Enoch 10:12-13"
+   }
+  ],
+  "Revelation 6:9": [
+   {
+    "label": "1 Enoch 47:1-4",
+    "ref": "1 Enoch 47:1-4"
+   }
+  ],
+  "Revelation 6:10": [
+   {
+    "label": "1 Enoch 47:1-4",
+    "ref": "1 Enoch 47:1-4"
+   }
+  ],
+  "2 Peter 3:6": [
+   {
+    "label": "Jubilees 5:1",
+    "ref": "The Book of Jubilees 5:1"
+   },
+   {
+    "label": "1 Enoch 10:2",
+    "ref": "1 Enoch 10:2"
+   }
+  ],
+  "2 Peter 3:7": [
+   {
+    "label": "Jubilees 5:1",
+    "ref": "The Book of Jubilees 5:1"
+   },
+   {
+    "label": "1 Enoch 10:2",
+    "ref": "1 Enoch 10:2"
+   }
+  ],
+  "Daniel 7:10": [
+   {
+    "label": "1 Enoch 1:9",
+    "ref": "1 Enoch 1:9"
+   },
+   {
+    "label": "1 Enoch 14:22",
+    "ref": "1 Enoch 14:22"
+   }
+  ],
+  "Genesis 6:9": [
+   {
+    "label": "Jubilees 5:19-21",
+    "ref": "The Book of Jubilees 5:19-21"
+   }
+  ],
+  "John 5:22": [
+   {
+    "label": "1 Enoch 69:27",
+    "ref": "1 Enoch 69:27"
+   }
+  ],
+  "John 5:27": [
+   {
+    "label": "1 Enoch 69:27",
+    "ref": "1 Enoch 69:27"
+   }
+  ],
+  "Acts 7:52": [
+   {
+    "label": "1 Enoch 53:6",
+    "ref": "1 Enoch 53:6"
+   }
+  ],
+  "Luke 23:35": [
+   {
+    "label": "1 Enoch 40:5",
+    "ref": "1 Enoch 40:5"
+   },
+   {
+    "label": "1 Enoch 45:3",
+    "ref": "1 Enoch 45:3"
+   }
+  ],
+  "Luke 6:24": [
+   {
+    "label": "1 Enoch 94:8",
+    "ref": "1 Enoch 94:8"
+   }
+  ]
+ }
+}
