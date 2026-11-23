@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="God's Light Bible">
+<meta name="theme-color" content="#0f0f12">
+<title>God's Light Bible</title>
+<style>
+:root{--fs:17px;--bg:#0f0f12;--card:#1a1a20;--text:#f2ede4;--muted:#a8a29a;--line:#2c2c34;--gold:#d4a017;--gold-bg:rgba(212,160,23,.16);--red:#e5484d;--accent:#d4a017}
+body.light{--bg:#fffbf0;--card:#ffffff;--text:#1c1a17;--muted:#6b655c;--line:#e3dccb;--gold-bg:rgba(180,130,0,.14)}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:var(--fs);line-height:1.55;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 14px calc(8px + env(safe-area-inset-top)*0)}
+h1{font-size:21px;margin:0}
+.sub{font-size:13px;color:var(--muted);margin:2px 0 8px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+button{font-family:inherit;cursor:pointer;min-height:44px}
+.tab{flex:1;padding:10px 8px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:16px;font-weight:700}
+.tab.active{background:var(--gold);border-color:var(--gold);color:#111}
+.tab.small{flex:0 0 auto;padding:10px 14px}
+.streak{display:inline-block;margin-top:8px;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+main{padding:12px 14px 40px;max-width:760px;margin:0 auto}
+input[type=search],input[type=number]{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:16px;margin:8px 0}
+.book{display:block;width:100%;text-align:left;padding:13px 12px;margin:6px 0;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:16px}
+.book small{color:var(--muted);display:block;font-size:13px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{min-width:48px;padding:10px 6px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:16px}
+.chip.active{background:var(--gold);border-color:var(--gold);color:#111;font-weight:700}
+.navrow{display:flex;gap:8px;margin:12px 0}
+.navbtn{flex:1;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:16px}
+.verse{padding:10px 4px;border-bottom:1px solid var(--line)}
+.vnum{font-size:.72em;font-weight:700;color:var(--muted);vertical-align:super;margin-right:6px}
+.sp-red{color:var(--red)}
+.sp-gold{background:var(--gold-bg);border-radius:4px;padding:0 2px}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;border-radius:999px;padding:2px 8px;margin:0 6px 4px 0;vertical-align:middle}
+.badge.gold{background:var(--gold);color:#111}
+.badge.red{background:var(--red);color:#fff}
+.xref{margin:6px 0 2px;font-size:14px;color:var(--gold)}
+.xref button{background:none;border:none;color:var(--gold);font-size:14px;text-decoration:underline;padding:6px 4px;min-height:32px}
+.banner{background:var(--gold-bg);border:1px solid var(--gold);border-radius:12px;padding:12px;margin:10px 0}
+.banner b{display:block;margin-bottom:6px}
+.banner button,.widebtn{padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:15px;margin-right:8px}
+.note{font-size:13px;color:var(--muted);margin:10px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.card h2{font-size:17px;margin:0 0 6px}
+.card p{margin:6px 0}
+.refgroup{margin:16px 0}
+.refgroup h3{font-size:16px;margin:0 0 6px}
+.ref{display:block;width:100%;text-align:left;padding:11px 12px;margin:5px 0;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:15px}
+.ref small{color:var(--muted);display:block;font-size:13px}
+.setrow{display:flex;gap:8px;align-items:center;margin:8px 0;flex-wrap:wrap}
+.setrow button{padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:16px}
+.setrow button.active{background:var(--gold);border-color:var(--gold);color:#111;font-weight:700}
+.setrow input[type=number]{width:90px;margin:0}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(24px + env(safe-area-inset-bottom));background:#222;color:#fff;padding:12px 18px;border-radius:10px;font-size:15px;display:none;z-index:50;max-width:90%;text-align:center}
+.hidden{display:none!important}
+h2.chapter-title{font-size:19px;margin:4px 0 2px}
+</style>
+</head>
+<body>
+<header>
+  <h1>God&rsquo;s Light Bible</h1>
+  <div class="sub" id="edition-sub">King James Version &bull; 102 Books</div>
+  <div class="tabs">
+    <button class="tab active" id="tab-kjv" type="button">KJV</button>
+    <button class="tab" id="tab-yah" type="button">Yahuah</button>
+    <button class="tab small" id="tab-refs" type="button">&#128278; References</button>
+    <button class="tab small" id="tab-settings" type="button">&#9881; Settings</button>
+  </div>
+  <span class="streak" id="streak-pill">&#128293; 0 days</span>
+</header>
+<main>
+  <div id="banner" class="banner hidden">
+    <b>&#128214; Continue where you left off</b>
+    <span id="banner-ref"></span><br><br>
+    <button id="banner-jump" type="button">Jump to verse &rsaquo;</button>
+    <button id="banner-dismiss" type="button">Dismiss</button>
+  </div>
+
+  <section id="home-view">
+    <div class="card" id="votd-card">
+      <h2>Verse of the Day</h2>
+      <div id="votd-ref" style="font-weight:700"></div>
+      <p id="votd-text"></p>
+      <button class="widebtn" id="votd-open" type="button">Read full chapter</button>
+    </div>
+    <input type="search" id="book-search" placeholder="Search books&hellip;" autocomplete="off">
+    <p class="note">KJV has 102 books. The Yahuah (Sacred Names) edition has 94 books &mdash; it does not contain 1&ndash;3 Meqabyan, 1&ndash;4 Maccabees, or The Book of Jasher, so those eight are KJV-only in this build. Notes and highlights from the Android app do not carry over; this page keeps its own page marker and streak on this iPhone.</p>
+    <div id="book-list"></div>
+  </section>
+
+  <section id="reader-view" class="hidden">
+    <button class="widebtn" id="back-books" type="button">&larr; All books</button>
+    <h2 class="chapter-title" id="reader-title"></h2>
+    <div class="sub" id="reader-chapter-title"></div>
+    <div class="chips" id="chapter-chips"></div>
+    <div id="kjv-only-note" class="banner hidden"></div>
+    <div id="verses"></div>
+    <div class="navrow">
+      <button class="navbtn" id="prev-ch" type="button">&larr; Prev chapter</button>
+      <button class="navbtn" id="next-ch" type="button">Next chapter &rarr;</button>
+    </div>
+    <button class="widebtn" id="mark-page" type="button">&#128278; Mark this page</button>
+  </section>
+
+  <section id="refs-view" class="hidden">
+    <button class="widebtn" id="back-refs" type="button">&larr; Back to books</button>
+    <h2>Johnny&rsquo;s References</h2>
+    <p class="note" id="refs-intro"></p>
+    <div id="refs-list"></div>
+  </section>
+
+  <section id="settings-view" class="hidden">
+    <button class="widebtn" id="back-settings" type="button">&larr; Back</button>
+    <h2>Settings</h2>
+    <div class="card">
+      <b>Text size</b>
+      <div class="setrow">
+        <button id="font-dec" type="button">A&minus;</button>
+        <span id="font-val">17px</span>
+        <button id="font-inc" type="button">A+</button>
+      </div>
+    </div>
+    <div class="card">
+      <b>Theme</b>
+      <div class="setrow">
+        <button id="theme-dark" type="button">Dark</button>
+        <button id="theme-light" type="button">Light</button>
+      </div>
+    </div>
+    <div class="card">
+      <b>Reading streak &mdash; Fix my streak</b>
+      <p class="note">If an update ever resets your streak, enter your real day count here and tap Save streak. It sets your streak to that many days as of today.</p>
+      <div class="setrow">
+        <span>My streak is</span>
+        <input type="number" id="streak-num" min="1" max="3650" inputmode="numeric" aria-label="Streak days">
+        <span>days as of today.</span>
+        <button id="streak-save" type="button">Save streak</button>
+      </div>
+    </div>
+    <div class="card">
+      <b>About this page</b>
+      <p class="note">God&rsquo;s Light Bible, web edition &mdash; KJV + Yahuah, 102 / 94 books. Open it once with signal and the service worker saves it on your iPhone for offline reading. Your page marker and streak are stored only in this browser on this iPhone.</p>
+    </div>
+  </section>
+</main>
+<div id="toast"></div>
+<script>
+"use strict";
+var DATA = null;
+var KJV = [], YAH = [], XREFS = {}, REFS = [], TITLES = {};
+var KJV_ONLY = {};
+["1 Meqabyan","2 Meqabyan","3 Meqabyan","1 Maccabees","2 Maccabees","3 Maccabees","4 Maccabees","The Book of Jasher"].forEach(function(n){ KJV_ONLY[n] = true; });
+
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s).replace(/[&<>\"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function lsGet(k, d){ try { var v = localStorage.getItem("glb-web:" + k); return v === null ? d : v; } catch(e){ return d; } }
+function lsSet(k, v){ try { localStorage.setItem("glb-web:" + k, v); return true; } catch(e){ return false; } }
+
+var state = { version: "kjv", book: 0, chapter: 0 };
+var books = function(){ return state.version === "kjv" ? KJV : YAH; };
+var bookNames = function(v){ return (v === "kjv" ? KJV : YAH).map(function(b){ return b.name; }); };
+
+function toast(msg){
+  var t = $("toast"); t.textContent = msg; t.style.display = "block";
+  setTimeout(function(){ t.style.display = "none"; }, 3500);
+}
+function todayStr(d){ return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0"); }
+
+/* ---------- streak: once per calendar day ---------- */
+function streakTick(){
+  var today = todayStr(new Date());
+  var last = lsGet("streak-last", "");
+  var count = parseInt(lsGet("streak", "0"), 10) || 0;
+  if (last !== today) {
+    var y = new Date(); y.setDate(y.getDate() - 1);
+    count = (last === todayStr(y)) ? count + 1 : 1;
+    lsSet("streak", String(count)); lsSet("streak-last", today);
+  }
+  $("streak-pill").textContent = "\uD83D\uDD25 " + count + " days";
+  $("streak-num").value = String(count);
+}
+
+/* ---------- settings ---------- */
+function applyFont(){
+  var px = parseInt(lsGet("font", "17"), 10) || 17;
+  document.documentElement.style.setProperty("--fs", px + "px");
+  $("font-val").textContent = px + "px";
+}
+function applyTheme(){
+  var t = lsGet("theme", "dark");
+  document.body.classList.toggle("light", t === "light");
+  $("theme-dark").classList.toggle("active", t !== "light");
+  $("theme-light").classList.toggle("active", t === "light");
+}
+
+/* ---------- views ---------- */
+function showView(name){
+  ["home-view","reader-view","refs-view","settings-view"].forEach(function(id){
+    $(id).classList.toggle("hidden", id !== name);
+  });
+  window.scrollTo(0, 0);
+}
+
+/* ---------- book list ---------- */
+function renderBookList(){
+  var q = ($("book-search").value || "").toLowerCase();
+  var list = $("book-list"); list.innerHTML = "";
+  books().forEach(function(b, i){
+    if (q && b.name.toLowerCase().indexOf(q) === -1) return;
+    var btn = document.createElement("button");
+    btn.className = "book"; btn.type = "button";
+    btn.innerHTML = esc(b.name) + "<small>" + b.chapters.length + " chapters &bull; " +
+      b.chapters.reduce(function(n, ch){ return n + ch.length; }, 0) + " verses</small>";
+    btn.onclick = function(){ openBook(i); };
+    list.appendChild(btn);
+  });
+  if (!list.children.length) list.innerHTML = "<p class=\"note\">No books match that search.</p>";
+  $("edition-sub").textContent = state.version === "kjv"
+    ? "King James Version \u2022 102 Books"
+    : "Yahuah \u2022 Sacred Names \u2022 94 Books";
+  $("tab-kjv").classList.toggle("active", state.version === "kjv");
+  $("tab-yah").classList.toggle("active", state.version === "yah");
+}
+
+/* ---------- verse of the day: deterministic from the date ---------- */
+function verseOfTheDay(){
+  var now = new Date();
+  var start = new Date(now.getFullYear(), 0, 0);
+  var doy = Math.floor((now - start) / 86400000);
+  var total = 0, flat = [];
+  KJV.forEach(function(b, bi){ b.chapters.forEach(function(ch, ci){ total += ch.length; }); });
+  var idx = (doy * 7919) % total, n = 0, pick = null;
+  outer:
+  for (var bi = 0; bi < KJV.length; bi++) {
+    for (var ci = 0; ci < KJV[bi].chapters.length; ci++) {
+      for (var vi = 0; vi < KJV[bi].chapters[ci].length; vi++) {
+        if (n === idx) { pick = {bi: bi, ci: ci, vi: vi}; break outer; }
+        n++;
+      }
+    }
+  }
+  return pick;
+}
+function verseText(book, ch, vi){
+  return book.chapters[ch][vi][1].map(function(s){ return s[0]; }).join(" ");
+}
+function renderVotd(){
+  var p = verseOfTheDay();
+  var b = KJV[p.bi], v = b.chapters[p.ci][p.vi];
+  $("votd-ref").textContent = b.name + " " + (p.ci + 1) + ":" + v[0] + " (KJV)";
+  $("votd-text").textContent = "\u201C" + verseText(b, p.ci, p.vi) + "\u201D";
+  $("votd-open").onclick = function(){
+    state.version = "kjv"; renderBookList();
+    openBook(p.bi); openChapter(p.ci, v[0]);
+  };
+}
+
+/* ---------- reader ---------- */
+function openBook(bi){
+  state.book = bi; state.chapter = 0;
+  showView("reader-view");
+  renderReader();
+}
+function openChapter(ci, verseNum){
+  state.chapter = ci;
+  renderReader();
+  if (verseNum) {
+    setTimeout(function(){
+      var el = document.getElementById("v-" + verseNum);
+      if (el) el.scrollIntoView({block: "start"});
+    }, 30);
+  }
+}
+function chapterTitle(bookName, ci){
+  var t = TITLES[bookName];
+  return (t && t[ci]) ? t[ci] : "";
+}
+function renderReader(){
+  var b = books()[state.book];
+  var note = $("kjv-only-note");
+  if (!b) { /* book missing in this version (should not happen via list) */
+    note.classList.remove("hidden");
+    note.innerHTML = "";
+    showView("reader-view");
+    return;
+  }
+  note.classList.add("hidden");
+  $("reader-title").textContent = b.name + " " + (state.chapter + 1);
+  $("reader-chapter-title").textContent = chapterTitle(b.name, state.chapter);
+  var chips = $("chapter-chips"); chips.innerHTML = "";
+  b.chapters.forEach(function(ch, i){
+    var c = document.createElement("button");
+    c.className = "chip" + (i === state.chapter ? " active" : ""); c.type = "button";
+    c.textContent = String(i + 1);
+    c.onclick = function(){ openChapter(i); };
+    chips.appendChild(c);
+  });
+  var verses = $("verses"); verses.innerHTML = "";
+  var goldLabel = state.version === "kjv" ? "GOD SPEAKS" : "YAHUAH SPEAKS";
+  var redLabel = state.version === "kjv" ? "JESUS" : "YAHUSHA";
+  b.chapters[state.chapter].forEach(function(v){
+    var num = v[0], segs = v[1];
+    var hasRed = segs.some(function(s){ return s[1] === 1; });
+    var hasGold = segs.some(function(s){ return s[2] === 1; });
+    var div = document.createElement("div");
+    div.className = "verse"; div.id = "v-" + num;
+    var html = "<span class=\"vnum\">" + num + "</span>";
+    if (hasGold) html += "<span class=\"badge gold\">" + goldLabel + "</span>";
+    if (hasRed) html += "<span class=\"badge red\">" + redLabel + "</span>";
+    segs.forEach(function(s, i){
+      var cls = s[1] === 1 ? "sp-red" : (s[2] === 1 ? "sp-gold" : "");
+      html += "<span class=\"" + cls + "\">" + esc(s[0]) + "</span>" + (i < segs.length - 1 ? " " : "");
+    });
+    div.innerHTML = html;
+    var key = b.name + " " + (state.chapter + 1) + ":" + num;
+    var xr = XREFS[key];
+    if (xr) {
+      var xrDiv = document.createElement("div");
+      xrDiv.className = "xref";
+      xrDiv.appendChild(document.createTextNode("Also in: "));
+      xr.forEach(function(t, i){
+        var btn = document.createElement("button");
+        btn.type = "button"; btn.textContent = t.label;
+        btn.onclick = (function(ref){ return function(){ jumpRef(ref); }; })(t.ref);
+        xrDiv.appendChild(btn);
+        if (i < xr.length - 1) xrDiv.appendChild(document.createTextNode(" \u2022 "));
+      });
+      div.appendChild(xrDiv);
+    }
+    verses.appendChild(div);
+  });
+  savePositionSoon();
+}
+
+/* ---------- cross-reference jumping ---------- */
+function parseRef(ref){
+  // Longest book-name match first, in the current edition, then KJV.
+  var cands = bookNames(state.version).slice().sort(function(a, b){ return b.length - a.length; });
+  var m = matchRef(ref, cands, state.version);
+  if (m) return m;
+  var kcands = bookNames("kjv").slice().sort(function(a, b){ return b.length - a.length; });
+  m = matchRef(ref, kcands, "kjv");
+  if (m) { m.otherVersion = true; return m; }
+  return null;
+}
+function matchRef(ref, names, version){
+  for (var i = 0; i < names.length; i++) {
+    var name = names[i];
+    if (ref.indexOf(name) === 0) {
+      var rest = ref.slice(name.length).trim();
+      var mm = rest.match(/^(\d+):(\d+)(?:-(\d+))?/);
+      if (mm) {
+        var list = version === "kjv" ? KJV : YAH;
+        for (var bi = 0; bi < list.length; bi++) {
+          if (list[bi].name === name) return {version: version, book: bi, chapter: parseInt(mm[1], 10) - 1, verse: parseInt(mm[2], 10)};
+        }
+      }
+    }
+  }
+  return null;
+}
+function jumpRef(ref){
+  var t = parseRef(ref);
+  if (!t) { toast("Could not open " + ref); return; }
+  if (t.otherVersion) {
+    state.version = "kjv"; renderBookList();
+    toast("That book is not in the Yahuah edition \u2014 opened in KJV.");
+  }
+  openBook(t.book); openChapter(t.chapter, t.verse);
+}
+function jumpTo(version, bookName, ch, v){
+  var list = version === "kjv" ? KJV : YAH;
+  for (var i = 0; i < list.length; i++) {
+    if (list[i].name === bookName) {
+      if (version !== state.version) { state.version = version; renderBookList(); }
+      openBook(i); openChapter(ch - 1, v || 1);
+      return true;
+    }
+  }
+  return false;
+}
+
+/* ---------- page marker ---------- */
+function savePositionSoon(){ /* marker is saved on demand; keep scroll for banner jump */ }
+function currentMarker(){
+  return {version: state.version, book: state.book, chapter: state.chapter, scroll: window.scrollY || 0};
+}
+function markerLabel(m){
+  var list = m.version === "kjv" ? KJV : YAH;
+  var b = list[m.book];
+  return (b ? b.name : "Book") + " " + (m.chapter + 1) + " (" + (m.version === "kjv" ? "KJV" : "Yahuah") + ")";
+}
+function showBanner(){
+  var raw = lsGet("marker", "");
+  if (!raw) return;
+  try {
+    var m = JSON.parse(raw);
+    $("banner-ref").textContent = markerLabel(m);
+    $("banner").classList.remove("hidden");
+  } catch(e){}
+}
+
+/* ---------- references view ---------- */
+function renderRefs(){
+  $("refs-intro").textContent = DATA.refsIntro || "";
+  var list = $("refs-list"); list.innerHTML = "";
+  REFS.forEach(function(g){
+    var wrap = document.createElement("div");
+    wrap.className = "refgroup";
+    var h = document.createElement("h3"); h.textContent = g.title; wrap.appendChild(h);
+    g.refs.forEach(function(r){
+      var btn = document.createElement("button");
+      btn.className = "ref"; btn.type = "button";
+      btn.innerHTML = esc(r.label) + (r.note ? "<small>" + esc(r.note) + "</small>" : "");
+      btn.onclick = function(){
+        var ok = jumpTo(state.version, r.book, r.ch, r.v);
+        if (!ok && state.version !== "kjv") {
+          jumpTo("kjv", r.book, r.ch, r.v);
+          toast("That book is not in the Yahuah edition \u2014 opened in KJV.");
+        } else if (!ok) { toast("Could not open " + r.label); }
+      };
+      wrap.appendChild(btn);
+    });
+    list.appendChild(wrap);
+  });
+}
+
+/* ---------- version switching ---------- */
+function setVersion(v, keepBookName){
+  var curName = null;
+  if (keepBookName) curName = books()[state.book] ? books()[state.book].name : null;
+  state.version = v;
+  renderBookList();
+  if (curName) {
+    var list = books();
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].name === curName) { openBook(i); return; }
+    }
+    // Book is not in the new version: show a plain KJV-only note.
+    showView("reader-view");
+    $("reader-title").textContent = curName;
+    $("reader-chapter-title").textContent = "";
+    $("chapter-chips").innerHTML = "";
+    $("verses").innerHTML = "";
+    var note = $("kjv-only-note");
+    note.classList.remove("hidden");
+    note.innerHTML = "<b>" + esc(curName) + " is KJV-only in this build.</b><br>" +
+      "The Yahuah edition has 94 books and does not contain this book. " +
+      "Switch back to KJV to read it.<br><br>" +
+      "<button type=\"button\" id=\"back-to-kjv\" style=\"padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:15px\">Back to KJV</button>";
+    $("back-to-kjv").onclick = function(){ setVersion("kjv", true); };
+  }
+}
+
+/* ---------- wiring ---------- */
+$("tab-kjv").onclick = function(){ setVersion("kjv", true); };
+$("tab-yah").onclick = function(){ setVersion("yah", true); };
+$("tab-refs").onclick = function(){ renderRefs(); showView("refs-view"); };
+$("tab-settings").onclick = function(){ showView("settings-view"); };
+$("back-books").onclick = function(){ renderBookList(); showView("home-view"); };
+$("back-refs").onclick = function(){ showView("home-view"); };
+$("back-settings").onclick = function(){ showView("home-view"); };
+$("book-search").addEventListener("input", renderBookList);
+$("prev-ch").onclick = function(){
+  if (state.chapter > 0) { openChapter(state.chapter - 1); }
+  else if (state.book > 0) { openBook(state.book - 1); var b = books()[state.book]; openChapter(b.chapters.length - 1); }
+};
+$("next-ch").onclick = function(){
+  var b = books()[state.book];
+  if (state.chapter < b.chapters.length - 1) { openChapter(state.chapter + 1); }
+  else if (state.book < books().length - 1) { openBook(state.book + 1); }
+};
+$("mark-page").onclick = function(){
+  lsSet("marker", JSON.stringify(currentMarker()));
+  $("banner-ref").textContent = markerLabel(currentMarker());
+  $("banner").classList.remove("hidden");
+  toast("Page marked: " + markerLabel(currentMarker()));
+};
+$("banner-jump").onclick = function(){
+  var raw = lsGet("marker", "");
+  if (!raw) return;
+  try {
+    var m = JSON.parse(raw);
+    if (m.version !== state.version) { state.version = m.version; renderBookList(); }
+    openBook(m.book); openChapter(m.chapter);
+    setTimeout(function(){ window.scrollTo(0, m.scroll || 0); }, 60);
+  } catch(e){}
+};
+$("banner-dismiss").onclick = function(){ $("banner").classList.add("hidden"); };
+$("font-dec").onclick = function(){ var p = Math.max(14, (parseInt(lsGet("font","17"),10)||17) - 1); lsSet("font", String(p)); applyFont(); };
+$("font-inc").onclick = function(){ var p = Math.min(24, (parseInt(lsGet("font","17"),10)||17) + 1); lsSet("font", String(p)); applyFont(); };
+$("theme-dark").onclick = function(){ lsSet("theme", "dark"); applyTheme(); };
+$("theme-light").onclick = function(){ lsSet("theme", "light"); applyTheme(); };
+$("streak-save").onclick = function(){
+  var n = parseInt($("streak-num").value, 10);
+  if (isNaN(n) || n < 1 || n > 3650) { toast("Enter your streak in days (1-3650)."); return; }
+  lsSet("streak", String(n)); lsSet("streak-last", todayStr(new Date()));
+  $("streak-pill").textContent = "\uD83D\uDD25 " + n + " days";
+  toast("Streak set to " + n + " days as of today.");
+};
+
+/* ---------- data loading (GitHub Pages: base64 + gzipped JSON) ---------- */
+function fetchJson(url){
+  return fetch(url).then(function(r){ if(!r.ok) throw new Error("Could not load " + url + " (" + r.status + ")"); return r.json(); });
+}
+function fetchB64GzJson(url){
+  return fetch(url).then(function(r){
+    if(!r.ok) throw new Error("Could not load " + url + " (" + r.status + ")");
+    if(typeof DecompressionStream === "undefined" || typeof atob === "undefined") throw new Error("no-decompression");
+    return r.text();
+  }).then(function(b64){
+    var bin = atob(b64.replace(/\\s+/g, ""));
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new Response(new Response(bytes).body.pipeThrough(new DecompressionStream("gzip"))).json();
+  });
+}
+function loadData(){
+  return Promise.all([
+    fetchB64GzJson("./kjv94.json.b64"),
+    fetchB64GzJson("./bible.json.b64"),
+    fetchJson("./xrefs.json"),
+    fetchJson("./references.json"),
+    fetchB64GzJson("./chapter-titles.json.b64")
+  ]).then(function(res){
+    var kjv = res[0], yah = res[1], xr = res[2], rf = res[3], tt = res[4];
+    KJV = kjv.books; YAH = yah.books;
+    XREFS = xr.xrefs || {};
+    REFS = rf.groups || [];
+    TITLES = tt || {};
+    DATA = {kjv:{title:kjv.title, books:KJV}, yah:{title:yah.title, books:YAH}, xrefs:XREFS, refs:REFS, refsIntro: rf.intro || "", titles:TITLES, kjvOnly:Object.keys(KJV_ONLY)};
+    renderBookList(); renderVotd(); showBanner();
+  });
+}
+/* ---------- init ---------- */
+applyFont(); applyTheme(); streakTick();
+if (typeof DecompressionStream === "undefined") {
+  $("book-list").innerHTML = "<p class=\"note\">This page needs a newer iPhone software version to open the Bible files. Please update iOS to 16.4 or later and try again.</p>";
+} else {
+  $("book-list").innerHTML = "<p class=\"note\">Loading scriptures&hellip;</p>";
+  loadData().catch(function(err){
+    $("book-list").innerHTML = "<p class=\"note\">Could not load the Bible files. Check your signal and reload the page. (" + String((err && err.message) || err) + ")</p>";
+  });
+}
+</script>
+<script>
+/* GitHub Pages: register the site service worker so this page is saved
+   for offline use after the first visit with signal. Harmless when opened
+   as a plain file (registration fails there and the error is ignored). */
+if ("serviceWorker" in navigator) { navigator.serviceWorker.register("./sw.js").catch(function(){}); }
+</script>
+</body>
+</html>
