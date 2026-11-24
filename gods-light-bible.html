@@ -41,6 +41,19 @@ input[type=search],input[type=number]{width:100%;padding:.75em;border:1px solid 
 .navbtn{flex:1;padding:.75em;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:var(--fsui);white-space:normal;line-height:1.3}
 .verse{padding:9px 10px;margin:4px 0;border-radius:10px;border-bottom:1px solid var(--line)}
 .verse.speaking{background:var(--chip);outline:2px solid var(--gold)}
+.verse.selected{outline:2px dashed var(--gold);outline-offset:-2px}
+.verse.hl{background:rgba(212,175,55,.16)}
+body.light .verse.hl{background:rgba(212,175,55,.28)}
+.note-mark{display:inline-block;margin:6px 0 2px;padding:.3em .7em;border:1px solid var(--gold);border-radius:999px;background:transparent;color:var(--gold);font-size:var(--fssm);font-weight:700}
+.verse-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:6px 0 10px;padding:10px;border:1px solid var(--gold);border-radius:12px;background:var(--card)}
+.verse-bar-ref{flex:1 1 100%;font-size:var(--fssm);color:var(--muted);font-weight:700}
+.vbtn{padding:.6em 1em;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--text);font-size:var(--fsui);font-weight:700;min-height:2.6em}
+.vbtn.gold{background:var(--gold);border-color:var(--gold);color:#1a1a1a}
+.note-panel{margin:6px 0 10px;padding:12px;border:1px solid var(--gold);border-radius:12px;background:var(--card)}
+.note-panel-ref{font-size:var(--fssm);color:var(--muted);font-weight:700;margin-bottom:8px}
+.note-text{width:100%;box-sizing:border-box;padding:.6em;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font-family:Georgia,serif;font-size:clamp(16px,var(--fs),34px);line-height:1.5;resize:vertical;min-height:3.5em}
+.note-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+
 .w{cursor:pointer}
 .no-words .w{cursor:default}
 .vnum{font-size:var(--fssm);font-weight:700;color:var(--gold);vertical-align:super;margin-right:6px}
@@ -119,7 +132,7 @@ body:not(.light) .words-btn:not(.active){color:var(--gold)}
       <button class="widebtn" id="votd-open" type="button">Read full chapter</button>
     </div>
     <input type="search" id="book-search" placeholder="Search books&hellip;" autocomplete="off">
-    <p class="note">KJV has 102 books. The Yahuah (Sacred Names) edition has 94 books &mdash; it does not contain 1&ndash;3 Meqabyan, 1&ndash;4 Maccabees, or The Book of Jasher, so those eight are KJV-only in this build. Notes and highlights from the Android app do not carry over; this page keeps its own page marker and streak on this iPhone.</p>
+    <p class="note">KJV has 102 books. The Yahuah (Sacred Names) edition has 94 books &mdash; it does not contain 1&ndash;3 Meqabyan, 1&ndash;4 Maccabees, or The Book of Jasher, so those eight are KJV-only in this build. Notes and highlights from the Android app do not carry over; this page keeps its own highlights, notes, page marker and streak on this iPhone.</p>
     <div id="book-list"></div>
   </section>
 
@@ -130,6 +143,7 @@ body:not(.light) .words-btn:not(.active){color:var(--gold)}
     <div class="chips" id="chapter-chips"></div>
     <button class="read-big" id="read-btn" type="button">&#128266; Read to me</button>
     <button class="words-btn active" id="words-btn" type="button">&#128266; Tap a word to hear it: On</button>
+    <p class="note" id="verse-hint">Tip: tap a verse number to highlight it or add a note.</p>
     <div id="kjv-only-note" class="banner hidden"></div>
     <div id="verses"></div>
     <div class="navrow">
@@ -331,6 +345,7 @@ function chapterTitle(bookName, ci){
 }
 function renderReader(){
   stopRead();
+  clearVerseSelection();
   var b = books()[state.book];
   var note = $("kjv-only-note");
   if (!b) { /* book missing in this version (should not happen via list) */
@@ -384,6 +399,7 @@ function renderReader(){
       });
       div.appendChild(xrDiv);
     }
+    applyVerseMarks(div, b.name, state.chapter + 1, num);
     verses.appendChild(div);
   });
   savePositionSoon();
@@ -514,21 +530,66 @@ function setVersion(v, keepBookName){
 /* ---------- Holy Word style: read-aloud + tap-a-word (speechSynthesis) ---------- */
 var SPEAK = {supported: (typeof window.speechSynthesis !== "undefined"), playing: false, paused: false, idx: 0, seq: 0, rate: 1};
 var SPEAK_RATES = [1, 1.25, 1.5];
+/* iOS Safari often returns NO voices from getVoices() until the
+   voiceschanged event fires, and the first speak() can silently fail if
+   no voice is ready yet. Cache the voice list whenever it changes and
+   re-pick from the cache, so a cold start still speaks. */
+var VOICES = [];
+function refreshVoices(){
+  try { VOICES = window.speechSynthesis.getVoices() || []; } catch (e) { VOICES = []; }
+}
 function pickVoice(){
+  var vs = VOICES.length ? VOICES : [];
+  if (!vs.length) { try { vs = window.speechSynthesis.getVoices() || []; } catch (e) { vs = []; } }
+  var en = [];
+  for (var i = 0; i < vs.length; i++) { if ((vs[i].lang || "").toLowerCase().indexOf("en") === 0) en.push(vs[i]); }
+  var pool = en.length ? en : vs;
+  var j;
+  for (j = 0; j < pool.length; j++) { if (pool[j].default) return pool[j]; }
+  for (j = 0; j < pool.length; j++) { if (/samantha/i.test(pool[j].name || "")) return pool[j]; }
+  for (j = 0; j < pool.length; j++) { if ((pool[j].lang || "").toLowerCase() === "en-us") return pool[j]; }
+  return pool[0] || null;
+}
+if (SPEAK.supported) {
+  refreshVoices();
   try {
-    var vs = window.speechSynthesis.getVoices() || [];
-    for (var i = 0; i < vs.length; i++) { if ((vs[i].lang || "").toLowerCase().indexOf("en") === 0) return vs[i]; }
-    return vs[0] || null;
-  } catch (e) { return null; }
+    if (typeof window.speechSynthesis.addEventListener === "function") {
+      window.speechSynthesis.addEventListener("voiceschanged", refreshVoices);
+    } else {
+      window.speechSynthesis.onvoiceschanged = refreshVoices;
+    }
+  } catch (e) {}
 }
 function speakText(text, onend){
   var u = new SpeechSynthesisUtterance(text);
   u.rate = SPEAK.rate;
   var v = pickVoice(); if (v) u.voice = v;
   var my = ++SPEAK.seq;
-  u.onend = function(){ if (my === SPEAK.seq && onend) onend(); };
-  u.onerror = function(){ if (my === SPEAK.seq && onend) onend(); };
+  var started = Date.now();
+  var watch = null;
+  function clearWatch(){ if (watch) { clearTimeout(watch); watch = null; } }
+  /* iOS can swallow an utterance without firing onend/onerror, leaving
+     the player stuck on one verse in silence. Watchdog: if nothing is
+     actually speaking a few seconds in, say so honestly instead of
+     sitting silent. */
+  function checkVoice(){
+    if (my !== SPEAK.seq) return;
+    var alive = true;
+    try { alive = !!(window.speechSynthesis.speaking || window.speechSynthesis.pending); } catch (e) { alive = true; }
+    if (alive) { watch = setTimeout(checkVoice, 2000); return; }
+    if (Date.now() - started < 6000) { watch = setTimeout(checkVoice, 2000); return; }
+    clearWatch();
+    if (SPEAK.playing) {
+      stopRead();
+      $("player-status").textContent = "Voice not ready \u2014 tap Play again";
+      toast("Voice not ready \u2014 tap Play again.");
+    }
+  }
+  u.onend = function(){ clearWatch(); if (my === SPEAK.seq && onend) onend(); };
+  u.onerror = function(){ clearWatch(); if (my === SPEAK.seq && onend) onend(); };
+  try { window.speechSynthesis.cancel(); } catch (e) {}
   window.speechSynthesis.speak(u);
+  watch = setTimeout(checkVoice, 2500);
 }
 function speakWord(word){
   if (!SPEAK.supported) { toast("This iPhone can't read aloud."); return; }
@@ -650,12 +711,175 @@ $("words-btn").onclick = function(){
   applyWordsBtn();
 };
 $("verses").addEventListener("click", function(e){
-  var t = e.target && e.target.closest ? e.target.closest(".w") : null;
-  if (!t || !state.words) return;
-  stopRead();
-  speakWord(t.getAttribute("data-w") || t.textContent);
+  var target = e.target;
+  if (!target || !target.closest) return;
+  /* Taps inside the action bar or the note editor are theirs alone. */
+  if (target.closest(".verse-bar") || target.closest(".note-panel")) return;
+  /* Tapping a note marker opens that verse's note. */
+  if (target.closest(".note-mark")) {
+    var vd = target.closest(".verse");
+    if (vd) { if (SEL.div !== vd) selectVerse(vd); openNoteEditor(); }
+    return;
+  }
+  /* Cross-reference buttons keep their own jump behaviour. */
+  if (target.closest(".xref")) return;
+  /* A word tap still speaks the word while tap-a-word is On. */
+  var t = target.closest(".w");
+  if (t && state.words) { stopRead(); speakWord(t.getAttribute("data-w") || t.textContent); return; }
+  /* Anything else on a verse selects it (number, badge, or the verse
+     itself when tap-a-word is Off). */
+  var v = target.closest(".verse");
+  if (v) selectVerse(v);
 });
 applyWordsBtn(); setPlayingUI(); updateProgress();
+
+
+/* ---------- highlights + notes (stored only in this iPhone's browser) ---------- */
+var HL_CACHE = null, NOTE_CACHE = null;
+function hlStoreGet(key){
+  try { var o = JSON.parse(lsGet(key, "{}")); return (o && typeof o === "object") ? o : {}; }
+  catch (e) { return {}; }
+}
+function hlStoreSet(key, obj){
+  try { lsSet(key, JSON.stringify(obj)); } catch (e) {}
+}
+function hlObj(){ if (HL_CACHE === null) HL_CACHE = hlStoreGet("highlights"); return HL_CACHE; }
+function noteObj(){ if (NOTE_CACHE === null) NOTE_CACHE = hlStoreGet("notes"); return NOTE_CACHE; }
+function verseKey(bookName, ch, num){
+  return (state.version === "kjv" ? "KJV" : "YAH") + "|" + bookName + "|" + ch + "|" + num;
+}
+function verseRefLabel(key){
+  var p = (key || "").split("|");
+  return p.length === 4 ? (p[1] + " " + p[2] + ":" + p[3] + " (" + (p[0] === "KJV" ? "KJV" : "Yahuah") + ")") : "";
+}
+function isHighlighted(key){ return !!hlObj()[key]; }
+function getNote(key){ var n = noteObj()[key]; return (typeof n === "string") ? n : ""; }
+function setHighlighted(key, on){
+  var o = hlObj();
+  if (on) o[key] = true; else delete o[key];
+  hlStoreSet("highlights", o);
+}
+function setNote(key, text){
+  var o = noteObj();
+  if (text) o[key] = text; else delete o[key];
+  hlStoreSet("notes", o);
+}
+function noteMarkEl(key){
+  var b = document.createElement("button");
+  b.type = "button"; b.className = "note-mark"; b.setAttribute("data-key", key);
+  b.textContent = "\uD83D\uDCDD Note";
+  return b;
+}
+function applyVerseMarks(div, bookName, ch, num){
+  var key = verseKey(bookName, ch, num);
+  div.setAttribute("data-key", key);
+  if (isHighlighted(key)) div.classList.add("hl");
+  if (getNote(key)) {
+    div.classList.add("has-note");
+    div.appendChild(noteMarkEl(key));
+  }
+}
+var SEL = {key: "", div: null};
+function clearVerseSelection(){
+  if (SEL.div) SEL.div.classList.remove("selected");
+  SEL.key = ""; SEL.div = null;
+  var bar = $("verse-bar"); if (bar && bar.parentNode) bar.parentNode.removeChild(bar);
+  var pnl = $("note-panel"); if (pnl && pnl.parentNode) pnl.parentNode.removeChild(pnl);
+}
+function selectVerse(div){
+  if (!div) { clearVerseSelection(); return; }
+  if (SEL.div === div) { clearVerseSelection(); return; }
+  clearVerseSelection();
+  SEL.div = div; SEL.key = div.getAttribute("data-key") || "";
+  div.classList.add("selected");
+  var bar = document.createElement("div");
+  bar.className = "verse-bar"; bar.id = "verse-bar";
+  var ref = document.createElement("span");
+  ref.className = "verse-bar-ref"; ref.textContent = verseRefLabel(SEL.key);
+  bar.appendChild(ref);
+  var hb = document.createElement("button");
+  hb.type = "button"; hb.className = "vbtn";
+  hb.textContent = isHighlighted(SEL.key) ? "\u2605 Highlighted" : "\u2606 Highlight";
+  hb.onclick = function(){ toggleHighlight(); };
+  var nb = document.createElement("button");
+  nb.type = "button"; nb.className = "vbtn";
+  nb.textContent = getNote(SEL.key) ? "\uD83D\uDCDD Edit note" : "\uD83D\uDCDD Add note";
+  nb.onclick = function(){ openNoteEditor(); };
+  var cb = document.createElement("button");
+  cb.type = "button"; cb.className = "vbtn"; cb.textContent = "\u2715 Clear";
+  cb.onclick = function(){ clearVerseMarks(); };
+  bar.appendChild(hb); bar.appendChild(nb); bar.appendChild(cb);
+  div.parentNode.insertBefore(bar, div.nextSibling);
+  bar.scrollIntoView({block: "nearest"});
+}
+function toggleHighlight(){
+  if (!SEL.div) return;
+  var on = !isHighlighted(SEL.key);
+  setHighlighted(SEL.key, on);
+  SEL.div.classList.toggle("hl", on);
+  var bar = $("verse-bar");
+  if (bar) { var b = bar.querySelectorAll(".vbtn")[0]; if (b) b.textContent = on ? "\u2605 Highlighted" : "\u2606 Highlight"; }
+  toast(on ? "Verse highlighted." : "Highlight removed.");
+}
+function clearVerseMarks(){
+  if (!SEL.div) return;
+  setHighlighted(SEL.key, false); setNote(SEL.key, "");
+  SEL.div.classList.remove("hl", "has-note");
+  var m = SEL.div.querySelector(".note-mark");
+  if (m && m.parentNode) m.parentNode.removeChild(m);
+  clearVerseSelection();
+  toast("Highlight and note cleared.");
+}
+function openNoteEditor(){
+  if (!SEL.div) return;
+  var old = $("note-panel");
+  if (old && old.parentNode) old.parentNode.removeChild(old);
+  var pnl = document.createElement("div");
+  pnl.className = "note-panel"; pnl.id = "note-panel";
+  var head = document.createElement("div");
+  head.className = "note-panel-ref"; head.textContent = "Note \u2014 " + verseRefLabel(SEL.key);
+  var ta = document.createElement("textarea");
+  ta.className = "note-text"; ta.rows = 3;
+  ta.placeholder = "Write your note here\u2026"; ta.value = getNote(SEL.key);
+  ta.setAttribute("aria-label", "Note for " + verseRefLabel(SEL.key));
+  var row = document.createElement("div");
+  row.className = "note-btns";
+  var sv = document.createElement("button");
+  sv.type = "button"; sv.className = "vbtn gold"; sv.textContent = "Save note";
+  sv.onclick = function(){
+    var text = ta.value.replace(/^\s+|\s+$/g, "");
+    setNote(SEL.key, text);
+    SEL.div.classList.toggle("has-note", !!text);
+    var m = SEL.div.querySelector(".note-mark");
+    if (text && !m) SEL.div.appendChild(noteMarkEl(SEL.key));
+    if (!text && m && m.parentNode) m.parentNode.removeChild(m);
+    var bar = $("verse-bar");
+    if (bar) { var b = bar.querySelectorAll(".vbtn")[1]; if (b) b.textContent = text ? "\uD83D\uDCDD Edit note" : "\uD83D\uDCDD Add note"; }
+    if (pnl.parentNode) pnl.parentNode.removeChild(pnl);
+    toast(text ? "Note saved." : "Note removed.");
+  };
+  var del = document.createElement("button");
+  del.type = "button"; del.className = "vbtn"; del.textContent = "Delete";
+  del.onclick = function(){
+    setNote(SEL.key, "");
+    SEL.div.classList.remove("has-note");
+    var m = SEL.div.querySelector(".note-mark");
+    if (m && m.parentNode) m.parentNode.removeChild(m);
+    var bar = $("verse-bar");
+    if (bar) { var b = bar.querySelectorAll(".vbtn")[1]; if (b) b.textContent = "\uD83D\uDCDD Add note"; }
+    if (pnl.parentNode) pnl.parentNode.removeChild(pnl);
+    toast("Note deleted.");
+  };
+  var cx = document.createElement("button");
+  cx.type = "button"; cx.className = "vbtn"; cx.textContent = "Close";
+  cx.onclick = function(){ if (pnl.parentNode) pnl.parentNode.removeChild(pnl); };
+  row.appendChild(sv); row.appendChild(del); row.appendChild(cx);
+  pnl.appendChild(head); pnl.appendChild(ta); pnl.appendChild(row);
+  var bar = $("verse-bar");
+  if (bar && bar.parentNode) bar.parentNode.insertBefore(pnl, bar.nextSibling);
+  else if (SEL.div.parentNode) SEL.div.parentNode.insertBefore(pnl, SEL.div.nextSibling);
+  ta.focus();
+}
 
 /* ---------- wiring ---------- */
 $("tab-kjv").onclick = function(){ setVersion("kjv", true); };
