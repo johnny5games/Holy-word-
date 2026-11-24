@@ -80,6 +80,8 @@ body:not(.light) .words-btn:not(.active){color:var(--gold)}
 #player-play{background:var(--gold);border-color:var(--gold);color:#1a1a1a}
 #player-status{flex:1 1 60px;font-size:var(--fssm);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .player-progress{flex:2 1 80px;height:6px;border-radius:999px;background:var(--line);overflow:hidden}
+.offstatus{font-size:var(--fssm);color:var(--muted);text-align:center;padding:2px 12px 8px}
+.offstatus.ready{color:var(--gold);font-weight:700}
 #player-bar{display:block;height:100%;width:0%;background:var(--gold)}
 </style>
 </head>
@@ -99,6 +101,7 @@ body:not(.light) .words-btn:not(.active){color:var(--gold)}
     <button class="tab" id="tab-yah" type="button">Yahuah</button>
     <button class="tab small" id="tab-refs" type="button">References</button>
   </div>
+  <div class="offstatus" id="offline-status">Checking offline save&hellip;</div>
 </header>
 <main>
   <div id="banner" class="banner hidden">
@@ -175,6 +178,10 @@ body:not(.light) .words-btn:not(.active){color:var(--gold)}
       <b>About this page</b>
       <p class="note">God&rsquo;s Light Bible, web edition &mdash; KJV + Yahuah, 102 / 94 books. Open it once with signal and the service worker saves it on your iPhone for offline reading. Your page marker and streak are stored only in this browser on this iPhone.</p>
     </div>
+    <div class="card">
+      <b>Offline saving</b>
+      <p class="note" id="offline-status-settings">Checking offline save&hellip;</p>
+    </div>
   </section>
 </main>
 <div id="player" class="player hidden">
@@ -243,6 +250,7 @@ function showView(name){
   var pl = $("player");
   if (pl) pl.classList.toggle("hidden", name !== "reader-view");
   if (name !== "reader-view") stopRead();
+  if (name === "settings-view") queryOffline();
   window.scrollTo(0, 0);
   requestAnimationFrame(syncPlayerPad);
 }
@@ -745,7 +753,41 @@ if (typeof DecompressionStream === "undefined") {
 /* GitHub Pages: register the site service worker so this page is saved
    for offline use after the first visit with signal. Harmless when opened
    as a plain file (registration fails there and the error is ignored). */
-if ("serviceWorker" in navigator) { navigator.serviceWorker.register("./sw.js").catch(function(){}); }
+/* ---------- offline save indicator: so Johnny can SEE when the page is saved ---------- */
+var OFF = {saving: false, ready: false};
+function setOffline(text, ready){
+  OFF.ready = !!ready; if (!ready) OFF.saving = false;
+  var a = document.getElementById("offline-status");
+  if (a) { a.textContent = text; a.classList.toggle("ready", !!ready); }
+  var b = document.getElementById("offline-status-settings");
+  if (b) b.textContent = text;
+}
+function queryOffline(){
+  if (!("serviceWorker" in navigator) || !navigator.serviceWorker.controller) {
+    setOffline("Offline not ready \u2014 open with signal and wait", false);
+    return;
+  }
+  try { navigator.serviceWorker.controller.postMessage("ghw-cache-info"); }
+  catch (e) { setOffline("Offline not ready \u2014 open with signal and wait", false); }
+}
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.addEventListener("message", function(ev){
+    var d = ev.data || {};
+    if (d.type === "ghw-cache") {
+      if (d.done) setOffline("Saved for offline \u2713", true);
+      else { OFF.saving = true; setOffline("Saving for offline\u2026 " + d.n + "/" + d.total, false); }
+    } else if (d.type === "ghw-cache-info") {
+      if (d.entries >= d.files) setOffline("Saved for offline \u2713", true);
+      else setOffline("Saving for offline\u2026 " + d.entries + "/" + d.files, false);
+    }
+  });
+  navigator.serviceWorker.addEventListener("controllerchange", function(){ setTimeout(queryOffline, 500); });
+  navigator.serviceWorker.register("./sw.js").catch(function(){});
+  queryOffline();
+  setTimeout(queryOffline, 3000);
+} else {
+  setOffline("Offline not ready \u2014 open with signal and wait", false);
+}
 </script>
 </body>
 </html>
